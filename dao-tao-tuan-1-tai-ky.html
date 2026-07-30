@@ -43,9 +43,9 @@
             background-image: linear-gradient(90deg, #0ea5e9, #1e40af, #38bdf8, #1d4ed8);
             animation: gradientPan 8s linear infinite;
             display: inline-block;
-            padding-top: 0.1em;
+            padding-top: 0.15em;
             padding-bottom: 0.05em;
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
         /* --- GLASS PANEL ULTRA --- */
@@ -68,7 +68,7 @@
         }
         .scifi-btn:hover { transform: translateY(-2px); border-color: #38bdf8; color: #0284c7; box-shadow: 0 6px 15px -3px rgba(14, 165, 233, 0.15); }
 
-        /* NÚT SIDEBAR DỌC CHÍNH (ĐÃ THU NHỎ FONT VÀ PADDING) */
+        /* NÚT SIDEBAR DỌC CHÍNH */
         .sidebar-nav-btn {
             width: 100%; display: flex; align-items: center; gap: 10px;
             padding: 9px 12px; border-radius: 12px; font-weight: 700; font-size: 12.5px;
@@ -146,10 +146,10 @@
     <!-- ================= SIDEBAR NAV DỌC BÊN TRÁI ================= -->
     <aside id="leftSidebar" class="w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-full flex flex-col justify-between p-3.5 z-50 flex-shrink-0 shadow-lg transition-all duration-300 relative overflow-y-auto">
         <div>
-            <!-- BRAND LOGO & NÚT THU NHỎ SIDEBAR -->
+            <!-- BRAND LOGO (ĐÃ GIẢM KÍCH THƯỚC VỀ h-5) & NÚT THU NHỎ SIDEBAR -->
             <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-200/80">
                 <div class="flex items-center gap-2 overflow-hidden sidebar-text-label">
-                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-6.5 w-auto">
+                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-5 w-auto">
                 </div>
                 <!-- Nút Thu nhỏ/Mở rộng Sidebar Dọc -->
                 <button onclick="toggleLeftSidebar()" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-sky-50 text-slate-500 hover:text-sky-600 flex items-center justify-center transition-all shrink-0" title="Thu nhỏ / Mở rộng Sidebar">
@@ -221,7 +221,7 @@
             </div>
         </div>
 
-        <!-- FOOTER SIDEBAR (ĐÃ BỎ CHỮ TRAINING HUB) -->
+        <!-- FOOTER SIDEBAR -->
         <div class="pt-2.5 border-t border-slate-200/80 text-[11px] text-slate-400 flex flex-col gap-0.5 sidebar-text-label">
             <span class="font-semibold text-slate-600">Đang xem ngành: <strong id="currentBranchLabel" class="text-sky-600 uppercase font-black">RETAIL</strong></span>
             <span>KiotViet L&D</span>
@@ -254,13 +254,13 @@
         <main class="flex-grow w-full relative overflow-hidden">
             
             <!-- ================= TRANG CHỦ ================= -->
-            <div id="homeView" class="h-full overflow-y-auto px-6 lg:px-12 py-8">
-                <div class="max-w-[1360px] mx-auto">
+            <div id="homeView" class="h-full overflow-y-auto px-6 lg:px-16 py-10">
+                <div class="max-w-[1380px] mx-auto">
                     
-                    <!-- 1. HERO SECTION (THU NHỎ SIZE CHỮ VỪA VẶN SANG TRỌNG) -->
+                    <!-- 1. HERO SECTION -->
                     <section class="mb-10">
                         <div class="glass-panel-ultra border border-slate-200/80 rounded-[28px] p-6 lg:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative overflow-hidden">
-                            <!-- Cột trái: Tiêu đề ngắn gọn -->
+                            <!-- Cột trái: Tiêu đề & Mô tả -->
                             <div class="lg:col-span-7 flex flex-col items-start text-left gap-3 z-10">
                                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 text-[11px] font-bold shadow-sm">
                                     <i class="fa-solid fa-graduation-cap text-sky-500"></i>
@@ -289,7 +289,7 @@
                         </div>
                     </section>
 
-                    <!-- 2. GIỚI THIỆU KHÓA HỌC ĐÀO TẠO SẢN PHẨM CƠ BẢN (ĐÃ FIX SIZE CHỮ VÀ CHỐNG NHẢY DÒNG) -->
+                    <!-- 2. GIỚI THIỆU KHÓA HỌC ĐÀO TẠO SẢN PHẨM CƠ BẢN -->
                     <section class="mb-10">
                         <div class="glass-panel-ultra border border-slate-200/80 rounded-[24px] p-5 lg:p-7 shadow-sm">
                             <h2 class="text-base lg:text-lg font-bold text-slate-800 mb-4 flex items-center justify-between border-b border-slate-200/80 pb-3 leading-snug">
@@ -367,7 +367,7 @@
                         </div>
                     </section>
 
-                    <!-- 3. LỊCH TRÌNH CÁC HOẠT ĐỘNG CHUNG (TRỤC THỨ TIMELINE Tinh Tế) -->
+                    <!-- 3. LỊCH TRÌNH CÁC HOẠT ĐỘNG CHUNG -->
                     <section id="sec-schedule" class="mb-10">
                         <div class="glass-panel-ultra border border-slate-200/80 rounded-[24px] p-5 lg:p-8 shadow-sm">
                             <h2 class="text-lg lg:text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
