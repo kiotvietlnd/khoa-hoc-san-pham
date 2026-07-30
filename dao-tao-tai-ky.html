@@ -33,7 +33,7 @@
         .glow-blob-1 { top: -10%; left: -10%; background: rgba(14, 165, 233, 0.15); } 
         .glow-blob-2 { bottom: -10%; right: -10%; background: rgba(30, 58, 138, 0.12); } 
 
-        /* --- HIỆU ỨNG CYBER TEXT GRADIENT (ĐÃ SỬA KHÔNG BỊ MẤT DẤU HỎI Ở CHỮ Ả) --- */
+        /* --- HIỆU ỨNG CYBER TEXT GRADIENT --- */
         @keyframes gradientPan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .cyber-text-gradient {
             background-size: 200% auto;
@@ -43,9 +43,9 @@
             background-image: linear-gradient(90deg, #0ea5e9, #1e40af, #38bdf8, #1d4ed8);
             animation: gradientPan 8s linear infinite;
             display: inline-block;
-            padding-top: 0.15em;
+            padding-top: 0.1em;
             padding-bottom: 0.05em;
-            line-height: 1.25;
+            line-height: 1.2;
         }
 
         /* --- GLASS PANEL ULTRA --- */
@@ -68,10 +68,10 @@
         }
         .scifi-btn:hover { transform: translateY(-2px); border-color: #38bdf8; color: #0284c7; box-shadow: 0 6px 15px -3px rgba(14, 165, 233, 0.15); }
 
-        /* NÚT SIDEBAR DỌC CHÍNH */
+        /* NÚT SIDEBAR DỌC CHÍNH (ĐÃ THU NHỎ FONT VÀ PADDING) */
         .sidebar-nav-btn {
-            width: 100%; display: flex; align-items: center; gap: 12px;
-            padding: 11px 14px; border-radius: 14px; font-weight: 700; font-size: 13.5px;
+            width: 100%; display: flex; align-items: center; gap: 10px;
+            padding: 9px 12px; border-radius: 12px; font-weight: 700; font-size: 12.5px;
             transition: all 0.2s ease; color: #64748b; background: transparent; border: 1px solid transparent;
             text-align: left; white-space: nowrap; cursor: pointer;
         }
@@ -82,8 +82,8 @@
 
         /* NÚT HOẠT ĐỘNG CON TRONG SIDEBAR */
         .sub-act-btn {
-            width: 100%; display: flex; align-items: center; gap: 10px;
-            padding: 8px 12px; border-radius: 10px; font-weight: 600; font-size: 12px;
+            width: 100%; display: flex; align-items: center; gap: 8px;
+            padding: 7px 10px; border-radius: 8px; font-weight: 600; font-size: 11.5px;
             transition: all 0.2s ease; color: #475569; background: transparent; border: 1px solid transparent;
             text-align: left; white-space: nowrap; cursor: pointer;
         }
@@ -92,9 +92,9 @@
 
         /* --- THU NHỎ SIDEBAR (COLLAPSED STATE) --- */
         .sidebar-collapsed {
-            width: 5rem !important; /* 80px */
-            padding-left: 0.75rem !important;
-            padding-right: 0.75rem !important;
+            width: 4.5rem !important; /* 72px */
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
         }
         .sidebar-collapsed .sidebar-text-label { display: none !important; }
         .sidebar-collapsed .sidebar-nav-btn { justify-content: center !important; padding-left: 0 !important; padding-right: 0 !important; }
@@ -144,78 +144,87 @@
     </div>
 
     <!-- ================= SIDEBAR NAV DỌC BÊN TRÁI ================= -->
-    <aside id="leftSidebar" class="w-80 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-full flex flex-col justify-between p-4 z-50 flex-shrink-0 shadow-lg transition-all duration-300 relative overflow-y-auto">
+    <aside id="leftSidebar" class="w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-full flex flex-col justify-between p-3.5 z-50 flex-shrink-0 shadow-lg transition-all duration-300 relative overflow-y-auto">
         <div>
             <!-- BRAND LOGO & NÚT THU NHỎ SIDEBAR -->
-            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200/80">
+            <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-200/80">
                 <div class="flex items-center gap-2 overflow-hidden sidebar-text-label">
-                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-7 w-auto">
+                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-6.5 w-auto">
                 </div>
                 <!-- Nút Thu nhỏ/Mở rộng Sidebar Dọc -->
-                <button onclick="toggleLeftSidebar()" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-sky-50 text-slate-500 hover:text-sky-600 flex items-center justify-center transition-all shrink-0" title="Thu nhỏ / Mở rộng Sidebar">
+                <button onclick="toggleLeftSidebar()" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-sky-50 text-slate-500 hover:text-sky-600 flex items-center justify-center transition-all shrink-0" title="Thu nhỏ / Mở rộng Sidebar">
                     <i id="sidebarToggleIcon" class="fa-solid fa-angles-left text-xs"></i>
                 </button>
             </div>
 
             <!-- BỘ LỌC NGÀNH (RETAIL / FNB) -->
-            <div class="mb-5 bg-slate-100/90 p-1 rounded-2xl border border-slate-200 flex items-center gap-1 branch-selector">
-                <button id="btnFilterRetail" onclick="switchBranch('retail')" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-white text-sky-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5" title="Ngành Retail">
+            <div class="mb-4 bg-slate-100/90 p-1 rounded-xl border border-slate-200 flex items-center gap-1 branch-selector">
+                <button id="btnFilterRetail" onclick="switchBranch('retail')" class="flex-1 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-sky-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5" title="Ngành Retail">
                     <i class="fa-solid fa-store"></i> <span class="branch-btn-text">Retail</span>
                 </button>
-                <button id="btnFilterFnb" onclick="switchBranch('fnb')" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:text-orange-600 flex items-center justify-center gap-1.5" title="Ngành F&B">
+                <button id="btnFilterFnb" onclick="switchBranch('fnb')" class="flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-orange-600 flex items-center justify-center gap-1.5" title="Ngành F&B">
                     <i class="fa-solid fa-utensils"></i> <span class="branch-btn-text">F&B</span>
                 </button>
             </div>
 
-            <!-- DANH SÁCH MENU ĐIỀU HƯỚNG DỌC (DÙNG CÙNG ICON DÀNH CHO BUỔI 1, 2, 3) -->
+            <!-- DANH SÁCH MENU ĐIỀU HƯỚNG DỌC -->
             <div class="flex flex-col gap-1">
-                <span class="text-[10px] font-black uppercase text-slate-400 tracking-wider px-2 mb-1 sidebar-text-label">Menu Đào Tạo</span>
+                <span class="text-[10px] font-black uppercase text-slate-400 tracking-wider px-2 mb-0.5 sidebar-text-label">Menu Đào Tạo</span>
                 
                 <!-- 1. TRANG CHỦ -->
                 <button class="sidebar-nav-btn active" onclick="switchAppTab('home')" title="Trang chủ">
-                    <i class="fa-solid fa-house text-base w-5 text-center"></i>
+                    <i class="fa-solid fa-house text-xs w-5 text-center"></i>
                     <span class="sidebar-text-label">Trang chủ</span>
                 </button>
                 
                 <!-- 2. BUỔI 1 -->
                 <div>
                     <button class="sidebar-nav-btn" onclick="switchAppTab('buoi1')" title="Buổi 1">
-                        <i class="fa-solid fa-book-open text-base w-5 text-center"></i>
+                        <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
                         <span class="sidebar-text-label">Buổi 1</span>
                     </button>
-                    <div id="subGroup_buoi1" class="sub-menu-container hidden pl-4 pr-1 py-1 flex-col gap-1 my-1 border-l-2 border-sky-300 ml-5"></div>
+                    <div id="subGroup_buoi1" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
                 <!-- 3. BUỔI 2 -->
                 <div>
                     <button class="sidebar-nav-btn" onclick="switchAppTab('buoi2')" title="Buổi 2">
-                        <i class="fa-solid fa-book-open text-base w-5 text-center"></i>
+                        <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
                         <span class="sidebar-text-label">Buổi 2</span>
                     </button>
-                    <div id="subGroup_buoi2" class="sub-menu-container hidden pl-4 pr-1 py-1 flex-col gap-1 my-1 border-l-2 border-sky-300 ml-5"></div>
+                    <div id="subGroup_buoi2" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
                 <!-- 4. BUỔI 3 -->
                 <div>
                     <button class="sidebar-nav-btn" onclick="switchAppTab('buoi3')" title="Buổi 3">
-                        <i class="fa-solid fa-book-open text-base w-5 text-center"></i>
+                        <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
                         <span class="sidebar-text-label">Buổi 3</span>
                     </button>
-                    <div id="subGroup_buoi3" class="sub-menu-container hidden pl-4 pr-1 py-1 flex-col gap-1 my-1 border-l-2 border-sky-300 ml-5"></div>
+                    <div id="subGroup_buoi3" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
-                <!-- 5. BÀI TEST CUỐI KHÓA -->
-                <button class="sidebar-nav-btn highlight mt-2" onclick="switchAppTab('test')" title="Bài test cuối khóa">
-                    <i class="fa-solid fa-trophy text-base w-6 text-center"></i>
-                    <span class="sidebar-text-label">Bài test cuối khóa</span>
-                </button>
+                <!-- 5. TÁCH BÀI TEST CUỐI KHÓA THÀNH 2 MỤC RIÊNG -->
+                <div class="mt-2 pt-2 border-t border-slate-200/80 flex flex-col gap-1">
+                    <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider px-2 mb-0.5 sidebar-text-label">Bài Test Cuối Khóa</span>
+                    
+                    <button class="sidebar-nav-btn highlight" onclick="switchAppTab('test_sp')" title="Bài test sản phẩm">
+                        <i class="fa-solid fa-trophy text-xs w-5 text-center"></i>
+                        <span class="sidebar-text-label">Bài test sản phẩm</span>
+                    </button>
+                    
+                    <button class="sidebar-nav-btn highlight" onclick="switchAppTab('test_kt')" title="Bài test Kế toán 01">
+                        <i class="fa-solid fa-file-signature text-xs w-5 text-center"></i>
+                        <span class="sidebar-text-label">Bài test Kế toán 01</span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- FOOTER SIDEBAR -->
-        <div class="pt-3 border-t border-slate-200/80 text-[11px] text-slate-400 flex flex-col gap-1 sidebar-text-label">
+        <!-- FOOTER SIDEBAR (ĐÃ BỎ CHỮ TRAINING HUB) -->
+        <div class="pt-2.5 border-t border-slate-200/80 text-[11px] text-slate-400 flex flex-col gap-0.5 sidebar-text-label">
             <span class="font-semibold text-slate-600">Đang xem ngành: <strong id="currentBranchLabel" class="text-sky-600 uppercase font-black">RETAIL</strong></span>
-            <span>KiotViet L&D Training Hub</span>
+            <span>KiotViet L&D</span>
         </div>
     </aside>
 
@@ -223,20 +232,20 @@
     <div class="flex-1 flex flex-col h-full overflow-hidden relative">
         
         <!-- THANH CÔNG CỤ IFRAME -->
-        <div id="iframeToolbar" class="bg-slate-100/90 backdrop-blur-md border-b border-slate-200 h-9 px-4 flex items-center justify-between text-xs text-slate-500 flex-shrink-0 hidden">
+        <div id="iframeToolbar" class="bg-slate-100/90 backdrop-blur-md border-b border-slate-200 h-8 px-4 flex items-center justify-between text-xs text-slate-500 flex-shrink-0 hidden">
             <div class="flex items-center gap-3 overflow-hidden">
                 <span id="currentTitleDisplay" class="font-bold text-slate-700 truncate"><i class="fa-solid fa-circle-info mr-1 text-sky-500"></i> Đang tải bài học...</span>
             </div>
             
             <div class="flex items-center gap-3 shrink-0">
-                <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
+                <div class="hidden sm:flex items-center gap-1 text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
                     <i class="fa-solid fa-bolt text-amber-500"></i> Auto Zoom 80%
                 </div>
-                <button onclick="toggleIframeZoom()" id="btnToggleZoom" class="text-[11px] font-bold text-slate-600 bg-white border border-slate-300 px-2 py-0.5 rounded-lg hover:bg-slate-50 flex items-center gap-1">
+                <button onclick="toggleIframeZoom()" id="btnToggleZoom" class="text-[10px] font-bold text-slate-600 bg-white border border-slate-300 px-2 py-0.5 rounded-lg hover:bg-slate-50 flex items-center gap-1">
                     <i class="fa-solid fa-magnifying-glass-plus text-sky-500"></i> <span id="zoomLabel">Zoom: 80%</span>
                 </button>
-                <a id="externalLinkBtn" href="#" target="_blank" class="font-bold text-sky-600 hover:underline flex items-center gap-1">
-                    Cửa sổ mới <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <a id="externalLinkBtn" href="#" target="_blank" class="font-bold text-sky-600 hover:underline flex items-center gap-1 text-[11px]">
+                    Cửa sổ mới <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                 </a>
             </div>
         </div>
@@ -245,27 +254,27 @@
         <main class="flex-grow w-full relative overflow-hidden">
             
             <!-- ================= TRANG CHỦ ================= -->
-            <div id="homeView" class="h-full overflow-y-auto px-6 lg:px-16 py-10">
-                <div class="max-w-[1380px] mx-auto">
+            <div id="homeView" class="h-full overflow-y-auto px-6 lg:px-12 py-8">
+                <div class="max-w-[1360px] mx-auto">
                     
-                    <!-- 1. HERO SECTION MỚI (ĐÃ SỬA CHỮ & FIX MẤT DẤU HỎI SẢN PHẨM) -->
-                    <section class="mb-14">
-                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[32px] p-8 lg:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
-                            <!-- Cột trái: Tiêu đề & Mô tả -->
-                            <div class="lg:col-span-7 flex flex-col items-start text-left gap-4 z-10">
-                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 text-xs font-bold shadow-sm">
+                    <!-- 1. HERO SECTION (THU NHỎ SIZE CHỮ VỪA VẶN SANG TRỌNG) -->
+                    <section class="mb-10">
+                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[28px] p-6 lg:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative overflow-hidden">
+                            <!-- Cột trái: Tiêu đề ngắn gọn -->
+                            <div class="lg:col-span-7 flex flex-col items-start text-left gap-3 z-10">
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 text-[11px] font-bold shadow-sm">
                                     <i class="fa-solid fa-graduation-cap text-sky-500"></i>
                                     <span>CHƯƠNG TRÌNH ĐÀO TẠO CHUYÊN VIÊN TÁI KÝ</span>
                                 </div>
-                                <h1 class="text-3xl lg:text-5xl font-black text-slate-800 leading-normal tracking-tight">
+                                <h1 class="text-2xl lg:text-3xl font-extrabold text-slate-800 leading-snug tracking-tight">
                                     KHÓA HỌC<br>
                                     <span class="cyber-text-gradient drop-shadow-sm">ĐÀO TẠO SẢN PHẨM</span>
                                 </h1>
-                                <p class="text-slate-500 font-medium text-base lg:text-lg leading-relaxed max-w-xl">
+                                <p class="text-slate-500 font-medium text-xs lg:text-sm leading-relaxed max-w-lg">
                                     Làm chủ toàn bộ giải pháp phần mềm KiotViet Retail & F&B. Trang bị tư duy vận dụng tính năng để tư vấn và hỗ trợ khách hàng hiệu quả.
                                 </p>
-                                <div class="flex items-center gap-3 mt-2">
-                                    <button onclick="document.getElementById('sec-schedule').scrollIntoView({behavior: 'smooth'})" class="scifi-btn !bg-sky-600 !text-white !border-sky-600 hover:!bg-sky-700 !px-5 !py-2.5 !text-sm">
+                                <div class="flex items-center gap-3 mt-1">
+                                    <button onclick="document.getElementById('sec-schedule').scrollIntoView({behavior: 'smooth'})" class="scifi-btn !bg-sky-600 !text-white !border-sky-600 hover:!bg-sky-700 !px-4 !py-2 !text-xs">
                                         <i class="fa-solid fa-calendar-days"></i> Xem Lịch Trình Tuần 1
                                     </button>
                                 </div>
@@ -273,30 +282,33 @@
 
                             <!-- Cột phải: Hình ảnh minh họa -->
                             <div class="lg:col-span-5 flex justify-center items-center relative z-10">
-                                <div class="relative w-full max-w-[360px] lg:max-w-none">
-                                    <img src="https://finance.kiotviet.vn/images/payment-ver2/get-info.png" alt="Minh họa Đào tạo KiotViet" class="w-full h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500">
+                                <div class="relative w-full max-w-[280px] lg:max-w-none">
+                                    <img src="https://finance.kiotviet.vn/images/payment-ver2/get-info.png" alt="Minh họa Đào tạo KiotViet" class="w-full h-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-500">
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 2. GIỚI THIỆU KHÓA HỌC ĐÀO TẠO SẢN PHẨM CƠ BẢN -->
-                    <section class="mb-14">
-                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[28px] p-6 lg:p-10 shadow-sm">
-                            <h2 class="text-xl lg:text-2xl font-black text-slate-800 mb-6 flex items-center justify-between border-b border-slate-200/80 pb-4">
-                                <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-info text-sky-500"></i> GIỚI THIỆU KHÓA HỌC ĐÀO TẠO SẢN PHẨM CƠ BẢN - CHUYÊN VIÊN TÁI KÝ</span>
-                                <span id="homeBranchBadge" class="text-xs font-bold px-3 py-1 bg-sky-100 text-sky-700 rounded-full">Ngành RETAIL</span>
+                    <!-- 2. GIỚI THIỆU KHÓA HỌC ĐÀO TẠO SẢN PHẨM CƠ BẢN (ĐÃ FIX SIZE CHỮ VÀ CHỐNG NHẢY DÒNG) -->
+                    <section class="mb-10">
+                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[24px] p-5 lg:p-7 shadow-sm">
+                            <h2 class="text-base lg:text-lg font-bold text-slate-800 mb-4 flex items-center justify-between border-b border-slate-200/80 pb-3 leading-snug">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-info text-sky-500"></i>
+                                    <span>Giới thiệu Khóa học Đào tạo Sản phẩm Cơ bản - Chuyên viên Tái ký</span>
+                                </span>
+                                <span id="homeBranchBadge" class="text-[11px] font-bold px-2.5 py-0.5 bg-sky-100 text-sky-700 rounded-full shrink-0">Ngành RETAIL</span>
                             </h2>
 
                             <!-- KHUNG RETAIL -->
-                            <div id="introRetail" class="bg-white/90 p-6 lg:p-8 rounded-2xl border border-sky-100 shadow-sm border-l-4 border-l-sky-500 flex flex-col justify-between">
+                            <div id="introRetail" class="bg-white/90 p-5 lg:p-6 rounded-2xl border border-sky-100 shadow-sm border-l-4 border-l-sky-500 flex flex-col justify-between">
                                 <div>
-                                    <h3 class="text-xl font-black text-slate-800 mb-3">Đào tạo sản phẩm KiotViet Retail</h3>
-                                    <p class="text-sm lg:text-base text-slate-600 mb-4 leading-relaxed">
+                                    <h3 class="text-base font-bold text-slate-800 mb-2">Đào tạo sản phẩm KiotViet Retail</h3>
+                                    <p class="text-xs lg:text-sm text-slate-600 mb-3 leading-relaxed">
                                         <strong>Giới thiệu chung:</strong> Chương trình đào tạo sản phẩm Retail giúp bạn nắm vững các giải pháp hỗ trợ khách hàng ngành bán lẻ. Chương trình bao gồm các học phần sau:
                                     </p>
 
-                                    <ul class="text-xs lg:text-sm text-slate-700 font-medium space-y-2.5 mb-6 bg-sky-50/50 p-5 rounded-xl border border-sky-100 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-4 bg-sky-50/50 p-3.5 rounded-xl border border-sky-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 1A:</strong> Tổng quan các loại hàng hóa</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 1B:</strong> Giao dịch, Thiết lập giá, Kiểm kho</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 2A:</strong> Bán hàng, quản lý khách hàng</span></li>
@@ -304,9 +316,9 @@
                                         <li class="flex items-center gap-2 md:col-span-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 3:</strong> Kế toán 01</span></li>
                                     </ul>
 
-                                    <div class="text-xs lg:text-sm text-slate-600 mb-4">
-                                        <strong class="text-slate-800 block mb-2 font-bold text-sm">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
-                                        <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                    <div class="text-xs text-slate-600 mb-3">
+                                        <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
+                                        <ul class="list-disc pl-5 space-y-1 text-slate-600">
                                             <li>Tham khảo trang Học liệu E-Learning</li>
                                             <li>Làm bài quiz ôn tập trắc nghiệm online</li>
                                             <li>Làm bài tập thực hành online</li>
@@ -315,20 +327,20 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <p class="text-xs text-slate-500 italic bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <p class="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
                                     * Sau khi hoàn thành các buổi học, học viên chủ động bấm nút "Làm bài thi" trắc nghiệm trên LMS để được ghi nhận hoàn thành khóa học. (Yêu cầu đạt tỷ lệ chính xác 80% trong tối đa 2 lần test).
                                 </p>
                             </div>
 
                             <!-- KHUNG FNB -->
-                            <div id="introFnb" class="bg-white/90 p-6 lg:p-8 rounded-2xl border border-orange-100 shadow-sm border-l-4 border-l-orange-500 flex-col justify-between hidden">
+                            <div id="introFnb" class="bg-white/90 p-5 lg:p-6 rounded-2xl border border-orange-100 shadow-sm border-l-4 border-l-orange-500 flex-col justify-between hidden">
                                 <div>
-                                    <h3 class="text-xl font-black text-slate-800 mb-3">Đào tạo sản phẩm KiotViet FNB</h3>
-                                    <p class="text-sm lg:text-base text-slate-600 mb-4 leading-relaxed">
+                                    <h3 class="text-base font-bold text-slate-800 mb-2">Đào tạo sản phẩm KiotViet FNB</h3>
+                                    <p class="text-xs lg:text-sm text-slate-600 mb-3 leading-relaxed">
                                         <strong>Giới thiệu chung:</strong> Chương trình đào tạo sản phẩm FNB giúp bạn nắm vững các giải pháp hỗ trợ khách hàng kinh doanh ngành Thực phẩm & Đồ uống. Chương trình bao gồm các học phần sau:
                                     </p>
 
-                                    <ul class="text-xs lg:text-sm text-slate-700 font-medium space-y-2.5 mb-6 bg-orange-50/50 p-5 rounded-xl border border-orange-100 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-4 bg-orange-50/50 p-3.5 rounded-xl border border-orange-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 1A:</strong> Tổng quan Thực đơn và Kho hàng</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 1B:</strong> Các Món đặc thù ngành F&B</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 2A:</strong> Các nghiệp vụ vận hành bán hàng, thanh toán</span></li>
@@ -336,9 +348,9 @@
                                         <li class="flex items-center gap-2 md:col-span-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 3:</strong> Kế toán 01</span></li>
                                     </ul>
 
-                                    <div class="text-xs lg:text-sm text-slate-600 mb-4">
-                                        <strong class="text-slate-800 block mb-2 font-bold text-sm">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
-                                        <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                    <div class="text-xs text-slate-600 mb-3">
+                                        <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
+                                        <ul class="list-disc pl-5 space-y-1 text-slate-600">
                                             <li>Tham khảo trang Học liệu E-Learning</li>
                                             <li>Làm bài quiz ôn tập trắc nghiệm online</li>
                                             <li>Làm bài tập thực hành online</li>
@@ -347,7 +359,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <p class="text-xs text-slate-500 italic bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <p class="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
                                     * Sau khi hoàn thành các buổi học, học viên chủ động bấm nút "Làm bài thi" trắc nghiệm trên LMS để được ghi nhận hoàn thành khóa học. (Yêu cầu đạt tỷ lệ chính xác 80% trong tối đa 2 lần test).
                                 </p>
                             </div>
@@ -355,10 +367,10 @@
                         </div>
                     </section>
 
-                    <!-- 3. LỊCH TRÌNH CÁC HOẠT ĐỘNG CHUNG (TRỤC THƯ NỔI BẬT) -->
-                    <section id="sec-schedule" class="mb-14">
-                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[28px] p-6 lg:p-10 shadow-sm">
-                            <h2 class="text-xl lg:text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2.5">
+                    <!-- 3. LỊCH TRÌNH CÁC HOẠT ĐỘNG CHUNG (TRỤC THỨ TIMELINE Tinh Tế) -->
+                    <section id="sec-schedule" class="mb-10">
+                        <div class="glass-panel-ultra border border-slate-200/80 rounded-[24px] p-5 lg:p-8 shadow-sm">
+                            <h2 class="text-lg lg:text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
                                 <i class="fa-solid fa-calendar-days text-sky-500"></i> Lịch Trình Hoạt Động Chung (Tuần 1)
                             </h2>
 
@@ -367,110 +379,110 @@
                                 <div class="timeline-track"></div>
 
                                 <!-- Thứ 2 -->
-                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-6 mb-8 group">
+                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-5 mb-6 group">
                                     <div class="relative z-10 shrink-0">
-                                        <div class="px-4 py-2 rounded-2xl bg-white border-2 border-sky-500 text-sky-600 font-black text-sm shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
+                                        <div class="px-3.5 py-1.5 rounded-xl bg-white border-2 border-sky-500 text-sky-600 font-bold text-xs shadow-sm flex items-center gap-2 group-hover:scale-105 transition-transform">
                                             <span class="w-2 h-2 rounded-full bg-sky-500 animate-ping"></span>
                                             <span>Thứ 2</span>
                                         </div>
                                     </div>
-                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div class="p-3.5 rounded-xl bg-sky-50/60 border border-sky-100">
-                                            <span class="text-xs font-bold text-sky-600 block mb-1"><i class="fa-regular fa-clock"></i> 08:00 - 09:00</span>
-                                            <span class="font-bold text-slate-800 text-sm block">Thủ tục gia nhập</span>
-                                            <span class="text-xs text-slate-500">(Tại Văn phòng)</span>
+                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <div class="p-3 rounded-xl bg-sky-50/60 border border-sky-100">
+                                            <span class="text-[11px] font-bold text-sky-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:00 - 09:00</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Thủ tục gia nhập</span>
+                                            <span class="text-[11px] text-slate-500">(Tại Văn phòng)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-blue-50/60 border border-blue-100">
-                                            <span class="text-xs font-bold text-blue-600 block mb-1"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
-                                            <span class="font-bold text-slate-800 text-sm block">Đào tạo Hội nhập</span>
-                                            <span class="text-xs text-slate-500">(Online tại Văn phòng)</span>
+                                        <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                                            <span class="text-[11px] font-bold text-blue-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Đào tạo Hội nhập</span>
+                                            <span class="text-[11px] text-slate-500">(Online tại Văn phòng)</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Thứ 3 -->
-                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-6 mb-8 group">
+                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-5 mb-6 group">
                                     <div class="relative z-10 shrink-0">
-                                        <div class="px-4 py-2 rounded-2xl bg-white border-2 border-indigo-500 text-indigo-600 font-black text-sm shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
+                                        <div class="px-3.5 py-1.5 rounded-xl bg-white border-2 border-indigo-500 text-indigo-600 font-bold text-xs shadow-sm flex items-center gap-2 group-hover:scale-105 transition-transform">
                                             <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
                                             <span>Thứ 3</span>
                                         </div>
                                     </div>
-                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
-                                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                            <span class="text-xs font-bold text-amber-600 block mb-1"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
+                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
                                             <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 1A)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                            <span class="text-xs font-bold text-amber-600 block mb-1"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
                                             <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 1B)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-purple-50 border border-purple-100">
-                                            <span class="text-xs font-bold text-purple-600 block mb-1"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
+                                        <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
+                                            <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
                                             <span class="font-bold text-purple-900 text-xs block"><i class="fa-solid fa-video mr-1"></i> Review Online cùng Trainer</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Thứ 4 -->
-                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-6 mb-8 group">
+                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-5 mb-6 group">
                                     <div class="relative z-10 shrink-0">
-                                        <div class="px-4 py-2 rounded-2xl bg-white border-2 border-indigo-500 text-indigo-600 font-black text-sm shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
+                                        <div class="px-3.5 py-1.5 rounded-xl bg-white border-2 border-indigo-500 text-indigo-600 font-bold text-xs shadow-sm flex items-center gap-2 group-hover:scale-105 transition-transform">
                                             <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
                                             <span>Thứ 4</span>
                                         </div>
                                     </div>
-                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
-                                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                            <span class="text-xs font-bold text-amber-600 block mb-1"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
+                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
                                             <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 2A)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                            <span class="text-xs font-bold text-amber-600 block mb-1"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
                                             <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 2B)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-purple-50 border border-purple-100">
-                                            <span class="text-xs font-bold text-purple-600 block mb-1"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
+                                        <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
+                                            <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
                                             <span class="font-bold text-purple-900 text-xs block"><i class="fa-solid fa-video mr-1"></i> Review Online cùng Trainer</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Thứ 5 -->
-                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-6 mb-8 group">
+                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-5 mb-6 group">
                                     <div class="relative z-10 shrink-0">
-                                        <div class="px-4 py-2 rounded-2xl bg-white border-2 border-indigo-500 text-indigo-600 font-black text-sm shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
+                                        <div class="px-3.5 py-1.5 rounded-xl bg-white border-2 border-indigo-500 text-indigo-600 font-bold text-xs shadow-sm flex items-center gap-2 group-hover:scale-105 transition-transform">
                                             <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
                                             <span>Thứ 5</span>
                                         </div>
                                     </div>
-                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
-                                        <div class="md:col-span-2 p-3.5 rounded-xl bg-sky-50 border border-sky-200">
-                                            <span class="text-xs font-bold text-sky-700 block mb-1"><i class="fa-regular fa-clock"></i> 08:30 - 15:30</span>
+                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <div class="md:col-span-2 p-3 rounded-xl bg-sky-50 border border-sky-200">
+                                            <span class="text-[11px] font-bold text-sky-700 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 15:30</span>
                                             <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 3: Kế toán 01)</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-purple-50 border border-purple-100">
-                                            <span class="text-xs font-bold text-purple-600 block mb-1"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
+                                        <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
+                                            <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
                                             <span class="font-bold text-purple-900 text-xs block"><i class="fa-solid fa-video mr-1"></i> Review Online cùng Trainer</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Thứ 6 -->
-                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-6 group">
+                                <div class="relative flex flex-col md:flex-row md:items-center gap-4 lg:gap-5 group">
                                     <div class="relative z-10 shrink-0">
-                                        <div class="px-4 py-2 rounded-2xl bg-white border-2 border-emerald-500 text-emerald-600 font-black text-sm shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
+                                        <div class="px-3.5 py-1.5 rounded-xl bg-white border-2 border-emerald-500 text-emerald-600 font-bold text-xs shadow-sm flex items-center gap-2 group-hover:scale-105 transition-transform">
                                             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                                             <span>Thứ 6</span>
                                         </div>
                                     </div>
-                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
-                                        <div class="md:col-span-2 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
-                                            <span class="text-xs font-bold text-emerald-700 block mb-1"><i class="fa-regular fa-clock"></i> 08:00 - 10:00</span>
+                                    <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <div class="md:col-span-2 p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                                            <span class="text-[11px] font-bold text-emerald-700 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:00 - 10:00</span>
                                             <span class="font-bold text-slate-800 text-xs block"><i class="fa-solid fa-trophy text-amber-500 mr-1"></i> Hoàn thành bài test sản phẩm KiotViet và Kế toán 1 trên LMS</span>
                                         </div>
-                                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                            <span class="text-xs font-bold text-slate-500 block mb-1"><i class="fa-regular fa-clock"></i> 10:00 - 10:30</span>
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <span class="text-[11px] font-bold text-slate-500 block mb-0.5"><i class="fa-regular fa-clock"></i> 10:00 - 10:30</span>
                                             <span class="font-bold text-slate-800 text-xs block">Gửi kết quả Đánh giá</span>
                                         </div>
                                     </div>
@@ -512,7 +524,8 @@
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
                 },
-                test: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-retail/"
+                test_sp: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-retail/",
+                test_kt: "https://daotao.kiotviet.vn/khoa-hoc/ke-toan-01/"
             },
             fnb: {
                 buoi1: {
@@ -533,7 +546,8 @@
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
                 },
-                test: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-fnb/"
+                test_sp: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-fnb/",
+                test_kt: "https://daotao.kiotviet.vn/khoa-hoc/ke-toan-01/"
             }
         };
 
@@ -597,32 +611,34 @@
             const introFnb = document.getElementById('introFnb');
 
             if (branch === 'retail') {
-                btnRetail.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-white text-sky-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
-                btnFnb.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:text-orange-600 flex items-center justify-center gap-1.5";
+                btnRetail.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-sky-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
+                btnFnb.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-orange-600 flex items-center justify-center gap-1.5";
                 label.textContent = "RETAIL";
                 label.className = "text-sky-600 font-bold";
 
                 badge.textContent = "Ngành RETAIL";
-                badge.className = "text-xs font-bold px-3 py-1 bg-sky-100 text-sky-700 rounded-full";
+                badge.className = "text-[11px] font-bold px-2.5 py-0.5 bg-sky-100 text-sky-700 rounded-full shrink-0";
 
                 introRetail.style.display = 'flex';
                 introFnb.style.display = 'none';
             } else {
-                btnFnb.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-white text-orange-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
-                btnRetail.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:text-sky-600 flex items-center justify-center gap-1.5";
+                btnFnb.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-orange-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
+                btnRetail.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-sky-600 flex items-center justify-center gap-1.5";
                 label.textContent = "F&B";
                 label.className = "text-orange-600 font-bold";
 
                 badge.textContent = "Ngành F&B";
-                badge.className = "text-xs font-bold px-3 py-1 bg-orange-100 text-orange-700 rounded-full";
+                badge.className = "text-[11px] font-bold px-2.5 py-0.5 bg-orange-100 text-orange-700 rounded-full shrink-0";
 
                 introRetail.style.display = 'none';
                 introFnb.style.display = 'flex';
             }
 
             if (currentMainTab !== 'home') {
-                if (currentMainTab === 'test') {
-                    loadIframe(courseData[currentBranch].test, `Bài test trắc nghiệm cuối khóa (${currentBranch.toUpperCase()})`);
+                if (currentMainTab === 'test_sp') {
+                    loadIframe(courseData[currentBranch].test_sp, `Bài test sản phẩm (${currentBranch.toUpperCase()})`);
+                } else if (currentMainTab === 'test_kt') {
+                    loadIframe(courseData[currentBranch].test_kt, `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`);
                 } else {
                     switchSubActivity(currentSubActivity);
                 }
@@ -636,7 +652,7 @@
             const mainBtns = document.querySelectorAll('.sidebar-nav-btn');
             mainBtns.forEach(btn => btn.classList.remove('active'));
 
-            const tabMap = { 'home': 0, 'buoi1': 1, 'buoi2': 2, 'buoi3': 3, 'test': 4 };
+            const tabMap = { 'home': 0, 'buoi1': 1, 'buoi2': 2, 'buoi3': 3, 'test_sp': 4, 'test_kt': 5 };
             if (mainBtns[tabMap[tabKey]]) {
                 mainBtns[tabMap[tabKey]].classList.add('active');
             }
@@ -652,12 +668,19 @@
                 iframeView.style.display = 'none';
                 homeView.style.display = 'block';
             } 
-            else if (tabKey === 'test') {
+            else if (tabKey === 'test_sp') {
                 homeView.style.display = 'none';
                 iframeView.style.display = 'block';
                 iframeToolbar.classList.remove('hidden');
 
-                loadIframe(courseData[currentBranch].test, `Bài test trắc nghiệm cuối khóa (${currentBranch.toUpperCase()})`);
+                loadIframe(courseData[currentBranch].test_sp, `Bài test sản phẩm (${currentBranch.toUpperCase()})`);
+            } 
+            else if (tabKey === 'test_kt') {
+                homeView.style.display = 'none';
+                iframeView.style.display = 'block';
+                iframeToolbar.classList.remove('hidden');
+
+                loadIframe(courseData[currentBranch].test_kt, `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`);
             } 
             else {
                 homeView.style.display = 'none';
