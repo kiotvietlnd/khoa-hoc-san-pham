@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HƯỚNG DẪN ĐĂNG KÝ TÀI KHOẢN VÀ LƯU Ý KHI THAM GIA ĐÀO TẠO ONLINE KIOTVIET</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .article-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+        }
+
+        .kv-callout {
+            background: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            border-radius: 0 12px 12px 0;
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #0c4a6e;
+        }
+
+        .sidebar-btn {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.45;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.15s ease;
+            text-align: left;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .sidebar-btn:hover {
+            background-color: #f1f5f9;
+            color: #0284c7;
+        }
+        .sidebar-btn.active {
+            background-color: #1d4ed8 !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 4px rgba(29, 78, 216, 0.2);
+        }
+        .sidebar-btn.active .nav-badge {
+            background-color: #ffffff !important;
+            color: #1d4ed8 !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- NAVBAR TỐI GIẢN TỰ ĐỘNG LẤY TIÊU ĐỀ -->
+    <header class="sticky top-0 z-50 bg-blue-700 text-white shadow-sm py-3 px-4 sm:px-6">
+        <div class="max-w-[1280px] mx-auto w-full">
+            <h1 class="text-xs sm:text-sm lg:text-base font-bold text-white tracking-tight leading-snug">
+                HƯỚNG DẪN ĐĂNG KÝ TÀI KHOẢN VÀ LƯU Ý KHI THAM GIA ĐÀO TẠO ONLINE KIOTVIET
+            </h1>
+        </div>
+    </header>
+
+    <!-- BỐ CỤC MAIN -->
+    <main class="flex-grow max-w-[1280px] w-full mx-auto px-4 sm:px-6 py-6">
+        
+        <div class="flex flex-col lg:flex-row gap-6 items-start">
+
+            <!-- SIDEBAR MỤC LỤC BÊN TRÁI -->
+            <div class="w-full lg:w-80 shrink-0 lg:sticky lg:top-16 h-fit">
+                <div class="bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
+                    <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider mb-2.5 pb-2 border-b border-slate-100 flex items-center justify-between">
+                        <span><i class="fa-solid fa-list-ul text-blue-700 mr-1"></i> Mục Lục Tra Cứu</span>
+                        <span class="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded font-bold">3 Mục</span>
+                    </div>
+
+                    <nav class="space-y-1 max-h-[78vh] overflow-y-auto no-scrollbar">
+                        <button onclick="showSection('muc-1')" id="btn-muc-1" class="sidebar-btn active">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">01</span>
+                            <span>Hướng dẫn đăng ký tài khoản KiotViet sử dụng mã giới thiệu 3670</span>
+                        </button>
+                        <button onclick="showSection('muc-2')" id="btn-muc-2" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">02</span>
+                            <span>Các quy định và lưu ý quan trọng dành cho học viên trước khi tham gia lớp học Online</span>
+                        </button>
+                        <button onclick="showSection('muc-3')" id="btn-muc-3" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">03</span>
+                            <span>Hướng dẫn chuẩn bị thiết bị, kết nối mạng và cài đặt công cụ hỗ trợ học tập</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- CỘT NỘI DUNG CHÍNH BÊN PHẢI -->
+            <div class="w-full flex-1">
+
+                <!-- MỤC 1 -->
+                <section id="muc-1" class="muc-content article-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 01</span>
+                        <span class="text-xs text-slate-400 font-medium">• Đăng ký tài khoản</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-4">
+                        Hướng dẫn đăng ký tài khoản KiotViet sử dụng mã giới thiệu 3670
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p>Để chuẩn bị tốt nhất cho khóa thực hành nghiệp vụ, học viên cần tiến hành đăng ký gian hàng KiotViet theo các bước cụ thể dưới đây:</p>
+                        
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>
+                                <strong>Bước 1: Truy cập cổng đăng ký:</strong> Học viên mở trình duyệt web và truy cập địa chỉ đăng ký chính thức của KiotViet.
+                            </li>
+                            <li>
+                                <strong>Bước 2: Điền thông tin gian hàng:</strong> Nhập chính xác Họ tên, Số điện thoại cá nhân và Tên gian hàng dự kiến khởi tạo.
+                            </li>
+                            <li>
+                                <strong>Bước 3: Nhập mã giới thiệu 3670:</strong> Tại ô "Mã giới thiệu" hoặc "Mã ưu đãi", học viên bắt buộc điền mã <strong>3670</strong>. Việc nhập mã này giúp hệ thống ghi nhận thông tin học viên vào danh sách đào tạo chính thức.
+                            </li>
+                            <li>
+                                <strong>Bước 4: Hoàn tất đăng ký:</strong> Nhập mã xác thực OTP gửi về điện thoại và nhấn "Đăng ký ngay" để kích hoạt gian hàng dùng thử.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Học viên bắt buộc nhập chính xác mã giới thiệu 3670 để hệ thống KiotViet tự động kích hoạt đầy đủ tài nguyên thực hành và ghi nhận điểm danh cấp chứng nhận hoàn thành khóa học.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 2 -->
+                <section id="muc-2" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 02</span>
+                        <span class="text-xs text-slate-400 font-medium">• Quy định lớp học Online</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-4">
+                        Các quy định và lưu ý quan trọng dành cho học viên trước khi tham gia lớp học Online
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p>Nhằm đảm bảo chất lượng buổi học trực tuyến đạt hiệu quả tối đa, học viên vui lòng tuân thủ các quy tắc lớp học sau:</p>
+
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>
+                                <strong>Đổi tên hiển thị (Rename):</strong> Cài đặt tên phòng học trực tuyến (Zoom/Google Meet) theo đúng cú pháp: <em>[Họ và tên] - [Mã gian hàng KiotViet]</em> (Ví dụ: Nguyễn Văn A - CuahangA).
+                            </li>
+                            <li>
+                                <strong>Thời gian tham gia:</strong> Đăng nhập vào phòng học trước giờ khai giảng 10 - 15 phút để kiểm tra âm thanh, hình ảnh.
+                            </li>
+                            <li>
+                                <strong>Tương tác trong lớp:</strong> Mở Webcam trong suốt thời gian diễn ra buổi học, chủ động tắt Micro khi giảng viên đang trình bày để tránh tiếng ồn xung quanh.
+                            </li>
+                            <li>
+                                <strong>Thực hành song song:</strong> Mở đồng thời ứng dụng KiotViet trên máy tính hoặc điện thoại để thao tác trực tiếp theo hướng dẫn của giảng viên.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Việc tuân thủ đúng tên hiển thị và thời lượng tham gia lớp học giúp KiotViet tự động tổng hợp dữ liệu chuyên cần để cấp chứng chỉ hoàn thành khóa học trực tuyến cho học viên.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 3 -->
+                <section id="muc-3" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 03</span>
+                        <span class="text-xs text-slate-400 font-medium">• Chuẩn bị thiết bị học tập</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-4">
+                        Hướng dẫn chuẩn bị thiết bị, kết nối mạng và cài đặt công cụ hỗ trợ học tập
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p>Để buổi học trực tuyến không bị gián đoạn kỹ thuật, học viên hãy chuẩn bị trước các điều kiện sau:</p>
+
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>
+                                <strong>Thiết bị học tập:</strong> Khuyến khích sử dụng Máy tính để bàn (PC) hoặc Máy tính xách tay (Laptop) màn hình lớn để tiện quan sát bài giảng và thao tác thực hành phần mềm.
+                            </li>
+                            <li>
+                                <strong>Kết nối Internet:</strong> Sử dụng đường truyền mạng Wi-Fi tốc độ cao hoặc dây mạng LAN ổn định nhằm tránh hiện tượng giật lag, gián đoạn tín hiệu.
+                            </li>
+                            <li>
+                                <strong>Cài đặt ứng dụng:</strong> Cập nhật phần mềm Zoom/Google Meet lên phiên bản mới nhất, đồng thời tải sẵn app <strong>KiotViet Quản lý</strong> và <strong>KiotViet Bán hàng</strong> trên di động (iOS/Android).
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Nếu gặp bất kỳ sự cố kỹ thuật nào trong quá trình học, học viên vui lòng nhắn tin trực tiếp tại khung Chat trực tuyến để cán bộ hỗ trợ đào tạo của KiotViet trợ giúp kịp thời.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 mt-auto py-3 text-center text-slate-400 text-[11px] font-medium">
+        © 2026 KiotViet Learning & Development.
+    </footer>
+
+    <!-- SCRIPT CHUYỂN TAB MỤC LỤC -->
+    <script>
+        function showSection(sectionId) {
+            const allSections = document.querySelectorAll('.muc-content');
+            allSections.forEach(sec => sec.classList.add('hidden'));
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            const allButtons = document.querySelectorAll('.sidebar-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            const activeBtn = document.getElementById(`btn-${sectionId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
