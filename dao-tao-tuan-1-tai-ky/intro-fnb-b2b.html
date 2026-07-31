@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiến thức nền tảng Về Thuế - Kế Toán - Hóa Đơn Điện Tử - Chữ Ký Số Cho Hộ Kinh Doanh</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        /* Ẩn thanh cuộn xấu xí */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Card bài viết tinh tế */
+        .article-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+        }
+
+        /* Callout Box KiotViet */
+        .kv-callout {
+            background: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            border-radius: 0 12px 12px 0;
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #0c4a6e;
+        }
+
+        /* Nút Sidebar Mục lục hỗ trợ nhiều dòng */
+        .sidebar-btn {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.45;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.15s ease;
+            text-align: left;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .sidebar-btn:hover {
+            background-color: #f1f5f9;
+            color: #0284c7;
+        }
+        .sidebar-btn.active {
+            background-color: #1d4ed8 !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 4px rgba(29, 78, 216, 0.2);
+        }
+        .sidebar-btn.active .nav-badge {
+            background-color: #ffffff !important;
+            color: #1d4ed8 !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- NAVBAR TỐI GIẢN CHỈ CHỨA TIÊU ĐỀ YÊU CẦU -->
+    <header class="sticky top-0 z-50 bg-blue-700 text-white shadow-sm py-3 px-4 sm:px-6">
+        <div class="max-w-[1280px] mx-auto w-full">
+            <h1 class="text-xs sm:text-sm lg:text-base font-bold text-white tracking-tight leading-snug">
+                Kiến thức nền tảng Về Thuế - Kế Toán - Hóa Đơn Điện Tử - Chữ Ký Số Cho Hộ Kinh Doanh
+            </h1>
+        </div>
+    </header>
+
+    <!-- BỐ CỤC: SIDEBAR MỤC LỤC BÊN TRÁI, NỘI DUNG BÊN PHẢI -->
+    <main class="flex-grow max-w-[1280px] w-full mx-auto px-4 sm:px-6 py-6">
+        
+        <div class="flex flex-col lg:flex-row gap-6 items-start">
+
+            <!-- CỘT SIDEBAR MỤC LỤC BÊN TRÁI (LEFT SIDEBAR - FULL TEXT, NHIỀU DÒNG) -->
+            <div class="w-full lg:w-80 shrink-0 lg:sticky lg:top-16 h-fit">
+                <div class="bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
+                    <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider mb-2.5 pb-2 border-b border-slate-100 flex items-center justify-between">
+                        <span><i class="fa-solid fa-list-ul text-blue-700 mr-1"></i> Mục Lục Tra Cứu</span>
+                        <span class="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded font-bold">13 Mục</span>
+                    </div>
+
+                    <nav class="space-y-1 max-h-[78vh] overflow-y-auto no-scrollbar">
+                        <button onclick="showSection('muc-1')" id="btn-muc-1" class="sidebar-btn active">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">01</span>
+                            <span>Quy định chi tiết về Phân loại, Nghĩa vụ thuế, Tờ khai và Sổ kế toán của 4 Nhóm Hộ kinh doanh</span>
+                        </button>
+
+                        <button onclick="showSection('muc-2')" id="btn-muc-2" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">02</span>
+                            <span>Vì sao tính thuế TNCN theo phương pháp Thu nhập tính thuế lại khó khăn hơn phương pháp Doanh thu và Hộ kinh doanh thường ưu tiên chọn tính theo Doanh thu?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-3')" id="btn-muc-3" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">03</span>
+                            <span>Doanh thu bán hàng từ Hóa đơn, Sổ kế toán và Tờ khai thuế có liên quan gì đến nhau?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-4')" id="btn-muc-4" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">04</span>
+                            <span>Hóa đơn điện tử là gì?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-5')" id="btn-muc-5" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">05</span>
+                            <span>Hóa đơn điện tử từ máy tính tiền là gì?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-6')" id="btn-muc-6" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">06</span>
+                            <span>Hộ kinh doanh dùng phương pháp tính thuế nào, cách tính ra sao, khác gì với doanh nghiệp?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-7')" id="btn-muc-7" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">07</span>
+                            <span>Hộ kinh doanh dùng Hóa đơn điện tử mẫu gì, khác gì với doanh nghiệp?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-8')" id="btn-muc-8" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">08</span>
+                            <span>Chữ ký số là gì? Có những loại nào? Chữ ký số từ xa là gì?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-9')" id="btn-muc-9" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">09</span>
+                            <span>Đăng ký chữ ký số cần chuẩn bị những gì? Thông tin quan trọng để nhập lên phần mềm HĐĐT?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-10')" id="btn-muc-10" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">10</span>
+                            <span>Vì sao chữ ký số là điều kiện bắt buộc để sử dụng Hóa đơn điện tử?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-11')" id="btn-muc-11" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">11</span>
+                            <span>Hóa đơn điện tử có định dạng gì? Vì sao file XML lại quan trọng?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-12')" id="btn-muc-12" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">12</span>
+                            <span>Vì sao người mua hàng lại yêu cầu nhận Hóa đơn điện tử?</span>
+                        </button>
+
+                        <button onclick="showSection('muc-13')" id="btn-muc-13" class="sidebar-btn">
+                            <span class="nav-badge text-[10px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded shrink-0 mt-0.5">13</span>
+                            <span>Vì sao phải gửi Hóa đơn điện tử lên Cơ quan thuế hàng ngày?</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- CỘT NỘI DUNG CHÍNH (BÊN PHẢI) -->
+            <div class="w-full flex-1">
+
+                <!-- MỤC 1 -->
+                <section id="muc-1" class="muc-content article-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 01</span>
+                        <span class="text-xs text-slate-400 font-medium">• Phân loại 4 nhóm Hộ kinh doanh</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-4">
+                        Quy định chi tiết về Phân loại, Nghĩa vụ thuế, Tờ khai và Sổ kế toán của 4 Nhóm Hộ kinh doanh
+                    </h2>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <h3 class="font-bold text-blue-700 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-xs"></i> NHÓM 1 (Doanh thu dưới 1 tỷ đồng/năm):
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-slate-600">
+                                <li><strong>Thuế GTGT / TNCN:</strong> Miễn thuế hoàn toàn.</li>
+                                <li><strong>Mẫu Tờ khai thuế:</strong> Mẫu 01-TKN/CNKD (Kê khai định kỳ theo Năm).</li>
+                                <li><strong>Mẫu Sổ kế toán:</strong> Sổ S1a-HKD (Sổ doanh thu).</li>
+                                <li><strong>Hóa đơn điện tử:</strong> Không bắt buộc sử dụng.</li>
+                                <li><strong>Tra cứu HĐĐT đầu vào:</strong> Cơ quan thuế không cấp tài khoản tra cứu khi không dùng HĐĐT.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <h3 class="font-bold text-blue-700 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-xs"></i> NHÓM 2 (Doanh thu từ 1 tỷ – 3 tỷ đồng/năm):
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-slate-600">
+                                <li><strong>Thuế GTGT:</strong> Nộp theo Tỷ lệ % &times; Doanh thu.</li>
+                                <li><strong>Thuế TNCN:</strong> Chọn % &times; (Doanh thu - 1 tỷ) HOẶC Thu nhập tính thuế &times; 15%.</li>
+                                <li><strong>Mẫu Tờ khai thuế:</strong> Mẫu 01/CNKD (Khai Quý). Khai thêm Quyết toán 02/CNKD nếu nộp theo lợi nhuận.</li>
+                                <li><strong>Mẫu Sổ kế toán:</strong> Dùng Sổ S2a-HKD (nếu nộp theo % doanh thu) hoặc Bộ 4 sổ S2b-S2e (nếu nộp theo Lợi nhuận).</li>
+                                <li><strong>Hóa đơn điện tử:</strong> Bắt buộc sử dụng HĐĐT. Cơ quan thuế cấp tài khoản tra cứu đầu vào.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <h3 class="font-bold text-blue-700 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-xs"></i> NHÓM 3 (Doanh thu từ 3 tỷ – 50 tỷ đồng/năm):
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-slate-600">
+                                <li><strong>Thuế GTGT:</strong> Nộp theo Tỷ lệ % &times; Doanh thu.</li>
+                                <li><strong>Thuế TNCN:</strong> Bắt buộc tính theo Thu nhập tính thuế &times; 17%.</li>
+                                <li><strong>Mẫu Tờ khai thuế:</strong> Mẫu 01/CNKD (Quý) + Quyết toán 02/CNKD (Năm).</li>
+                                <li><strong>Mẫu Sổ kế toán:</strong> Bắt buộc dùng Bộ 4 sổ (S2b-HKD, S2c-HKD, S2d-HKD, S2e-HKD).</li>
+                                <li><strong>Hóa đơn điện tử:</strong> Bắt buộc sử dụng HĐĐT. Cơ quan thuế cấp tài khoản tra cứu đầu vào.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <h3 class="font-bold text-blue-700 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-xs"></i> NHÓM 4 (Doanh thu trên 50 tỷ đồng/năm):
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-slate-600">
+                                <li><strong>Thuế GTGT:</strong> Nộp theo Tỷ lệ % &times; Doanh thu.</li>
+                                <li><strong>Thuế TNCN:</strong> Bắt buộc tính theo Thu nhập tính thuế &times; 20%.</li>
+                                <li><strong>Mẫu Tờ khai thuế:</strong> Mẫu 01/CNKD (Tháng) + Quyết toán 02/CNKD (Năm).</li>
+                                <li><strong>Mẫu Sổ kế toán:</strong> Bắt buộc dùng Bộ 4 sổ (S2b-HKD, S2c-HKD, S2d-HKD, S2e-HKD).</li>
+                                <li><strong>Hóa đơn điện tử:</strong> Bắt buộc sử dụng HĐĐT. Cơ quan thuế cấp tài khoản tra cứu đầu vào.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng đầy đủ nghiệp vụ sổ sách và kê khai thuế theo từng nhóm HKD (hỗ trợ lập Sổ S1a, S2a, Bộ 4 sổ S2b-S2e, tự động xuất dữ liệu lên Tờ khai Mẫu 01-TKN/CNKD, Mẫu 01/CNKD và Quyết toán 02/CNKD chuẩn xác theo quy định 2026).</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 2 -->
+                <section id="muc-2" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 02</span>
+                        <span class="text-xs text-slate-400 font-medium">• So sánh phương pháp tính thuế TNCN</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-4">
+                        Vì sao tính thuế TNCN theo phương pháp Thu nhập tính thuế lại khó khăn hơn phương pháp Doanh thu và Hộ kinh doanh thường ưu tiên chọn tính theo Doanh thu?
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p>Phương pháp tính thuế theo <strong>Thu nhập tính thuế &times; Thuế suất</strong> (Thu nhập = Doanh thu - Chi phí) phức tạp hơn phương pháp <strong>% &times; (Doanh thu - 1 tỷ)</strong> do các rào cản:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200/60">
+                                <strong class="text-slate-800 text-xs block mb-1">1. Hóa đơn đầu vào khắt khe</strong>
+                                Cần đầy đủ hóa đơn điện tử hợp lệ cho mọi chi phí. HKD mua hàng từ nông dân, chợ đầu mối rất khó lấy đủ hóa đơn.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200/60">
+                                <strong class="text-slate-800 text-xs block mb-1">2. Sổ sách kế toán phức tạp</strong>
+                                Bắt buộc áp dụng Bộ 4 sổ kế toán + Bảng kê tồn kho. Đòi hỏi phải thuê kế toán riêng, làm tăng chi phí vận hành.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng tính toán số thuế phải nộp theo cả 2 phương pháp, hỗ trợ HKD tự động tổng hợp chi phí đầu vào và doanh thu bán ra để so sánh, giúp chủ hộ dễ dàng chọn ra phương pháp tính thuế tối ưu nhất.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 3 -->
+                <section id="muc-3" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 03</span>
+                        <span class="text-xs text-slate-400 font-medium">• Mối liên hệ dữ liệu</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Doanh thu bán hàng từ Hóa đơn, Sổ kế toán và Tờ khai thuế có liên quan gì đến nhau?
+                    </h2>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p><strong>Mối liên hệ hữu cơ:</strong> Hóa đơn điện tử là chứng từ gốc &rarr; Doanh thu từ hóa đơn được tổng hợp vào <strong>Sổ kế toán</strong> (S1a, S2a hoặc Bộ 4 sổ S2b-S2e) &rarr; Tổng doanh thu trên Sổ kế toán là căn cứ điền vào <strong>Tờ khai thuế</strong> (Mẫu 01-TKN/CNKD hoặc Mẫu 01/CNKD).</p>
+                        <p><strong>Đối chiếu tự động (TMS):</strong> Cơ quan thuế áp dụng hệ thống quản trị rủi ro tiền kiểm. Dữ liệu HĐĐT xuất ra sẽ được tự động đối chiếu với Sổ kế toán và Tờ khai thuế. Sai lệch giữa 3 số liệu này sẽ bị phát hiện tự động và đưa vào danh sách cảnh báo vi phạm.</p>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng việc tự động đồng bộ doanh thu từ Hóa đơn điện tử sang Sổ kế toán và Tờ khai thuế, đảm bảo số liệu trùng khớp 100%, giúp HKD hoàn toàn yên tâm không bị cơ quan thuế cảnh báo lệch dữ liệu.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 4 -->
+                <section id="muc-4" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 04</span>
+                        <span class="text-xs text-slate-400 font-medium">• Khái niệm HĐĐT</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">Hóa đơn điện tử là gì?</h2>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Hóa đơn điện tử (HĐĐT) là hóa đơn thể hiện ở dạng dữ liệu điện tử do tổ chức, cá nhân bán hàng hóa/dịch vụ khởi tạo, lập, gửi, nhận, lưu trữ và quản lý bằng phương tiện điện tử theo quy định pháp luật (Nghị định 123/2020/NĐ-CP).
+                    </p>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng việc khởi tạo, xuất, lưu trữ và quản lý Hóa đơn điện tử an toàn, bảo mật, đúng chuẩn quy định pháp luật của Cơ quan Thuế.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 5 -->
+                <section id="muc-5" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 05</span>
+                        <span class="text-xs text-slate-400 font-medium">• HĐĐT khởi tạo từ máy tính tiền</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">Hóa đơn điện tử từ máy tính tiền là gì?</h2>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p>Là HĐĐT có mã của Cơ quan thuế được khởi tạo từ máy tính tiền hoặc phần mềm quản lý bán hàng có kết nối dữ liệu trực tiếp với Cơ quan thuế.</p>
+                        <ul class="list-disc list-inside pl-1 space-y-1">
+                            <li>Bắt buộc áp dụng đối với HKD Nhóm 2, 3, 4 có mô hình bán lẻ trực tiếp tới người tiêu dùng (nhà hàng, quán ăn, siêu thị, tiệm vàng, nhà thuốc...).</li>
+                            <li>Cho phép xuất hóa đơn 24/7, thao tác nhanh và không bắt buộc ký số trên từng hóa đơn lẻ.</li>
+                        </ul>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng kết nối trực tiếp dữ liệu HĐĐT khởi tạo từ máy tính tiền với Cơ quan Thuế 24/7, giúp HKD xuất hóa đơn tức thì ngay tại màn hình bán hàng.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 6 -->
+                <section id="muc-6" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 06</span>
+                        <span class="text-xs text-slate-400 font-medium">• Tính thuế HKD vs Doanh nghiệp</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Hộ kinh doanh dùng phương pháp tính thuế nào, cách tính ra sao, khác gì với doanh nghiệp?
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Cách tính thuế của HKD (Từ 2026):</strong>
+                            <ul class="list-disc list-inside pl-2 space-y-1">
+                                <li><strong>Nhóm 1:</strong> Miễn thuế hoàn toàn.</li>
+                                <li><strong>Nhóm 2:</strong> Thuế GTGT = % &times; Doanh thu. Thuế TNCN chọn % &times; (Doanh thu - 1 tỷ) hoặc Thu nhập tính thuế &times; 15%.</li>
+                                <li><strong>Nhóm 3:</strong> Thuế GTGT = % &times; Doanh thu; Thuế TNCN = Thu nhập tính thuế &times; 17%.</li>
+                                <li><strong>Nhóm 4:</strong> Thuế GTGT = % &times; Doanh thu; Thuế TNCN = Thu nhập tính thuế &times; 20%.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Khác biệt so với Doanh nghiệp:</strong>
+                            <p>DN nộp thuế GTGT khấu trừ (Đầu ra - Đầu vào) và nộp Thuế Thu nhập doanh nghiệp (TNDN) 20% lợi nhuận. HKD nộp thuế GTGT tỷ lệ % trên doanh thu và nộp Thuế Thu nhập cá nhân (TNCN).</p>
+                        </div>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng linh hoạt các phương pháp tính thuế cho HKD, tự động tính chuẩn xác số thuế phải nộp theo đúng nhóm phân loại của cơ quan thuế.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 7 -->
+                <section id="muc-7" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 07</span>
+                        <span class="text-xs text-slate-400 font-medium">• Mẫu HĐĐT sử dụng</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Hộ kinh doanh dùng Hóa đơn điện tử mẫu gì, khác gì với doanh nghiệp?
+                    </h2>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p><strong>Hộ kinh doanh:</strong> Dùng <strong>Hóa đơn bán hàng</strong> (Mẫu đầu <code>2C26T...</code>). Không tách riêng dòng tiền thuế GTGT và thuế suất GTGT.</p>
+                        <p><strong>Doanh nghiệp (khấu trừ):</strong> Dùng <strong>Hóa đơn Giá trị gia tăng</strong> (Mẫu đầu <code>1C26T...</code>). Tách thành các dòng riêng biệt: Giá chưa thuế, Thuế suất GTGT (5%, 8%, 10%...), Tiền thuế GTGT và Tổng tiền thanh toán.</p>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng việc khởi tạo chuẩn xác mẫu Hóa đơn bán hàng (đầu 2C...) dành riêng cho HKD cũng như Hóa đơn GTGT (đầu 1C...) dành cho Doanh nghiệp.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 8 -->
+                <section id="muc-8" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 08</span>
+                        <span class="text-xs text-slate-400 font-medium">• Chữ ký số & Remote Signing</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Chữ ký số là gì? Có những loại nào? Chữ ký số từ xa là gì?
+                    </h2>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p><strong>Chữ ký số (CKS):</strong> Là chữ ký điện tử xác thực định danh NNT, có giá trị pháp lý tương đương con dấu và chữ ký tay.</p>
+                        <p><strong>Các loại CKS:</strong> USB Token, Smartcard/SIM CA, HSM và Chữ ký số từ xa (Remote Signing).</p>
+                        <p><strong>Chữ ký số từ xa (Remote Signing):</strong> Lưu chứng thư số trên đám mây (Cloud), giúp chủ HKD ký số hóa đơn mọi lúc mọi nơi ngay trên Smartphone/máy tính bảng qua FaceID, Vân tay hoặc OTP mà không cần phần cứng USB.</p>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng tích hợp đa dạng mọi loại Chữ ký số (USB Token, CKS từ xa Cloud CA...), cho phép chủ hộ ký phát hành hóa đơn tức thì ngay trên điện thoại hoặc máy tính.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 9 -->
+                <section id="muc-9" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 09</span>
+                        <span class="text-xs text-slate-400 font-medium">• Đăng ký CKS & Khai báo HĐĐT</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Đăng ký chữ ký số cần chuẩn bị những gì? Thông tin quan trọng để nhập lên phần mềm HĐĐT?
+                    </h2>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p><strong>Hồ sơ đăng ký:</strong> CCCD chủ hộ (đã chuẩn hóa định danh cá nhân), Đăng ký HKD, Mã số thuế.</p>
+                        <p><strong>Thông tin quan trọng cần lưu khi nộp Mẫu 01/ĐKTĐ-HĐĐT:</strong> (1) Tên nhà cung cấp CA; (2) Số Sê-ri chứng thư số (Serial); (3) Thời hạn hiệu lực CKS.</p>
+                    </div>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng việc cài đặt và đồng bộ tự động thông tin chứng thư số (Số Sê-ri, Nhà cung cấp, Thời hạn) lên hệ thống HĐĐT chỉ với vài thao tác đơn giản, tránh sai sót dữ liệu.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 10 -->
+                <section id="muc-10" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 10</span>
+                        <span class="text-xs text-slate-400 font-medium">• Yêu cầu pháp lý CKS</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Vì sao chữ ký số là điều kiện bắt buộc để sử dụng Hóa đơn điện tử?
+                    </h2>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Chữ ký số đảm bảo <strong>Tính chống chối bỏ (Non-repudiation)</strong> và <strong>Tính toàn vẹn dữ liệu</strong>. Đảm bảo xác thực chính xác người bán lập hóa đơn và nội dung không bị can thiệp, sửa đổi sau khi đã ký.
+                    </p>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng mã hóa và xác thực chữ ký số trên từng hóa đơn xuất ra, đảm bảo 100% tính pháp lý, tính toàn vẹn và chống chối bỏ theo quy định của Cơ quan Thuế.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 11 (ĐÃ SỬA LỖI HIỂN THỊ **XML**) -->
+                <section id="muc-11" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 11</span>
+                        <span class="text-xs text-slate-400 font-medium">• Định dạng file XML</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Hóa đơn điện tử có định dạng gì? Vì sao file XML lại quan trọng?
+                    </h2>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        File <strong>XML</strong> là định dạng dữ liệu chuẩn pháp lý duy nhất chứa cấu trúc hóa đơn và mã chữ ký số. Giúp hệ thống Cơ quan thuế đọc, phân tích và tự động hạch toán vào Tờ khai thuế. File PDF chỉ là bản hiển thị đồ họa để con người đọc.
+                    </p>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng tự động xuất và lưu trữ đầy đủ cả file dữ liệu gốc XML lẫn bản thể hiện PDF, giúp HKD dễ dàng tra cứu, quản lý và truyền nhận dữ liệu chuẩn pháp lý.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 12 -->
+                <section id="muc-12" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 12</span>
+                        <span class="text-xs text-slate-400 font-medium">• Nhu cầu lấy HĐĐT người mua</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Vì sao người mua hàng lại yêu cầu nhận Hóa đơn điện tử?
+                    </h2>
+
+                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-slate-600 leading-relaxed pl-1">
+                        <li>Để hạch toán chi phí hợp lệ khi tính thuế TNDN/TNCN.</li>
+                        <li>Làm căn cứ kê khai khấu trừ thuế GTGT đầu vào (đối với doanh nghiệp).</li>
+                        <li>Làm chứng từ nguồn gốc xuất xứ hàng hóa khi lưu thông và căn cứ bảo hành sản phẩm.</li>
+                    </ul>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng gửi HĐĐT tự động qua Email, SMS hoặc Zalo cho người mua hàng ngay sau khi thanh toán, cung cấp đầy đủ cả file XML và PDF chuẩn quy định.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MỤC 13 -->
+                <section id="muc-13" class="muc-content article-card hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Mục 13</span>
+                        <span class="text-xs text-slate-400 font-medium">• Gửi dữ liệu HĐĐT hàng ngày</span>
+                    </div>
+
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-3">
+                        Vì sao phải gửi Hóa đơn điện tử lên Cơ quan thuế hàng ngày?
+                    </h2>
+
+                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-slate-600 leading-relaxed pl-1">
+                        <li>Giúp Cơ quan thuế quản lý doanh thu thực tế theo thời gian thực (Real-time).</li>
+                        <li>Chạy thuật toán phân tích rủi ro tiền kiểm, phát hiện bất thường và cảnh báo sớm cho HKD tránh bị xử phạt hành chính.</li>
+                    </ul>
+
+                    <div class="kv-callout">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Lưu ý:</strong> <em>Phần mềm KiotViet đáp ứng việc tự động truyền nhận và gửi dữ liệu HĐĐT lên hệ thống Cơ quan Thuế hàng ngày/ngay sau khi phát sinh, giúp HKD yên tâm tuân thủ tiến độ và không lo bị phạt trễ hạn.</em>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER TỐI GIẢN -->
+    <footer class="bg-white border-t border-slate-200 mt-auto py-3 text-center text-slate-400 text-[11px] font-medium">
+        © 2026 KiotViet Learning & Development.
+    </footer>
+
+    <!-- SCRIPT CHUYỂN ĐỔI TAB MỤC LỤC -->
+    <script>
+        function showSection(sectionId) {
+            // Ẩn tất cả các thẻ nội dung
+            const allSections = document.querySelectorAll('.muc-content');
+            allSections.forEach(sec => sec.classList.add('hidden'));
+
+            // Hiển thị thẻ nội dung được chọn
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            // Reset trạng thái active của tất cả các nút Sidebar
+            const allButtons = document.querySelectorAll('.sidebar-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Kích hoạt nút bấm tương ứng trên Sidebar
+            const activeBtn = document.getElementById(`btn-${sectionId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            // Cuộn mượt lên đầu trang nội dung
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
