@@ -146,14 +146,15 @@
     <!-- ================= SIDEBAR NAV DỌC BÊN TRÁI ================= -->
     <aside id="leftSidebar" class="w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-full flex flex-col justify-between p-3.5 z-50 flex-shrink-0 shadow-lg transition-all duration-300 relative overflow-y-auto">
         <div>
-            <!-- BRAND LOGO (ĐÃ GIẢM KÍCH THƯỚC VỀ h-5) & NÚT THU NHỎ SIDEBAR -->
+            <!-- BRAND LOGO (ĐÃ TĂNG KÍCH THƯỚC LÊN 20% -> h-6) & NÚT CÓ TEXT HIỂN THỊ ĐỂ ẨN/MỞ SIDEBAR -->
             <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-200/80">
                 <div class="flex items-center gap-2 overflow-hidden sidebar-text-label">
-                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-5 w-auto">
+                    <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-6 w-auto">
                 </div>
-                <!-- Nút Thu nhỏ/Mở rộng Sidebar Dọc -->
-                <button onclick="toggleLeftSidebar()" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-sky-50 text-slate-500 hover:text-sky-600 flex items-center justify-center transition-all shrink-0" title="Thu nhỏ / Mở rộng Sidebar">
+                <!-- Nút Thu nhỏ / Mở rộng Sidebar có chữ kèm icon -->
+                <button onclick="toggleLeftSidebar()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-sky-50 text-slate-600 hover:text-sky-600 flex items-center gap-1.5 transition-all shrink-0 text-xs font-bold border border-slate-200" title="Thu nhỏ / Mở rộng Sidebar">
                     <i id="sidebarToggleIcon" class="fa-solid fa-angles-left text-xs"></i>
+                    <span id="sidebarToggleText" class="sidebar-text-label text-[11px]">Thu gọn</span>
                 </button>
             </div>
 
@@ -249,23 +250,36 @@
     <!-- ================= KHU VỰC NỘI DUNG CHÍNH (BÊN PHẢI) ================= -->
     <div class="flex-1 flex flex-col h-full overflow-hidden relative">
         
-        <!-- THANH CÔNG CỤ IFRAME -->
-        <div id="iframeToolbar" class="bg-slate-100/90 backdrop-blur-md border-b border-slate-200 h-8 px-4 flex items-center justify-between text-xs text-slate-500 flex-shrink-0 hidden">
-            <div class="flex items-center gap-3 overflow-hidden">
-                <span id="currentTitleDisplay" class="font-bold text-slate-700 truncate"><i class="fa-solid fa-circle-info mr-1 text-sky-500"></i> Đang tải bài học...</span>
+        <!-- THANH CÔNG CỤ IFRAME (NAVBAR NGANG) -->
+        <div id="iframeToolbar" class="bg-slate-100/90 backdrop-blur-md border-b border-slate-200 min-h-9 px-4 py-1 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-500 flex-shrink-0 hidden gap-2">
+            <div class="flex items-center gap-2 overflow-hidden mr-2">
+                <span id="currentTitleDisplay" class="font-medium text-slate-700 truncate text-[12px]"><i class="fa-solid fa-circle-info mr-1.5 text-sky-500"></i> Đang tải bài học...</span>
             </div>
             
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="hidden sm:flex items-center gap-1 text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+            <div class="flex items-center gap-2.5 shrink-0">
+                <div class="hidden md:flex items-center gap-1 text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
                     <i class="fa-solid fa-bolt text-amber-500"></i> Auto Zoom 80%
                 </div>
                 <button onclick="toggleIframeZoom()" id="btnToggleZoom" class="text-[10px] font-bold text-slate-600 bg-white border border-slate-300 px-2 py-0.5 rounded-lg hover:bg-slate-50 flex items-center gap-1">
                     <i class="fa-solid fa-magnifying-glass-plus text-sky-500"></i> <span id="zoomLabel">Zoom: 80%</span>
                 </button>
-                <a id="externalLinkBtn" href="#" target="_blank" class="font-bold text-sky-600 hover:underline flex items-center gap-1 text-[11px]">
-                    Cửa sổ mới <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+
+                <!-- NÚT MỞ TRANG WEB NGOÀI (NỔI BẬT NẾU LÀ TAB BÀI TEST LMS) -->
+                <a id="externalLinkBtn" href="#" target="_blank" class="font-bold text-white bg-sky-600 hover:bg-sky-700 px-2.5 py-1 rounded-lg flex items-center gap-1.5 text-[11px] shadow-sm transition-all">
+                    <span>Mở cửa sổ mới</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                 </a>
             </div>
+        </div>
+
+        <!-- BANNER CẢNH BÁO ĐĂNG NHẬP LMS (CHỈ HIỂN THỊ KHI VÀO BÀI TEST) -->
+        <div id="lmsLoginNotice" class="bg-amber-50 border-b border-amber-200/80 px-4 py-1.5 text-amber-800 text-xs flex items-center justify-between shrink-0 hidden">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm"></i>
+                <span><strong>Lưu ý về đăng nhập LMS:</strong> Để đăng nhập vào LMS làm bài test, vui lòng bấm nút <strong>"Mở cửa sổ mới"</strong> để đăng nhập và làm bài trực tiếp trên LMS daotao.kiotviet.vn</span>
+            </div>
+            <a id="lmsDirectBtn" href="#" target="_blank" class="px-3 py-0.5 bg-amber-600 hover:bg-amber-700 text-white font-bold text-[11px] rounded-md transition-all shrink-0 ml-2">
+                Mở làm bài test ngay <i class="fa-solid fa-arrow-right text-[10px] ml-0.5"></i>
+            </a>
         </div>
 
         <!-- MAIN VIEWPORT CONTENT -->
@@ -326,29 +340,14 @@
                                         <strong>Giới thiệu chung:</strong> Chương trình đào tạo sản phẩm Retail giúp bạn nắm vững các giải pháp hỗ trợ khách hàng ngành bán lẻ. Chương trình bao gồm các học phần sau:
                                     </p>
 
-                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-4 bg-sky-50/50 p-3.5 rounded-xl border border-sky-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
+                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-2 bg-sky-50/50 p-3.5 rounded-xl border border-sky-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 1A:</strong> Tổng quan các loại hàng hóa</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 1B:</strong> Giao dịch, Thiết lập giá, Kiểm kho</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 2A:</strong> Bán hàng, quản lý khách hàng</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 2B:</strong> Trả hàng, báo cáo, kênh Online</span></li>
                                         <li class="flex items-center gap-2 md:col-span-2"><i class="fa-solid fa-check text-sky-500"></i> <span><strong>Buổi 3:</strong> Kế toán 01</span></li>
                                     </ul>
-
-                                    <div class="text-xs text-slate-600 mb-3">
-                                        <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
-                                        <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                            <li>Tự tra cứu Kiến thức nền tảng của từng module</li>
-                                            <li>Tham khảo trang Học liệu E-Learning</li>
-                                            <li>Làm bài quiz ôn tập trắc nghiệm online</li>
-                                            <li>Làm bài tập thực hành online</li>
-                                            <li>Tự ôn luyện tập các tình huống vận dụng tính năng để tư vấn</li>
-                                            <li>Review cuối buổi học cùng Trainer team Đào tạo</li>
-                                        </ul>
-                                    </div>
                                 </div>
-                                <p class="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
-                                    * Sau khi hoàn thành các buổi học, học viên chủ động bấm nút "Làm bài thi" trắc nghiệm trên LMS để được ghi nhận hoàn thành khóa học. (Yêu cầu đạt tỷ lệ chính xác 80% trong tối đa 2 lần test).
-                                </p>
                             </div>
 
                             <!-- KHUNG FNB -->
@@ -359,29 +358,14 @@
                                         <strong>Giới thiệu chung:</strong> Chương trình đào tạo sản phẩm FNB giúp bạn nắm vững các giải pháp hỗ trợ khách hàng kinh doanh ngành Thực phẩm & Đồ uống. Chương trình bao gồm các học phần sau:
                                     </p>
 
-                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-4 bg-orange-50/50 p-3.5 rounded-xl border border-orange-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
+                                    <ul class="text-xs text-slate-700 font-medium space-y-2 mb-2 bg-orange-50/50 p-3.5 rounded-xl border border-orange-100 grid grid-cols-1 md:grid-cols-2 gap-1.5">
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 1A:</strong> Tổng quan Thực đơn và Kho hàng</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 1B:</strong> Các Món đặc thù ngành F&B</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 2A:</strong> Các nghiệp vụ vận hành bán hàng, thanh toán</span></li>
                                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 2B:</strong> Các thiết bị phần cứng dùng trong FNB</span></li>
                                         <li class="flex items-center gap-2 md:col-span-2"><i class="fa-solid fa-check text-orange-500"></i> <span><strong>Buổi 3:</strong> Kế toán 01</span></li>
                                     </ul>
-
-                                    <div class="text-xs text-slate-600 mb-3">
-                                        <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
-                                        <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                            <li>Tự tra cứu Kiến thức nền tảng của từng module</li>
-                                            <li>Tham khảo trang Học liệu E-Learning</li>
-                                            <li>Làm bài quiz ôn tập trắc nghiệm online</li>
-                                            <li>Làm bài tập thực hành online</li>
-                                            <li>Tự ôn luyện tập các tình huống vận dụng tính năng để tư vấn</li>
-                                            <li>Review cuối buổi học cùng Trainer team Đào tạo</li>
-                                        </ul>
-                                    </div>
                                 </div>
-                                <p class="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
-                                    * Sau khi hoàn thành các buổi học, học viên chủ động bấm nút "Làm bài thi" trắc nghiệm trên LMS để được ghi nhận hoàn thành khóa học. (Yêu cầu đạt tỷ lệ chính xác 80% trong tối đa 2 lần test).
-                                </p>
                             </div>
 
                         </div>
@@ -431,11 +415,11 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 1A)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Tự học Online trên Hệ thống (Buổi 1A)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 1B)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Tự học Online trên Hệ thống (Buổi 1B)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -455,11 +439,11 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 2A)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Tự học Online trên Hệ thống (Buổi 2A)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 2B)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Tự học Online trên Hệ thống (Buổi 2B)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -479,7 +463,7 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="md:col-span-2 p-3 rounded-xl bg-sky-50 border border-sky-200">
                                             <span class="text-[11px] font-bold text-sky-700 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 15:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 3: Kế toán 01)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Tự học Online trên Hệ thống (Buổi 3: Kế toán 01)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -606,19 +590,29 @@
         };
 
         const activityConfig = [
-            { key: 'act0', label: 'Kiến thức nền tảng', icon: 'fa-brain', textClass: 'text-pink-500', desc: 'Tìm hiểu tổng quan kiến thức cốt lõi, khái niệm nền tảng của bài học trước khi đi sâu vào chi tiết.' },
+            { key: 'act0', label: 'Giới thiệu chung', icon: 'fa-brain', textClass: 'text-pink-500', desc: 'Tìm hiểu tổng quan bài học trước khi đi sâu vào chi tiết.' },
             { key: 'act1', label: 'Nghiên cứu Học liệu', icon: 'fa-book-open', textClass: 'text-sky-500', desc: 'Xem Infographic tổng hợp kiến thức, hướng dẫn thao tác kèm hình ảnh và lý thuyết bài học.' },
             { key: 'act3', label: 'Bài tập thực hành', icon: 'fa-laptop-code', textClass: 'text-emerald-500', desc: 'Thực hành thao tác trực tiếp trên phần mềm KiotViet giả lập, chụp ảnh màn hình và nộp minh chứng.' },
-            { key: 'act2', label: 'Ôn tập trắc nghiệm', icon: 'fa-pen-to-square', textClass: 'text-indigo-500', desc: 'Tự ôn tập kiểm tra kiến thức trắc nghiệm theo bài lẻ hoặc tạo đề ngẫu nhiên chuẩn bị bài thi cuối khóa.' },
-            { key: 'act4', label: 'Tình huống vận dụng tư vấn', icon: 'fa-comments', textClass: 'text-amber-500', desc: 'Rèn luyện phản xạ giải quyết kịch bản tình huống thực tế cùng Trainer trong buổi Review online.' }
+            { key: 'act4', label: 'Tình huống vận dụng tư vấn', icon: 'fa-comments', textClass: 'text-amber-500', desc: 'Rèn luyện phản xạ giải quyết kịch bản tình huống thực tế cùng Trainer trong buổi Review online.' },
+            { key: 'act2', label: 'Ôn tập trắc nghiệm', icon: 'fa-pen-to-square', textClass: 'text-indigo-500', desc: 'Tự ôn tập kiểm tra kiến thức trắc nghiệm theo bài lẻ hoặc tạo đề ngẫu nhiên chuẩn bị bài thi cuối khóa.' }
         ];
 
+        /* BỘ CÂU MÔ TẢ CHI TIẾT ĐẦY ĐỦ TRÊN NAVBAR NGANG (CHỈ HIỂN THỊ CÂU MÔ TẢ THEO YÊU CẦU) */
+        const activityDescriptions = {
+            act0: 'Học viên tìm hiểu những thông tin cần thiết về buổi học',
+            act1: 'Học viên tự học theo trình tự từ trên xuống dưới, Hoàn thành "Bài học lý thuyết" và tự xác nhận khi "Đã hiểu bài"',
+            act3: 'Học viên làm bài tập thực hành nộp bài tập đúng thời hạn 11:30 (buổi học sáng) và 16:00 (buổi học chiều)',
+            act4: 'Học viên tham khảo các câu hỏi tình huống vận dụng tính năng để review cùng trainer cuối ngày học',
+            act2: 'Học viên tự ôn tập bộ câu hỏi trắc nghiệm cho từng bài học để chuẩn bị cho bài test cuối khóa',
+            test: 'Trước thời hạn quy định 10:00 ngày thứ 6, học viên bấm nút làm "Làm bài thi" trắc nghiệm hoàn thành khóa học.'
+        };
+
         const activityNames = {
-            act0: "Kiến thức nền tảng",
+            act0: "Giới thiệu chung",
             act1: "Nghiên cứu Học liệu",
             act3: "Bài tập thực hành",
-            act2: "Ôn tập trắc nghiệm",
-            act4: "Tình huống vận dụng tư vấn"
+            act4: "Tình huống vận dụng tư vấn",
+            act2: "Ôn tập trắc nghiệm"
         };
 
         // Biến lưu trạng thái hiện tại của ứng dụng
@@ -631,12 +625,15 @@
         function toggleLeftSidebar() {
             const sidebar = document.getElementById('leftSidebar');
             const icon = document.getElementById('sidebarToggleIcon');
+            const text = document.getElementById('sidebarToggleText');
             sidebar.classList.toggle('sidebar-collapsed');
 
             if (sidebar.classList.contains('sidebar-collapsed')) {
                 icon.className = "fa-solid fa-angles-right text-xs";
+                if (text) text.textContent = "Mở";
             } else {
                 icon.className = "fa-solid fa-angles-left text-xs";
+                if (text) text.textContent = "Thu gọn";
             }
         }
 
@@ -672,7 +669,7 @@
 
         function switchAppTab(tabKey) {
             currentMainTab = tabKey;
-            // Nếu click sang một buổi học, tự động đưa hoạt động mặc định về "Kiến thức nền tảng"
+            // Nếu click sang một buổi học, tự động đưa hoạt động mặc định về "Giới thiệu chung" (act0)
             if (tabKey !== 'home' && tabKey !== 'test_sp' && tabKey !== 'test_kt') {
                 currentSubActivity = 'act0';
             }
@@ -744,9 +741,11 @@
             const iframeToolbar = document.getElementById('iframeToolbar');
             const homeView = document.getElementById('homeView');
             const iframeView = document.getElementById('iframeView');
+            const lmsNotice = document.getElementById('lmsLoginNotice');
 
             if (currentMainTab === 'home') {
                 iframeToolbar.classList.add('hidden');
+                if (lmsNotice) lmsNotice.classList.add('hidden');
                 iframeView.style.display = 'none';
                 homeView.style.display = 'block';
             } 
@@ -757,26 +756,39 @@
 
                 let url = "";
                 let displayTitle = "";
+                let isTestTab = false;
 
                 if (currentMainTab === 'test_sp') {
                     url = courseData[currentBranch].test_sp;
-                    displayTitle = `Bài test sản phẩm (${currentBranch.toUpperCase()})`;
+                    displayTitle = activityDescriptions.test;
+                    isTestTab = true;
                 } 
                 else if (currentMainTab === 'test_kt') {
                     url = courseData[currentBranch].test_kt;
-                    displayTitle = `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`;
+                    displayTitle = activityDescriptions.test;
+                    isTestTab = true;
                 } 
                 else {
                     url = courseData[currentBranch][currentMainTab][currentSubActivity];
-                    const sessionTitle = currentMainTab.replace('buoi', 'Buổi ');
-                    displayTitle = `${sessionTitle.toUpperCase()} (${currentBranch.toUpperCase()}) ➔ ${activityNames[currentSubActivity]}`;
+                    displayTitle = activityDescriptions[currentSubActivity];
+                }
+
+                // Hiển thị/Ẩn thanh cảnh báo đăng nhập LMS
+                if (lmsNotice) {
+                    if (isTestTab) {
+                        lmsNotice.classList.remove('hidden');
+                        const lmsDirectBtn = document.getElementById('lmsDirectBtn');
+                        if (lmsDirectBtn) lmsDirectBtn.href = url;
+                    } else {
+                        lmsNotice.classList.add('hidden');
+                    }
                 }
 
                 loadIframe(url, displayTitle);
             }
         }
 
-        /* ================= HIỂN THỊ CỤM 5 HOẠT ĐỘNG TRONG SIDEBAR DỌC ================= */
+        /* ================= HIỂN THỊ CỤM HOẠT ĐỘNG TRONG SIDEBAR DỌC ================= */
         function renderSidebarSubActivities(activeTabKey) {
             ['buoi1a', 'buoi1b', 'buoi2a', 'buoi2b', 'buoi3'].forEach(key => {
                 const container = document.getElementById(`subGroup_${key}`);
