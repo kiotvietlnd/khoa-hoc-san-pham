@@ -621,6 +621,7 @@
             act4: "Tình huống vận dụng tư vấn"
         };
 
+        // Biến lưu trạng thái hiện tại của ứng dụng
         let currentBranch = 'retail';
         let currentMainTab = 'home';
         let currentSubActivity = 'act0';
@@ -654,23 +655,50 @@
             }
         }
 
-        /* ================= CHUYỂN ĐỔI NGÀNH (RETAIL / FNB) ================= */
+        /* ================= ĐỒNG BỘ TRẠNG THÁI HIỆN TẠI LÊN THANH HASH TRÊN URL ================= */
+        function updateHashFromState() {
+            if (currentMainTab === 'home' || currentMainTab === 'test_sp' || currentMainTab === 'test_kt') {
+                window.location.hash = `${currentBranch}/${currentMainTab}`;
+            } else {
+                window.location.hash = `${currentBranch}/${currentMainTab}/${currentSubActivity}`;
+            }
+        }
+
+        /* ================= THAY ĐỔI TRẠNG THÁI TỪ SỰ KIỆN CLICK ================= */
         function switchBranch(branch) {
             currentBranch = branch;
+            updateHashFromState();
+        }
 
+        function switchAppTab(tabKey) {
+            currentMainTab = tabKey;
+            // Nếu click sang một buổi học, tự động đưa hoạt động mặc định về "Kiến thức nền tảng"
+            if (tabKey !== 'home' && tabKey !== 'test_sp' && tabKey !== 'test_kt') {
+                currentSubActivity = 'act0';
+            }
+            updateHashFromState();
+        }
+
+        function switchSubActivity(actKey) {
+            currentSubActivity = actKey;
+            updateHashFromState();
+        }
+
+        /* ================= THỰC THI HIỂN THỊ GIAO DIỆN CHUẨN (UI SYNCHRONIZATION) ================= */
+        function syncUI() {
+            // 1. Đồng bộ nút ngành hàng (Retail / F&B)
             const btnRetail = document.getElementById('btnFilterRetail');
             const btnFnb = document.getElementById('btnFilterFnb');
             const label = document.getElementById('currentBranchLabel');
             const badge = document.getElementById('homeBranchBadge');
-
             const introRetail = document.getElementById('introRetail');
             const introFnb = document.getElementById('introFnb');
 
-            if (branch === 'retail') {
+            if (currentBranch === 'retail') {
                 btnRetail.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-sky-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
                 btnFnb.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-orange-600 flex items-center justify-center gap-1.5";
                 label.textContent = "RETAIL";
-                label.className = "text-sky-600 font-bold";
+                label.className = "text-sky-600 font-bold uppercase font-black";
 
                 badge.textContent = "Ngành RETAIL";
                 badge.className = "text-[11px] font-bold px-2.5 py-0.5 bg-sky-100 text-sky-700 rounded-full shrink-0";
@@ -681,7 +709,7 @@
                 btnFnb.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-orange-600 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5";
                 btnRetail.className = "flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-sky-600 flex items-center justify-center gap-1.5";
                 label.textContent = "F&B";
-                label.className = "text-orange-600 font-bold";
+                label.className = "text-orange-600 font-bold uppercase font-black";
 
                 badge.textContent = "Ngành F&B";
                 badge.className = "text-[11px] font-bold px-2.5 py-0.5 bg-orange-100 text-orange-700 rounded-full shrink-0";
@@ -690,21 +718,7 @@
                 introFnb.style.display = 'flex';
             }
 
-            if (currentMainTab !== 'home') {
-                if (currentMainTab === 'test_sp') {
-                    loadIframe(courseData[currentBranch].test_sp, `Bài test sản phẩm (${currentBranch.toUpperCase()})`);
-                } else if (currentMainTab === 'test_kt') {
-                    loadIframe(courseData[currentBranch].test_kt, `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`);
-                } else {
-                    switchSubActivity(currentSubActivity);
-                }
-            }
-        }
-
-        /* ================= CHUYỂN TAB NAVBAR CHÍNH ================= */
-        function switchAppTab(tabKey) {
-            currentMainTab = tabKey;
-
+            // 2. Đồng bộ nút active trên Sidebar chính
             const mainBtns = document.querySelectorAll('.sidebar-nav-btn');
             mainBtns.forEach(btn => btn.classList.remove('active'));
 
@@ -718,43 +732,47 @@
                 'test_sp': 6, 
                 'test_kt': 7 
             };
-            if (mainBtns[tabMap[tabKey]]) {
-                mainBtns[tabMap[tabKey]].classList.add('active');
+            const activeIndex = tabMap[currentMainTab];
+            if (mainBtns[activeIndex]) {
+                mainBtns[activeIndex].classList.add('active');
             }
 
-            renderSidebarSubActivities(tabKey);
+            // Render lại các hoạt động con (sub-activities)
+            renderSidebarSubActivities(currentMainTab);
 
+            // 3. Đồng bộ hiển thị Trang chủ vs Iframe Viewport
             const iframeToolbar = document.getElementById('iframeToolbar');
             const homeView = document.getElementById('homeView');
             const iframeView = document.getElementById('iframeView');
 
-            if (tabKey === 'home') {
+            if (currentMainTab === 'home') {
                 iframeToolbar.classList.add('hidden');
                 iframeView.style.display = 'none';
                 homeView.style.display = 'block';
-            } 
-            else if (tabKey === 'test_sp') {
-                homeView.style.display = 'none';
-                iframeView.style.display = 'block';
-                iframeToolbar.classList.remove('hidden');
-
-                loadIframe(courseData[currentBranch].test_sp, `Bài test sản phẩm (${currentBranch.toUpperCase()})`);
-            } 
-            else if (tabKey === 'test_kt') {
-                homeView.style.display = 'none';
-                iframeView.style.display = 'block';
-                iframeToolbar.classList.remove('hidden');
-
-                loadIframe(courseData[currentBranch].test_kt, `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`);
             } 
             else {
                 homeView.style.display = 'none';
                 iframeView.style.display = 'block';
                 iframeToolbar.classList.remove('hidden');
 
-                // Mặc định luôn nạp hoạt động "Kiến thức nền tảng" khi chuyển Buổi
-                currentSubActivity = 'act0';
-                switchSubActivity(currentSubActivity);
+                let url = "";
+                let displayTitle = "";
+
+                if (currentMainTab === 'test_sp') {
+                    url = courseData[currentBranch].test_sp;
+                    displayTitle = `Bài test sản phẩm (${currentBranch.toUpperCase()})`;
+                } 
+                else if (currentMainTab === 'test_kt') {
+                    url = courseData[currentBranch].test_kt;
+                    displayTitle = `Bài test Kế toán 01 (${currentBranch.toUpperCase()})`;
+                } 
+                else {
+                    url = courseData[currentBranch][currentMainTab][currentSubActivity];
+                    const sessionTitle = currentMainTab.replace('buoi', 'Buổi ');
+                    displayTitle = `${sessionTitle.toUpperCase()} (${currentBranch.toUpperCase()}) ➔ ${activityNames[currentSubActivity]}`;
+                }
+
+                loadIframe(url, displayTitle);
             }
         }
 
@@ -792,30 +810,55 @@
             });
         }
 
-        /* ================= CHUYỂN HOẠT ĐỘNG TRONG BUỔI ================= */
-        function switchSubActivity(actKey) {
-            currentSubActivity = actKey;
-
-            renderSidebarSubActivities(currentMainTab);
-
-            if (courseData[currentBranch][currentMainTab] && courseData[currentBranch][currentMainTab][actKey]) {
-                const url = courseData[currentBranch][currentMainTab][actKey];
-                const sessionTitle = currentMainTab.replace('buoi', 'Buổi ');
-                const displayTitle = `${sessionTitle.toUpperCase()} (${currentBranch.toUpperCase()}) ➔ ${activityNames[actKey]}`;
-                loadIframe(url, displayTitle);
-            }
-        }
-
         /* ================= NẠP URL VÀO IFRAME ================= */
         function loadIframe(url, title) {
             const iframe = document.getElementById('mainIframe');
             const titleDisplay = document.getElementById('currentTitleDisplay');
             const externalBtn = document.getElementById('externalLinkBtn');
 
-            iframe.src = url;
+            // Chỉ nạp lại iframe nếu giá trị URL thay đổi thực tế nhằm giảm tải và tránh giật màn hình
+            if (iframe.src !== url) {
+                iframe.src = url;
+            }
             titleDisplay.innerHTML = `<i class="fa-solid fa-circle-info mr-1 text-sky-500"></i> ${title}`;
             externalBtn.href = url;
         }
+
+        /* ================= BỘ ĐỊNH TUYẾN URL HASH (ROUTER) ================= */
+        function handleHashRoute() {
+            const hash = window.location.hash.substring(1); // Cắt bỏ ký tự '#'
+            
+            // Nếu không tồn tại Hash, đặt trạng thái mặc định là Trang chủ Retail
+            if (!hash) {
+                currentBranch = 'retail';
+                currentMainTab = 'home';
+                currentSubActivity = 'act0';
+                syncUI();
+                return;
+            }
+
+            const parts = hash.split('/');
+            const branch = parts[0];
+            const mainTab = parts[1];
+            const subActivity = parts[2] || 'act0';
+
+            // Ràng buộc kiểm định dữ liệu an toàn
+            if (branch === 'retail' || branch === 'fnb') {
+                currentBranch = branch;
+            }
+            if (['home', 'buoi1a', 'buoi1b', 'buoi2a', 'buoi2b', 'buoi3', 'test_sp', 'test_kt'].includes(mainTab)) {
+                currentMainTab = mainTab;
+            }
+            if (['act0', 'act1', 'act2', 'act3', 'act4'].includes(subActivity)) {
+                currentSubActivity = subActivity;
+            }
+
+            syncUI();
+        }
+
+        // Đăng ký các trình lắng nghe sự kiện để đồng bộ hóa
+        window.addEventListener('hashchange', handleHashRoute);
+        window.addEventListener('load', handleHashRoute);
     </script>
 </body>
 </html>
