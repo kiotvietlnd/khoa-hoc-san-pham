@@ -177,25 +177,43 @@
                     <span class="sidebar-text-label">Trang chủ</span>
                 </button>
                 
-                <!-- 2. BUỔI 1 -->
+                <!-- 2. BUỔI 1A (SÁNG) -->
                 <div>
-                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi1')" title="Buổi 1">
+                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi1a')" title="Buổi 1A (Sáng)">
                         <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
-                        <span class="sidebar-text-label">Buổi 1</span>
+                        <span class="sidebar-text-label">Buổi 1A (Sáng)</span>
                     </button>
-                    <div id="subGroup_buoi1" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
+                    <div id="subGroup_buoi1a" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
-                <!-- 3. BUỔI 2 -->
+                <!-- 3. BUỔI 1B (CHIỀU) -->
                 <div>
-                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi2')" title="Buổi 2">
+                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi1b')" title="Buổi 1B (Chiều)">
                         <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
-                        <span class="sidebar-text-label">Buổi 2</span>
+                        <span class="sidebar-text-label">Buổi 1B (Chiều)</span>
                     </button>
-                    <div id="subGroup_buoi2" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
+                    <div id="subGroup_buoi1b" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
-                <!-- 4. BUỔI 3 -->
+                <!-- 4. BUỔI 2A (SÁNG) -->
+                <div>
+                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi2a')" title="Buổi 2A (Sáng)">
+                        <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
+                        <span class="sidebar-text-label">Buổi 2A (Sáng)</span>
+                    </button>
+                    <div id="subGroup_buoi2a" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
+                </div>
+
+                <!-- 5. BUỔI 2B (CHIỀU) -->
+                <div>
+                    <button class="sidebar-nav-btn" onclick="switchAppTab('buoi2b')" title="Buổi 2B (Chiều)">
+                        <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
+                        <span class="sidebar-text-label">Buổi 2B (Chiều)</span>
+                    </button>
+                    <div id="subGroup_buoi2b" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
+                </div>
+
+                <!-- 6. BUỔI 3 -->
                 <div>
                     <button class="sidebar-nav-btn" onclick="switchAppTab('buoi3')" title="Buổi 3">
                         <i class="fa-solid fa-book-open text-xs w-5 text-center"></i>
@@ -204,7 +222,7 @@
                     <div id="subGroup_buoi3" class="sub-menu-container hidden pl-3 pr-1 py-1 flex-col gap-1 my-0.5 border-l-2 border-sky-300 ml-4"></div>
                 </div>
 
-                <!-- 5. TÁCH BÀI TEST CUỐI KHÓA THÀNH 2 MỤC RIÊNG -->
+                <!-- 7. BÀI TEST CUỐI KHÓA -->
                 <div class="mt-2 pt-2 border-t border-slate-200/80 flex flex-col gap-1">
                     <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider px-2 mb-0.5 sidebar-text-label">Bài Test Cuối Khóa</span>
                     
@@ -319,6 +337,7 @@
                                     <div class="text-xs text-slate-600 mb-3">
                                         <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
                                         <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                            <li>Tự tra cứu Kiến thức nền tảng của từng module</li>
                                             <li>Tham khảo trang Học liệu E-Learning</li>
                                             <li>Làm bài quiz ôn tập trắc nghiệm online</li>
                                             <li>Làm bài tập thực hành online</li>
@@ -351,6 +370,7 @@
                                     <div class="text-xs text-slate-600 mb-3">
                                         <strong class="text-slate-800 block mb-1.5 font-bold">Phương pháp đào tạo: Học Online, mỗi buổi học đều bao gồm các hoạt động:</strong>
                                         <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                            <li>Tự tra cứu Kiến thức nền tảng của từng module</li>
                                             <li>Tham khảo trang Học liệu E-Learning</li>
                                             <li>Làm bài quiz ôn tập trắc nghiệm online</li>
                                             <li>Làm bài tập thực hành online</li>
@@ -411,11 +431,11 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 1A)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 1A)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 1B)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 1B)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -435,11 +455,11 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 2A)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 2A)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                                             <span class="text-[11px] font-bold text-amber-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 2B)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 2B)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -459,7 +479,7 @@
                                     <div class="flex-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <div class="md:col-span-2 p-3 rounded-xl bg-sky-50 border border-sky-200">
                                             <span class="text-[11px] font-bold text-sky-700 block mb-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 15:30</span>
-                                            <span class="font-bold text-slate-800 text-xs block">Học Online + Quiz + Thực hành (Buổi 3: Kế toán 01)</span>
+                                            <span class="font-bold text-slate-800 text-xs block">Nền tảng + Học Online + Quiz (Buổi 3: Kế toán 01)</span>
                                         </div>
                                         <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                             <span class="text-[11px] font-bold text-purple-600 block mb-0.5"><i class="fa-regular fa-clock"></i> 16:00 - 17:00</span>
@@ -506,19 +526,36 @@
         /* ================= DỮ LIỆU BÀI HỌC VÀ BÀI TEST PHÂN NGÀNH ================= */
         const courseData = {
             retail: {
-                buoi1: {
+                buoi1a: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b1a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk1a",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
                 },
-                buoi2: {
+                buoi1b: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b1b.html",
+                    act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
+                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
+                    act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk1b",
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                },
+                buoi2a: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b2a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk2a",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
                 },
+                buoi2b: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b2b.html",
+                    act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
+                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
+                    act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk2b",
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                },
                 buoi3: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b3.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc/dao-tao-san-pham-ke-toan-01",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
@@ -528,19 +565,36 @@
                 test_kt: "https://daotao.kiotviet.vn/khoa-hoc/ke-toan-01/"
             },
             fnb: {
-                buoi1: {
+                buoi1a: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b1a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk1a",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
                 },
-                buoi2: {
+                buoi1b: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b1b.html",
+                    act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
+                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
+                    act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk1b",
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                },
+                buoi2a: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b2a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk2a",
                     act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
                 },
+                buoi2b: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b2b.html",
+                    act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
+                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
+                    act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk2b",
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                },
                 buoi3: {
+                    act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b3.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc/dao-tao-san-pham-ke-toan-01",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
@@ -552,6 +606,7 @@
         };
 
         const activityConfig = [
+            { key: 'act0', label: 'Kiến thức nền tảng', icon: 'fa-brain', textClass: 'text-pink-500', desc: 'Tìm hiểu tổng quan kiến thức cốt lõi, khái niệm nền tảng của bài học trước khi đi sâu vào chi tiết.' },
             { key: 'act1', label: 'Nghiên cứu Học liệu', icon: 'fa-book-open', textClass: 'text-sky-500', desc: 'Xem Infographic tổng hợp kiến thức, hướng dẫn thao tác kèm hình ảnh và lý thuyết bài học.' },
             { key: 'act3', label: 'Bài tập thực hành', icon: 'fa-laptop-code', textClass: 'text-emerald-500', desc: 'Thực hành thao tác trực tiếp trên phần mềm KiotViet giả lập, chụp ảnh màn hình và nộp minh chứng.' },
             { key: 'act2', label: 'Ôn tập trắc nghiệm', icon: 'fa-pen-to-square', textClass: 'text-indigo-500', desc: 'Tự ôn tập kiểm tra kiến thức trắc nghiệm theo bài lẻ hoặc tạo đề ngẫu nhiên chuẩn bị bài thi cuối khóa.' },
@@ -559,6 +614,7 @@
         ];
 
         const activityNames = {
+            act0: "Kiến thức nền tảng",
             act1: "Nghiên cứu Học liệu",
             act3: "Bài tập thực hành",
             act2: "Ôn tập trắc nghiệm",
@@ -567,7 +623,7 @@
 
         let currentBranch = 'retail';
         let currentMainTab = 'home';
-        let currentSubActivity = 'act1';
+        let currentSubActivity = 'act0';
         let isZoom80 = true;
 
         /* ================= THU NHỎ / MỞ RỘNG SIDEBAR DỌC ================= */
@@ -652,7 +708,16 @@
             const mainBtns = document.querySelectorAll('.sidebar-nav-btn');
             mainBtns.forEach(btn => btn.classList.remove('active'));
 
-            const tabMap = { 'home': 0, 'buoi1': 1, 'buoi2': 2, 'buoi3': 3, 'test_sp': 4, 'test_kt': 5 };
+            const tabMap = { 
+                'home': 0, 
+                'buoi1a': 1, 
+                'buoi1b': 2, 
+                'buoi2a': 3, 
+                'buoi2b': 4, 
+                'buoi3': 5, 
+                'test_sp': 6, 
+                'test_kt': 7 
+            };
             if (mainBtns[tabMap[tabKey]]) {
                 mainBtns[tabMap[tabKey]].classList.add('active');
             }
@@ -687,13 +752,15 @@
                 iframeView.style.display = 'block';
                 iframeToolbar.classList.remove('hidden');
 
+                // Mặc định luôn nạp hoạt động "Kiến thức nền tảng" khi chuyển Buổi
+                currentSubActivity = 'act0';
                 switchSubActivity(currentSubActivity);
             }
         }
 
-        /* ================= HIỂN THỊ CỤM 4 HOẠT ĐỘNG TRONG SIDEBAR DỌC ================= */
+        /* ================= HIỂN THỊ CỤM 5 HOẠT ĐỘNG TRONG SIDEBAR DỌC ================= */
         function renderSidebarSubActivities(activeTabKey) {
-            ['buoi1', 'buoi2', 'buoi3'].forEach(key => {
+            ['buoi1a', 'buoi1b', 'buoi2a', 'buoi2b', 'buoi3'].forEach(key => {
                 const container = document.getElementById(`subGroup_${key}`);
                 if (!container) return;
 
