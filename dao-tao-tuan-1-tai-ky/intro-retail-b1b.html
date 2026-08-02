@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi" class="scroll-smooth h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HƯỚNG DẪN ĐĂNG KÝ VÀ SỬ DỤNG GIAN HÀNG ĐÀO TẠO KIOTVIET</title>
+    <title>Khóa học Đào tạo Sản phẩm - Retail Buổi 1B: Giao dịch, giá bán, quản lý kho</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { 
+                extend: {
+                    colors: {
+                        kvBlue: '#166def',
+                        kvBlueHover: '#1259c7',
+                        themeAccent: '#14b8a6',
+                        themeAccentHover: '#0d9488'
+                    }
+                } 
+            }
+        }
+    </script>
 
     <!-- Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,215 +34,528 @@
     <style>
         body { 
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e0e7ff 100%);
+            font-size: 14px;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f0f4f8;
             color: #1e293b;
-            min-height: 100vh;
+        }
+        html, body { height: 100%; }
+        @media (min-width: 1024px) { html, body { overflow: hidden; } }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        /* Tech Background với Glow Blobs */
+        .tech-bg { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: -10; background-color: #f0f4f8; overflow: hidden; 
+        }
+        .glow-blob-1 {
+            position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw;
+            border-radius: 50%; background: radial-gradient(circle, rgba(30, 58, 138, 0.12) 0%, rgba(30, 58, 138, 0) 70%); filter: blur(120px);
+        }
+        .glow-blob-2 {
+            position: absolute; bottom: -10%; right: -10%; width: 50vw; height: 50vw;
+            border-radius: 50%; background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%); filter: blur(120px);
         }
 
+        /* Glass Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
         }
         .glass-card:hover {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.08);
         }
 
+        /* Gradient Text */
+        .cyber-text-gradient {
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(90deg, #166def, #14b8a6, #38bdf8, #1e3a8a);
+            animation: gradientPan 8s linear infinite;
+        }
+        @keyframes gradientPan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
         .kv-callout {
-            background: rgba(240, 249, 255, 0.85);
+            background: rgba(240, 249, 255, 0.9);
             backdrop-filter: blur(8px);
             border-left: 4px solid #0284c7;
             border-radius: 0 12px 12px 0;
-            padding: 12px 16px;
-            margin-top: 16px;
-            font-size: 13px;
-            color: #0c4a6e;
+            padding: 12px 16px; margin-top: 16px;
+            font-size: 13px; color: #0c4a6e;
         }
 
-        .accordion-header {
-            cursor: pointer;
-            user-select: none;
+        .accordion-header { cursor: pointer; user-select: none; }
+
+        /* Sidebar & Nav Buttons */
+        #sidebar { background-color: #1e3a8a; }
+
+        .nav-item-btn {
+            display: flex; align-items: center; gap: 10px;
+            padding: 12px 14px; width: 100%; text-align: left;
+            font-size: 13px; font-weight: 600; color: #bae6fd;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s; border-radius: 8px;
         }
+        .nav-item-btn:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; }
+        .nav-item-btn.active {
+            background-color: rgba(255, 255, 255, 0.18);
+            color: #ffffff; font-weight: 800;
+            border-left: 4px solid #38bdf8; padding-left: 10px;
+        }
+        .nav-item-btn i { width: 20px; text-align: center; }
+        .nav-item-btn.active i { color: #ffffff; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col h-screen overflow-hidden relative selection:bg-blue-200 bg-[#f0f4f8]">
 
-    <!-- NAVBAR MÀU XANH TRUYỀN THỐNG -->
-    <header class="sticky top-0 z-50 bg-blue-700 text-white shadow-sm py-3 px-4 sm:px-6">
-        <div class="max-w-5xl mx-auto w-full">
-            <h1 class="text-xs sm:text-sm lg:text-base font-bold text-white tracking-tight leading-snug">
-                HƯỚNG DẪN ĐĂNG KÝ VÀ SỬ DỤNG GIAN HÀNG ĐÀO TẠO KIOTVIET
-            </h1>
+    <div class="tech-bg">
+        <div class="glow-blob-1"></div>
+        <div class="glow-blob-2"></div>
+    </div>
+
+    <!-- NAVBAR TIÊU CHUẨN (Gradient KiotViet) -->
+    <header class="h-[72px] shrink-0 text-white shadow-md z-30 flex items-center relative" style="background: linear-gradient(135deg, #166def 0%, #166def 75%, #ffffff 85%, #14b8a6 100%);">
+        <div class="w-full mx-auto px-4 md:px-6 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <a href="#" class="shrink-0 select-none bg-white p-1.5 rounded-xl flex items-center shadow-sm">
+                    <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="h-5">
+                </a>
+                <div class="hidden md:block border-l border-white/20 pl-3">
+                    <h1 class="text-xs sm:text-sm font-black tracking-tight text-white uppercase leading-snug">GIỚI THIỆU CHUNG</h1>
+                    <p class="text-[10px] text-white/90 font-bold tracking-wider uppercase mt-0.5">NGÀNH RETAIL - BUỔI 1B: GIAO DỊCH, GIÁ BÁN, QUẢN LÝ KHO</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <button onclick="collapseAll()" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-white bg-white/15 border border-white/25 px-3 py-2 rounded-xl shadow-sm hover:bg-white/25 transition">
+                    <i class="fa-solid fa-angles-up text-xs"></i>
+                    <span>Thu gọn kiến thức</span>
+                </button>
+                <button onclick="toggleSidebar()" class="lg:hidden w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-base transition shrink-0">
+                    <i class="fa-solid fa-list-ul"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8">
+    <main class="flex flex-1 overflow-hidden relative">
         
-        <!-- THANH CÔNG CỤ ĐIỀU KHIỂN ACCORDION -->
-        <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-200/80">
-            <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-blue-700"></i> Danh sách chủ đề đào tạo
-            </span>
-            <button onclick="collapseAll()" class="text-xs bg-white/80 hover:bg-white text-slate-700 font-medium px-3.5 py-1.5 rounded-lg border border-slate-200/80 shadow-sm transition-all flex items-center gap-1.5">
-                <i class="fa-solid fa-angles-up text-[10px] text-blue-700"></i> Thu gọn tất cả
-            </button>
+        <!-- KHUNG NỘI DUNG CHÍNH (BÊN TRÁI) -->
+        <div id="main-scroll-area" class="flex-1 overflow-y-auto px-4 md:px-8 py-6 pb-20 relative bg-transparent custom-scrollbar">
+            
+            <div class="max-w-[1100px] mx-auto space-y-8">
+                
+                <!-- HEADER BANNER -->
+                <section class="glass-card rounded-[24px] p-6 lg:p-8 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-kvBlue text-xs font-bold mb-3 border border-blue-100">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>CHƯƠNG TRÌNH ĐÀO TẠO SẢN PHẨM TÁI KÝ</span>
+                        </div>
+                        <h1 class="text-2xl lg:text-3xl font-black text-slate-800 leading-tight">
+                            Buổi 1B. Giao dịch, giá bán, quản lý kho <br>
+                            <span class="cyber-text-gradient">(Bán lẻ - Retail)</span>
+                        </h1>
+                        <p class="text-xs lg:text-sm text-slate-600 font-medium mt-3 max-w-3xl leading-relaxed">
+                            Làm chủ nghiệp vụ quản lý kho chuyên sâu (Lô - HSD, Serial/IMEI), quy trình nhập hàng chuẩn, kỹ thuật kiểm kho tránh thất thoát và chiến lược xây dựng bảng giá linh hoạt để tối ưu lợi nhuận cho khách hàng.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ================= 1. DANH SÁCH BÀI HỌC ================= -->
+                <section id="sec-danh-sach" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">1. Danh sách bài học</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Buổi 1B bao gồm 6 bài học chia thành 3 chuyên đề cốt lõi</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- NHÓM 1: HÀNG HÓA ĐẶC THÙ -->
+                        <div class="bg-white/70 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-extrabold rounded-lg">Phần 1</span>
+                                <h3 class="font-bold text-slate-800 text-sm">Hàng hóa đặc thù</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 1: Hàng hóa Lô - HSD</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 2: Hàng hóa Serial/IMEI</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- NHÓM 2: GIAO DỊCH & ĐỐI TÁC -->
+                        <div class="bg-white/70 p-5 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-extrabold rounded-lg">Phần 2</span>
+                                <h3 class="font-bold text-slate-800 text-sm">Luồng nhập & Đối tác</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 3: Nhập hàng</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 4: Nhà cung cấp</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- NHÓM 3: GIÁ BÁN & TỒN KHO -->
+                        <div class="bg-white/70 p-5 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                                <span class="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-extrabold rounded-lg">Phần 3</span>
+                                <h3 class="font-bold text-slate-800 text-sm">Giá bán & Tồn kho</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-amber-500 mt-0.5 text-sm"></i> <span>Bài 5: Thiết lập giá</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-amber-500 mt-0.5 text-sm"></i> <span>Bài 6: Kiểm kho</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= 2. MỤC TIÊU BÀI HỌC ================= -->
+                <section id="sec-muc-tieu" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-themeAccent text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">2. Mục tiêu của buổi học</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Năng lực cốt lõi học viên sẽ đạt được sau khóa học</p>
+                        </div>
+                    </div>
+
+                    <!-- 3 TRỤ CỘT MỤC TIÊU -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
+                            <div class="w-8 h-8 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-xs mb-3">01</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-2">Làm chủ nghiệp vụ Kho & Giá</h3>
+                            <p class="text-[12px] text-slate-600 leading-relaxed">Hiểu sâu quy trình quản lý Hàng Lô - HSD, Serial/IMEI. Nắm vững luồng tiền - luồng hàng qua Nhập hàng, quản lý công nợ Nhà cung cấp, Kiểm kho và xây dựng chiến lược giá linh hoạt.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
+                            <div class="w-8 h-8 rounded-xl bg-themeAccent text-white flex items-center justify-center font-bold text-xs mb-3">02</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-2">Tư vấn chuyên sâu theo ngành</h3>
+                            <p class="text-[12px] text-slate-600 leading-relaxed"><strong>Siêu thị/Dược/Mỹ phẩm:</strong> Dùng Lô-HSD (FEFO) giảm hàng hủy. <br><strong>Điện máy/Điện thoại:</strong> Dùng Serial/IMEI minh bạch giao dịch và bảo hành bảo trì.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center font-bold text-xs mb-3">03</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-2">Giải quyết triệt để Nỗi đau</h3>
+                            <p class="text-[12px] text-slate-600 leading-relaxed">Hướng dẫn chủ shop chống gian lận, thất thoát hàng hóa thông qua Kiểm kho; giữ chân khách sỉ, khách VIP bằng Thiết lập nhiều bảng giá bán.</p>
+                        </div>
+                    </div>
+
+                    <!-- TRÌNH TỰ HỌC -->
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <h3 class="text-sm font-extrabold text-slate-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-route text-themeAccent"></i> Trình tự học tập hiệu quả:
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-medium">
+                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <span class="font-bold text-kvBlue block mb-1">1. Học tài liệu:</span>
+                                <p class="text-slate-600 leading-relaxed">Xem video & tài liệu về "Quản lý Lô-HSD, Serial/IMEI", "Quy trình Nhập hàng - NCC", "Nhiều bảng giá" và "Kiểm kho".</p>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <span class="font-bold text-themeAccent block mb-1">2. Làm bài thực hành:</span>
+                                <p class="text-slate-600 leading-relaxed">Bật tính năng; Tạo mới hàng Lô/HSD & IMEI; Lên 01 phiếu Nhập; Tạo 01 bảng giá riêng và làm 01 phiếu Kiểm kho.</p>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <span class="font-bold text-amber-600 block mb-1">3. Ôn tập xử lý tình huống:</span>
+                                <p class="text-slate-600 leading-relaxed">Giải quyết case-study: Phần mềm gợi ý FEFO ra sao? Xử lý kiểm kho chênh lệch thế nào? Cài đặt nhảy giá VIP tự động?...</p>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <span class="font-bold text-indigo-600 block mb-1">4. Ôn tập trắc nghiệm:</span>
+                                <p class="text-slate-600 leading-relaxed">Hoàn thành bài kiểm tra cuối buổi để củng cố kiến thức về luồng nhập hàng, quy tắc áp dụng bảng giá và các thuật ngữ kho.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= 3. LƯU Ý TRƯỚC KHI HỌC ================= -->
+                <section id="sec-luu-y" class="glass-card rounded-[24px] p-6 lg:p-8 border-l-4 border-l-amber-500 scroll-mt-6">
+                    <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">3. Lưu ý trước khi học</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Yêu cầu bắt buộc để phần mềm hiển thị đầy đủ công cụ thực hành</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-[12px] font-medium text-slate-700">
+                        <div class="p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-3 shadow-sm">
+                            <i class="fa-solid fa-store text-amber-600 text-sm mt-0.5"></i>
+                            <div>
+                                <strong class="text-amber-900 block font-bold mb-0.5 text-[13px]">Sử dụng lại Tài khoản:</strong>
+                                <span>Học viên tiếp tục sử dụng gian hàng Retail (Bán lẻ) đã tạo và thao tác từ Buổi 1A.</span>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-blue-50/80 border border-blue-200 flex items-start gap-3 shadow-sm">
+                            <i class="fa-solid fa-toggle-on text-blue-600 text-sm mt-0.5"></i>
+                            <div>
+                                <strong class="text-blue-900 block font-bold mb-0.5 text-[13px]">Bật tính năng Hệ thống:</strong>
+                                <span>Để có thể thực hành bài học này, học viên cần truy cập <em>Thiết lập -> Thiết lập cửa hàng -> Thiết lập tính năng</em> và <strong>BẬT</strong> 3 tính năng sau: <strong>Lô, hạn sử dụng; Serial/IMEI; Nhiều bảng giá</strong>.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= 4. KIẾN THỨC NỀN TẢNG (TỔNG QUAN) ================= -->
+                <section id="sec-kien-thuc" class="scroll-mt-6">
+                    <div class="flex items-center justify-between mb-5 mt-4">
+                        <span class="text-sm font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark text-indigo-600"></i> 4. Kiến thức nền tảng
+                        </span>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        
+                        <!-- CHỦ ĐỀ 1 -->
+                        <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
+                            <button onclick="toggleAccordion('acc-1')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-calendar-days text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Quản lý Lô - HSD và Nguyên tắc xuất kho FEFO</h2>
+                                </div>
+                                <i id="icon-acc-1" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-1" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
+                                <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
+                                    <p><strong>Bản chất:</strong> Dành riêng cho các ngành hàng có vòng đời sử dụng ngắn, dễ hỏng (Dược phẩm, Thực phẩm, Mỹ phẩm, Nông sản...).</p>
+                                    <p><strong>Nguyên lý FEFO (First Expired - First Out):</strong> KiotViet áp dụng thuật toán Hết hạn trước - Xuất trước. Khi thực hiện bán hàng, hệ thống sẽ tự động ưu tiên gợi ý và trừ tồn kho ở những Lô hàng có Hạn sử dụng gần nhất để chống tồn đọng và hủy hàng.</p>
+                                    <p>Đồng thời, phần mềm cung cấp báo cáo cảnh báo Lô hàng sắp hết hạn để chủ shop lên chiến dịch xả hàng kịp thời.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHỦ ĐỀ 2 -->
+                        <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
+                            <button onclick="toggleAccordion('acc-2')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-barcode text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Quản lý Serial/IMEI - Lời giải cho bài toán Bảo hành</h2>
+                                </div>
+                                <i id="icon-acc-2" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-2" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
+                                <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
+                                    <p><strong>Serial/IMEI là gì?</strong> Là một chuỗi ký tự định danh ĐỘC NHẤT cho từng cá thể sản phẩm (VD: 10 chiếc iPhone 15 Promax sẽ dùng chung 1 mã Hàng hóa, nhưng có 10 mã IMEI khác nhau).</p>
+                                    <p><strong>Giá trị ứng dụng:</strong> Chủ yếu dùng trong Điện máy, Máy tính, Điện thoại, Phụ tùng xe. Khi bán ra, phần mềm sẽ lưu lại mã IMEI này. Khách mang hàng đến bảo hành, chỉ cần quét mã IMEI, hệ thống sẽ truy xuất ngay lập tức ngày bán, chứng minh nguồn gốc mua tại cửa hàng để hỗ trợ bảo hành chính xác, tránh việc khách mang hàng giả/hàng mua chỗ khác tới ăn vạ.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHỦ ĐỀ 3 -->
+                        <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
+                            <button onclick="toggleAccordion('acc-3')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-truck-ramp-box text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Luồng Nhập hàng và Quản lý Công nợ Nhà cung cấp</h2>
+                                </div>
+                                <i id="icon-acc-3" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-3" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
+                                <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
+                                    <p>Giao dịch "Nhập hàng" là nghiệp vụ cốt lõi tác động cùng lúc tới 2 yếu tố sinh tử của cửa hàng: <strong>Hàng</strong> và <strong>Tiền</strong>.</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                        <li><strong>Về Hàng hóa:</strong> Hoàn thành phiếu nhập sẽ làm <em>Tăng số lượng tồn kho</em> và tự động tính toán lại <em>Giá vốn (MAC)</em> của sản phẩm.</li>
+                                        <li><strong>Về Dòng tiền:</strong> Liên kết chặt chẽ với Nhà cung cấp (NCC). Nếu chưa thanh toán đủ tiền nhập, phần mềm tự động ghi nhận số dư vào <em>Công nợ cần trả NCC</em>, giúp chủ shop không bao giờ quên nợ và lên kế hoạch dòng tiền xoay vòng hợp lý.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHỦ ĐỀ 4 -->
+                        <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
+                            <button onclick="toggleAccordion('acc-4')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-tags text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Ý nghĩa của việc Thiết lập Nhiều bảng giá</h2>
+                                </div>
+                                <i id="icon-acc-4" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-4" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
+                                <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
+                                    <p>Thay vì phải nhớ thủ công giảm giá bao nhiêu % cho từng đối tượng, tính năng "Nhiều bảng giá" cho phép xây dựng chiến lược giá tự động, chuyên nghiệp.</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                        <li><strong>Áp dụng theo nhóm Khách hàng:</strong> Cài đặt "Bảng giá VIP", "Bảng giá Sỉ". Khi chọn đúng tệp khách trên màn hình bán, phần mềm tự động nhảy sang giá rẻ hơn.</li>
+                                        <li><strong>Áp dụng theo Chi nhánh:</strong> Chuỗi cửa hàng có thể setup "Bảng giá Sài Gòn" cao hơn "Bảng giá Tỉnh" để bù đắp mặt bằng.</li>
+                                        <li><strong>Áp dụng theo Kênh bán:</strong> "Bảng giá Shopee/Grab" cộng thêm 10% phí sàn so với "Bảng giá bán trực tiếp".</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHỦ ĐỀ 5 -->
+                        <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
+                            <button onclick="toggleAccordion('acc-5')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-boxes-packing text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Bản chất của nghiệp vụ Kiểm kho</h2>
+                                </div>
+                                <i id="icon-acc-5" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-5" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
+                                <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
+                                    <p><strong>Định nghĩa:</strong> Kiểm kho là hoạt động đếm số lượng hàng hóa <em>Thực tế</em> trên kệ/trong kho và đem đối chiếu với số lượng <em>Tồn kho trên Phần mềm</em>.</p>
+                                    <p><strong>Xử lý chênh lệch (Cân bằng kho):</strong></p>
+                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                        <li>Thực tế <strong>></strong> Phần mềm: Kho dư (Có thể do nhập thừa không lên phiếu, khách trả hàng không ghi nhận...). Cân bằng sẽ làm <em>Tăng</em> tồn kho phần mềm.</li>
+                                        <li>Thực tế <strong><</strong> Phần mềm: Kho thiếu (Có thể do mất cắp, hư hỏng, bán hàng quên quét mã...). Cân bằng sẽ làm <em>Giảm</em> tồn kho, ghi nhận giá trị thất thoát vào sổ sách.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+            <footer class="mt-12 pt-8 border-t border-slate-200/80 text-center text-slate-400 text-xs">
+                <p class="font-bold text-slate-500 mb-1">KiotViet Learning & Development Department.</p>
+                <p>© 2026 KiotViet All Rights Reserved.</p>
+            </footer>
+
         </div>
 
-        <!-- DANH SÁCH MỤC ACCORDION (3 NỘI DUNG CHÍNH) -->
-        <div class="space-y-3.5">
-
-            <!-- MỤC 1 -->
-            <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
-                <button onclick="toggleAccordion('acc-1')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-link text-lg"></i>
-                        </div>
-                        <h2 class="text-xs sm:text-sm lg:text-base font-medium text-slate-800 leading-snug">
-                            Link đăng ký gian hàng dùng thử đào tạo là gì?
-                        </h2>
+        <!-- SIDEBAR DANH MỤC ĐIỀU HƯỚNG TỔNG HỢP (BÊN PHẢI) -->
+        <aside id="sidebar" class="hidden lg:flex flex-col w-[280px] shrink-0 border-l border-white/10 bg-[#1e3a8a] text-white relative z-20 shadow-xl no-print">
+            
+            <!-- HEADER SIDEBAR -->
+            <div class="p-5 border-b border-white/10 bg-[#172554] shrink-0 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-300 flex items-center justify-center text-sm border border-sky-400/30">
+                        <i class="fa-solid fa-list-check"></i>
                     </div>
-                    <i id="icon-acc-1" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
-                </button>
-                
-                <div id="acc-1" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
-                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                        <p>
-                            Đường link đăng ký gian hàng dùng thử chuẩn dành cho học viên: 
-                            <a href="https://www.kiotviet.vn/?refcode=3670" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800 font-semibold">https://www.kiotviet.vn/?refcode=3670</a>
-                        </p>
-                        <p>
-                            Bạn không nên sử dụng đường link khác để tránh trường hợp Tổng đài Telesales nhận diện thông tin của bạn là khách hàng tiềm năng có nhu cầu sử dụng KiotViet và liên hệ tư vấn.
-                        </p>
-                    </div>
-
-                    <div class="kv-callout">
-                        <div class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
-                            <div>
-                                <strong>Lưu ý:</strong> <em>Học viên bắt buộc đăng ký gian hàng dùng thử qua link chứa mã refcode 3670 để hệ thống ghi nhận tài khoản thuộc luồng đào tạo nội bộ.</em>
-                            </div>
-                        </div>
+                    <div>
+                        <h2 class="text-xs font-black text-white uppercase tracking-wider">ĐIỀU HƯỚNG BÀI HỌC</h2>
                     </div>
                 </div>
+                <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
-            <!-- MỤC 2 -->
-            <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
-                <button onclick="toggleAccordion('acc-2')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-laptop-code text-lg"></i>
-                        </div>
-                        <h2 class="text-xs sm:text-sm lg:text-base font-medium text-slate-800 leading-snug">
-                            Các tính năng nâng cao không trải nghiệm được trên gian dùng thử thì dùng gian hàng nào làm bài tập?
-                        </h2>
-                    </div>
-                    <i id="icon-acc-2" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+            <!-- DANH SÁCH BUTTONS NAVIGATE (4 mục đồng nhất) -->
+            <div id="sidebar-nav" class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
+                
+                <button onclick="scrollToElement('sec-danh-sach')" id="nav-sec-danh-sach" class="nav-item-btn active">
+                    <i class="fa-solid fa-list-check text-sky-300"></i>
+                    <span class="truncate">1. Danh sách bài học</span>
                 </button>
                 
-                <div id="acc-2" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
-                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                        <p>Thông tin gian hàng Demo do team Đào tạo chuẩn bị:</p>
-                        <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
-                            <li><strong>Địa chỉ gian hàng:</strong> <code class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200/80 font-mono text-xs">hrtrainingretail.kiotviet.vn</code></li>
-                            <li><strong>Tên đăng nhập:</strong> <code class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200/80 font-mono text-xs">admin</code></li>
-                            <li><strong>Mật khẩu:</strong> <code class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200/80 font-mono text-xs">KiotViet@2026</code></li>
-                        </ul>
-                        <p class="text-slate-600">
-                            Gian hàng demo chỉ dùng để xem giao diện và thực hành trong một số bài tập nhất định. Không dùng gian hàng này để làm các bài tập cơ bản do có nhiều người cùng truy cập, dẫn đến thiết lập (settings) có thể bị thay đổi và cài đặt khác với thông số chuẩn ban đầu.
-                        </p>
-                    </div>
-
-                    <div class="kv-callout">
-                        <div class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
-                            <div>
-                                <strong>Lưu ý:</strong> <em>Ưu tiên thực hành bài tập trên gian hàng dùng thử cá nhân. Chỉ tham chiếu gian hàng demo khi cần xem các tính năng nâng cao không hỗ trợ ở tài khoản dùng thử.</em>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MỤC 3 -->
-            <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
-                <button onclick="toggleAccordion('acc-3')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-layer-group text-lg"></i>
-                        </div>
-                        <h2 class="text-xs sm:text-sm lg:text-base font-medium text-slate-800 leading-snug">
-                            Khi đăng ký dùng thử, các gian hàng ở các ngành hàng khác nhau có tính năng như nhau hay không?
-                        </h2>
-                    </div>
-                    <i id="icon-acc-3" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                <button onclick="scrollToElement('sec-muc-tieu')" id="nav-sec-muc-tieu" class="nav-item-btn">
+                    <i class="fa-solid fa-bullseye text-sky-300"></i>
+                    <span class="truncate">2. Mục tiêu bài học</span>
                 </button>
                 
-                <div id="acc-3" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
-                    <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                        <p>
-                            Phần mềm KiotViet khi đăng ký ở các nhóm ngành khác nhau (Retail, FNB, Salon, Hotel) sẽ sở hữu bộ tính năng hoàn toàn khác biệt.
-                        </p>
-                        <p>
-                            Đặc biệt, đối với riêng nhóm ngành <strong>Retail (Bán lẻ)</strong>, việc lựa chọn ngành hàng cụ thể cũng trực tiếp ảnh hưởng đến bộ tính năng được bật/tắt:
-                        </p>
-                        <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
-                            <li><strong>Ngành Thời trang:</strong> Không bật được tính năng Lô - Hạn sử dụng (HSD) và Serial - IMEI.</li>
-                            <li><strong>Ngành Mỹ phẩm:</strong> Hỗ trợ bật tính năng Lô - Hạn sử dụng (HSD).</li>
-                            <li><strong>Ngành Điện thoại - Điện máy:</strong> Hỗ trợ bật tính năng Serial - IMEI.</li>
-                            <li><strong>Ngành Vật liệu xây dựng:</strong> Hỗ trợ các tính năng quy đổi và bán hàng riêng biệt mà các ngành hàng khác không có.</li>
-                        </ul>
-                        <p>
-                            Nếu gian hàng hiện tại không hỗ trợ tính năng theo yêu cầu bài học, bạn cần xem xét đăng ký dùng thử thêm một gian hàng mới thuộc đúng ngành hàng hỗ trợ tính năng đó.
-                        </p>
-                    </div>
+                <button onclick="scrollToElement('sec-luu-y')" id="nav-sec-luu-y" class="nav-item-btn">
+                    <i class="fa-solid fa-triangle-exclamation text-sky-300"></i>
+                    <span class="truncate">3. Lưu ý trước khi học</span>
+                </button>
 
-                    <div class="kv-callout">
-                        <div class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-lightbulb text-amber-500 text-sm shrink-0 mt-0.5"></i>
-                            <div>
-                                <strong>Lưu ý:</strong> <em>Mỗi gian hàng KiotViet được tối ưu hóa theo đặc thù từng ngành hàng. Bạn có thể dễ dàng tạo thêm gian hàng dùng thử thuộc ngành hàng khác bằng cách sử dụng link refcode 3670.</em>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button onclick="scrollToElement('sec-kien-thuc')" id="nav-sec-kien-thuc" class="nav-item-btn">
+                    <i class="fa-solid fa-book-bookmark text-sky-300"></i>
+                    <span class="truncate">4. Kiến thức nền tảng</span>
+                </button>
+
             </div>
 
-        </div>
+        </aside>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-white/60 backdrop-blur-md border-t border-slate-200/80 mt-auto py-3 text-center text-slate-500 text-[11px] font-medium">
-        © 2026 KiotViet Learning & Development.
-    </footer>
-
-    <!-- SCRIPT ĐIỀU KHIỂN ACCORDION (MỞ 1 MỤC TỰ ĐÓNG CÁC MỤC CÒN LẠI) -->
+    <!-- SCRIPT ĐIỀU KHIỂN -->
     <script>
+        // Mở/Đóng 1 chủ đề Accordion (Bên trong nội dung Kiến thức)
         function toggleAccordion(accId) {
             const targetBody = document.getElementById(accId);
             const targetIcon = document.getElementById(`icon-${accId}`);
             const isHidden = targetBody.classList.contains('hidden');
 
-            // Đóng tất cả các mục
+            // Đóng tất cả Accordion khác
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
-
-            // Nếu mục chọn đang đóng thì mở ra
+            
             if (isHidden) {
                 targetBody.classList.remove('hidden');
                 if (targetIcon) targetIcon.classList.add('rotate-180');
             }
         }
 
+        // Chức năng Click để cuộn tới 4 phần chính
+        function scrollToElement(targetId) {
+            // Đặt lại toàn bộ CSS nút sidebar
+            document.querySelectorAll('.nav-item-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Làm sáng nút được bấm
+            const activeNav = document.getElementById(`nav-${targetId}`);
+            if (activeNav) activeNav.classList.add('active');
+
+            const el = document.getElementById(targetId);
+            const scrollArea = document.getElementById('main-scroll-area');
+            
+            if (el && scrollArea) {
+                // Tính offset cuộn chuẩn xác (-16px margin)
+                const offset = el.offsetTop - scrollArea.offsetTop - 16;
+                scrollArea.scrollTo({ top: offset, behavior: 'smooth' });
+            }
+
+            // Đóng sidebar trên Mobile
+            if (window.innerWidth < 1024) {
+                toggleSidebar();
+            }
+        }
+
+        // Tự động Highlight Sidebar (ScrollSpy) khi cuộn chuột khung nội dung
+        document.getElementById('main-scroll-area').addEventListener('scroll', function() {
+            const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-luu-y', 'sec-kien-thuc'];
+            let current = '';
+            
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    // Trừ bớt 150px bù trừ offset để làm highlight mượt hơn
+                    const sectionTop = section.offsetTop - this.offsetTop - 150;
+                    if (this.scrollTop >= sectionTop) {
+                        current = id;
+                    }
+                }
+            });
+            
+            if (current) {
+                document.querySelectorAll('.nav-item-btn').forEach(btn => btn.classList.remove('active'));
+                const activeBtn = document.getElementById(`nav-${current}`);
+                if (activeBtn) activeBtn.classList.add('active');
+            }
+        });
+
+        // Thu gọn toàn bộ Kiến thức
         function collapseAll() {
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
+            
+            scrollToElement('sec-danh-sach');
+        }
+
+        // Ẩn/Hiện Menu Sidebar trên Mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            if (window.innerWidth < 1024) {
+                sidebar.classList.toggle('fixed');
+                sidebar.classList.toggle('inset-y-0');
+                sidebar.classList.toggle('right-0');
+                sidebar.classList.toggle('z-50');
+            }
         }
     </script>
 
