@@ -146,7 +146,7 @@
     <!-- ================= SIDEBAR NAV DỌC BÊN TRÁI ================= -->
     <aside id="leftSidebar" class="w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-full flex flex-col justify-between p-3.5 z-50 flex-shrink-0 shadow-lg transition-all duration-300 relative overflow-y-auto">
         <div>
-            <!-- BRAND LOGO (ĐÃ TĂNG KÍCH THƯỚC LÊN 20% -> h-6) & NÚT CÓ TEXT HIỂN THỊ ĐỂ ẨN/MỞ SIDEBAR -->
+            <!-- BRAND LOGO & NÚT CÓ TEXT HIỂN THỊ ĐỂ ẨN/MỞ SIDEBAR -->
             <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-200/80">
                 <div class="flex items-center gap-2 overflow-hidden sidebar-text-label">
                     <img src="https://cdn-kvweb-website.kiotviet.vn/images/v2/giai-phap/logos/kiotviet-logo-horizontal.svg" alt="KiotViet Logo" class="h-6 w-auto">
@@ -264,14 +264,14 @@
                     <i class="fa-solid fa-magnifying-glass-plus text-sky-500"></i> <span id="zoomLabel">Zoom: 80%</span>
                 </button>
 
-                <!-- NÚT MỞ TRANG WEB NGOÀI (NỔI BẬT NẾU LÀ TAB BÀI TEST LMS) -->
+                <!-- NÚT MỞ TRANG WEB NGOÀI -->
                 <a id="externalLinkBtn" href="#" target="_blank" class="font-bold text-white bg-sky-600 hover:bg-sky-700 px-2.5 py-1 rounded-lg flex items-center gap-1.5 text-[11px] shadow-sm transition-all">
                     <span>Mở cửa sổ mới</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                 </a>
             </div>
         </div>
 
-        <!-- BANNER CẢNH BÁO ĐĂNG NHẬP LMS (CHỈ HIỂN THỊ KHI VÀO BÀI TEST) -->
+        <!-- BANNER CẢNH BÁO ĐĂNG NHẬP LMS -->
         <div id="lmsLoginNotice" class="bg-amber-50 border-b border-amber-200/80 px-4 py-1.5 text-amber-800 text-xs flex items-center justify-between shrink-0 hidden">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm"></i>
@@ -507,7 +507,7 @@
     </div>
 
     <script>
-        /* ================= DỮ LIỆU BÀI HỌC VÀ BÀI TEST PHÂN NGÀNH ================= */
+        /* ================= DỮ LIỆU BÀI HỌC VÀ BÀI TEST PHÂN NGÀNH (ĐÃ CẬP NHẬT URL ACT4) ================= */
         const courseData = {
             retail: {
                 buoi1a: {
@@ -515,35 +515,35 @@
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk1a",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#retail-1a"
                 },
                 buoi1b: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b1b.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk1b",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#retail-1b"
                 },
                 buoi2a: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b2a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk2a",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#retail-2a"
                 },
                 buoi2b: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b2b.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-retail",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/retail-tk2b",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#retail-2b"
                 },
                 buoi3: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-retail-b3.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc/dao-tao-san-pham-ke-toan-01",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-retail"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#retail-3"
                 },
                 test_sp: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-retail/",
                 test_kt: "https://daotao.kiotviet.vn/khoa-hoc/ke-toan-01/"
@@ -554,35 +554,35 @@
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk1a",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#fnb-1a"
                 },
                 buoi1b: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b1b.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk1b",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#fnb-1b"
                 },
                 buoi2a: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b2a.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk2a",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#fnb-2a"
                 },
                 buoi2b: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b2b.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/dao-tao-san-pham-fnb",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/fnb-tk2b",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#fnb-2b"
                 },
                 buoi3: {
                     act0: "https://kiotvietlnd.github.io/khoa-hoc-san-pham/dao-tao-tuan-1-tai-ky/intro-fnb-b3.html",
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc/dao-tao-san-pham-ke-toan-01",
                     act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/tai-ky/",
                     act2: "https://kiotvietlnd.github.io/quiz/khoa-hoc/ke-toan-01",
-                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap-fnb"
+                    act4: "https://kiotvietlnd.github.io/elearning/khoa-hoc-tai-ky/tinh-huong-on-tap#fnb-3"
                 },
                 test_sp: "https://daotao.kiotviet.vn/khoa-hoc/tai-ky-dao-tao-san-pham-kiotviet-fnb/",
                 test_kt: "https://daotao.kiotviet.vn/khoa-hoc/ke-toan-01/"
@@ -597,7 +597,7 @@
             { key: 'act2', label: 'Ôn tập trắc nghiệm', icon: 'fa-pen-to-square', textClass: 'text-indigo-500', desc: 'Tự ôn tập kiểm tra kiến thức trắc nghiệm theo bài lẻ hoặc tạo đề ngẫu nhiên chuẩn bị bài thi cuối khóa.' }
         ];
 
-        /* BỘ CÂU MÔ TẢ CHI TIẾT ĐẦY ĐỦ TRÊN NAVBAR NGANG (CHỈ HIỂN THỊ CÂU MÔ TẢ THEO YÊU CẦU) */
+        /* BỘ CÂU MÔ TẢ CHI TIẾT ĐẦY ĐỦ TRÊN NAVBAR NGANG */
         const activityDescriptions = {
             act0: 'Học viên tìm hiểu những thông tin cần thiết về buổi học',
             act1: 'Học viên tự học theo trình tự từ trên xuống dưới, Hoàn thành "Bài học lý thuyết" và tự xác nhận khi "Đã hiểu bài"',
@@ -669,7 +669,6 @@
 
         function switchAppTab(tabKey) {
             currentMainTab = tabKey;
-            // Nếu click sang một buổi học, tự động đưa hoạt động mặc định về "Giới thiệu chung" (act0)
             if (tabKey !== 'home' && tabKey !== 'test_sp' && tabKey !== 'test_kt') {
                 currentSubActivity = 'act0';
             }
@@ -828,7 +827,6 @@
             const titleDisplay = document.getElementById('currentTitleDisplay');
             const externalBtn = document.getElementById('externalLinkBtn');
 
-            // Chỉ nạp lại iframe nếu giá trị URL thay đổi thực tế nhằm giảm tải và tránh giật màn hình
             if (iframe.src !== url) {
                 iframe.src = url;
             }
@@ -838,9 +836,8 @@
 
         /* ================= BỘ ĐỊNH TUYẾN URL HASH (ROUTER) ================= */
         function handleHashRoute() {
-            const hash = window.location.hash.substring(1); // Cắt bỏ ký tự '#'
+            const hash = window.location.hash.substring(1);
             
-            // Nếu không tồn tại Hash, đặt trạng thái mặc định là Trang chủ Retail
             if (!hash) {
                 currentBranch = 'retail';
                 currentMainTab = 'home';
@@ -854,7 +851,6 @@
             const mainTab = parts[1];
             const subActivity = parts[2] || 'act0';
 
-            // Ràng buộc kiểm định dữ liệu an toàn
             if (branch === 'retail' || branch === 'fnb') {
                 currentBranch = branch;
             }
