@@ -83,15 +83,6 @@
         }
         @keyframes gradientPan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        .kv-callout {
-            background: rgba(240, 249, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-left: 4px solid #0284c7;
-            border-radius: 0 12px 12px 0;
-            padding: 12px 16px; margin-top: 16px;
-            font-size: 13px; color: #0c4a6e;
-        }
-
         .accordion-header { cursor: pointer; user-select: none; }
 
         /* Sidebar & Nav Buttons */
@@ -147,12 +138,10 @@
     </header>
 
     <main class="flex flex-1 overflow-hidden relative">
-        
         <!-- KHUNG NỘI DUNG CHÍNH (BÊN TRÁI) -->
         <div id="main-scroll-area" class="flex-1 overflow-y-auto px-4 md:px-8 py-6 pb-20 relative bg-transparent custom-scrollbar">
-            
             <div class="max-w-[1100px] mx-auto space-y-8">
-                
+
                 <!-- HEADER BANNER -->
                 <section class="glass-card rounded-[24px] p-6 lg:p-8 relative overflow-hidden">
                     <div class="relative z-10">
@@ -161,11 +150,11 @@
                             <span>CHƯƠNG TRÌNH ĐÀO TẠO SẢN PHẨM TÁI KÝ</span>
                         </div>
                         <h1 class="text-2xl lg:text-3xl font-black text-slate-800 leading-tight">
-                            Buổi 2A. Vận hành bán hàng và Khách hàng <br>
+                            Buổi 2A. Vận hành bán hàng và khách hàng <br>
                             <span class="cyber-text-gradient">(Bán lẻ - Retail)</span>
                         </h1>
                         <p class="text-xs lg:text-sm text-slate-600 font-medium mt-3 max-w-3xl leading-relaxed">
-                            Làm chủ giao diện bán hàng POS, xử lý quy trình đặt hàng, thanh toán linh hoạt, ứng dụng giải pháp QR Động chống gian lận và kỹ năng quản lý khách hàng chuyên sâu nhằm gia tăng tỷ lệ chốt gia hạn/tái ký.
+                            Thao tác thành thạo trên màn hình Bán hàng (POS), làm chủ quy trình Đặt hàng - Đặt cọc, tự động hóa thanh toán qua QR động chống thất thoát và tối ưu quản lý Khách hàng, công nợ & tích điểm giữ chân khách mua.
                         </p>
                     </div>
                 </section>
@@ -178,43 +167,33 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-black text-slate-800">1. Danh sách bài học</h2>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">Buổi 2A bao gồm 5 bài học xoay quanh điểm chạm trực tiếp với người tiêu dùng</p>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Buổi 2A bao gồm 5 bài học về giao dịch bán hàng, thanh toán và chăm sóc khách hàng</p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- NHÓM 1: GIAO DỊCH BÁN HÀNG -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <!-- NHÓM 1: GIAO DỊCH & THANH TOÁN BÁN HÀNG -->
+                        <div class="bg-white/70 p-5 rounded-2xl border border-blue-100">
                             <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                                 <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-extrabold rounded-lg">Phần 1</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Giao dịch & Bán hàng</h3>
+                                <h3 class="font-bold text-slate-800 text-sm">Giao diện Bán hàng & Thanh toán</h3>
                             </div>
                             <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 1: Đặt hàng</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 2: Giao diện Bán hàng (POS)</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 2: Giao diện Bán hàng</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 3: Các phương thức Thanh toán</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 4: Thanh toán qua QR (QR động)</span></li>
                             </ul>
                         </div>
 
-                        <!-- NHÓM 2: THANH TOÁN -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+                        <!-- NHÓM 2: ĐẶT HÀNG & QUẢN LÝ KHÁCH HÀNG -->
+                        <div class="bg-white/70 p-5 rounded-2xl border border-emerald-100">
                             <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                                 <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-extrabold rounded-lg">Phần 2</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Xử lý Thanh toán</h3>
+                                <h3 class="font-bold text-slate-800 text-sm">Đơn đặt hàng & Quản lý Khách hàng</h3>
                             </div>
-                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 3: Các phương thức Thanh toán</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 4: Thanh toán qua QR (QR động)</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- NHÓM 3: KHÁCH HÀNG -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-                                <span class="px-2.5 py-1 bg-indigo-100 text-indigo-700 text-xs font-extrabold rounded-lg">Phần 3</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Quản lý Đối tác</h3>
-                            </div>
-                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-indigo-500 mt-0.5 text-sm"></i> <span>Bài 5: Quản lý Khách hàng</span></li>
+                            <ul class="space-y-2.5 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 1: Đặt hàng</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 5: Quản lý Khách hàng</span></li>
                             </ul>
                         </div>
                     </div>
@@ -232,185 +211,330 @@
                         </div>
                     </div>
 
-                    <!-- 3 TRỤ CỘT MỤC TIÊU -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
-                            <div class="w-8 h-8 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-xs mb-3">01</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-2">Làm chủ nghiệp vụ POS</h3>
-                            <p class="text-[12px] text-slate-600 leading-relaxed">Thao tác thành thạo trên màn hình Bán hàng (POS), từ ghi nhận đơn đặt trước (ngay cả khi hết tồn kho), bán linh hoạt đến xử lý mượt mà đa dạng các phương thức thanh toán.</p>
+                    <div class="bg-white/80 p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3.5 text-xs text-slate-700">
+                        <!-- MỤC TIÊU 1 -->
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-kvBlue text-sm mt-0.5 shrink-0"></i>
+                            <div class="leading-relaxed">
+                                <strong class="text-slate-900 font-bold">Làm chủ nghiệp vụ bán hàng tại quầy:</strong>
+                                <span class="block mt-0.5 text-slate-600">Thao tác thành thạo trên màn hình Bán hàng (POS), từ việc ghi nhận đơn đặt trước (ngay cả khi hết tồn kho), chọn chế độ bán linh hoạt, đến việc xử lý mượt mà đa dạng các phương thức thanh toán.</span>
+                            </div>
                         </div>
-                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
-                            <div class="w-8 h-8 rounded-xl bg-themeAccent text-white flex items-center justify-center font-bold text-xs mb-3">02</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-2">Chống gian lận & Tăng tốc</h3>
-                            <p class="text-[12px] text-slate-600 leading-relaxed">Dùng Thanh toán QR động + Tự động báo có để giải quyết triệt để nỗi lo chuyển khoản giả, sai số tiền. <strong>(Đây là điểm chạm "ăn tiền" thuyết phục khách tái ký).</strong></p>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/70 border border-slate-200 shadow-sm">
-                            <div class="w-8 h-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center font-bold text-xs mb-3">03</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-2">Gia tăng doanh thu cho Shop</h3>
-                            <p class="text-[12px] text-slate-600 leading-relaxed">Hướng dẫn chủ shop phân nhóm khách hàng, tích điểm, áp voucher. Xây dựng tệp khách trung thành để gắn bó lâu dài cùng hệ thống KiotViet.</p>
-                        </div>
-                    </div>
 
-                    <!-- TRÌNH TỰ HỌC -->
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                        <h3 class="text-sm font-extrabold text-slate-800 mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-route text-themeAccent"></i> Trình tự học tập hiệu quả:
-                        </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-medium">
-                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-                                <span class="font-bold text-kvBlue block mb-1">1. Học tài liệu:</span>
-                                <p class="text-slate-600 leading-relaxed">Xem video & tài liệu về "Giao diện Bán hàng", "Đặt hàng - Giao nhiều lần", "Thiết lập QR động" và "Quản lý Khách hàng".</p>
-                            </div>
-                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-                                <span class="font-bold text-themeAccent block mb-1">2. Làm bài thực hành:</span>
-                                <p class="text-slate-600 leading-relaxed">Tạo đơn đặt hàng; Bán hàng thanh toán kết hợp (Tiền mặt + Điểm/CK); Thêm khách hàng, tạo và thu nợ.</p>
-                            </div>
-                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-                                <span class="font-bold text-amber-600 block mb-1">3. Ôn tập xử lý tình huống:</span>
-                                <p class="text-slate-600 leading-relaxed">Giải quyết case-study: Khách muốn đặt đồ tạm hết? Thu ngân check chuyển khoản chậm? Thanh toán bằng điểm tích lũy?...</p>
-                            </div>
-                            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-                                <span class="font-bold text-indigo-600 block mb-1">4. Ôn tập trắc nghiệm:</span>
-                                <p class="text-slate-600 leading-relaxed">Làm bài kiểm tra đánh giá mức độ ghi nhớ về thao tác bán hàng, quy trình xử lý đơn và cơ chế thanh toán QR.</p>
+                        <!-- MỤC TIÊU 2 -->
+                        <div class="flex items-start gap-3 pt-3 border-t border-slate-100">
+                            <i class="fa-solid fa-circle-check text-themeAccent text-sm mt-0.5 shrink-0"></i>
+                            <div class="leading-relaxed">
+                                <strong class="text-slate-900 font-bold">Tư vấn đúng nỗi đau khách hàng - Tăng tỷ lệ Tái ký:</strong>
+                                <ul class="list-disc pl-5 mt-1 space-y-1.5 text-slate-600">
+                                    <li><strong>Chống gian lận & tăng tốc thu ngân:</strong> Dùng tính năng Thanh toán qua QR động kết hợp tự động nhận thông báo báo có để giải quyết triệt để nỗi lo khách chuyển khoản giả, sai số tiền, hay thu ngân phải chụp màn hình xác nhận rườm rà. (Đây là điểm "chạm" cực kỳ ăn tiền để thuyết phục khách hàng gia hạn).</li>
+                                    <li><strong>Gia tăng doanh thu cho chủ shop:</strong> Hướng dẫn chủ shop dùng tính năng Khách hàng để phân nhóm, quản lý công nợ, tích điểm, áp dụng voucher khuyến mại. Khi chủ shop xây dựng được tệp khách hàng trung thành trên hệ thống, họ sẽ gắn bó lâu dài với KiotViet.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- ================= 3. LƯU Ý TRƯỚC KHI HỌC ================= -->
+                <!-- ================= 3. TRÌNH TỰ HỌC TẬP HIỆU QUẢ (MỤC RIÊNG BIỆT - GIỮ NGUYÊN TEMPLATE) ================= -->
+                <section id="sec-trinh-tu" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-route"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">3. Trình tự học tập hiệu quả</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">5 bước hoàn thành nhiệm vụ học tập theo chuẩn đào tạo KiotViet</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-medium text-slate-700">
+                        <!-- BƯỚC 0 -->
+                        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex gap-3.5 items-start">
+                            <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-extrabold shrink-0 border border-slate-300">0</div>
+                            <div class="space-y-1">
+                                <h3 class="font-bold text-slate-900 text-sm">Chuẩn bị</h3>
+                                <p class="text-slate-600 leading-relaxed">Học viên truy cập trang <strong>"Giới thiệu chung"</strong> tìm hiểu Mục tiêu buổi học, Các lưu ý quan trọng và Kiến thức nền tảng liên quan đến nội dung bài học.</p>
+                            </div>
+                        </div>
+
+                        <!-- BƯỚC 1 -->
+                        <div class="p-4 rounded-2xl bg-white border border-blue-100 shadow-sm flex gap-3.5 items-start">
+                            <div class="w-8 h-8 rounded-xl bg-kvBlue text-white flex items-center justify-center font-extrabold shrink-0">1</div>
+                            <div class="space-y-2">
+                                <h3 class="font-bold text-slate-900 text-sm">Nghiên cứu học liệu</h3>
+                                <p class="text-slate-600 leading-relaxed">Học viên truy cập mục <strong>"Nghiên cứu học liệu"</strong> để học theo lộ trình từ trên xuống dưới. Mỗi bài học bao gồm:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                                    <li>Giới thiệu chung về tính năng, luồng thao tác cơ bản, các tính năng nâng cao, thao tác trên Điện thoại và Máy POS.</li>
+                                    <li>Tất cả bài học đều có <strong>Infographic</strong> tóm tắt cấu trúc nội dung bài học.</li>
+                                    <li>Một số bài học có <strong>Video giới thiệu tính năng</strong> để học và chia sẻ trực tiếp với khách hàng sau này.</li>
+                                    <li>Cuối mỗi bài học có phần <strong>Quiz Đúng / Sai</strong> để học viên tự kiểm tra và ôn tập.</li>
+                                    <li>Học viên hoàn thành xong 1 bài học chủ động tick chọn nút <strong>"Đã hiểu bài"</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- BƯỚC 2 -->
+                        <div class="p-4 rounded-2xl bg-white border border-teal-100 shadow-sm flex gap-3.5 items-start">
+                            <div class="w-8 h-8 rounded-xl bg-themeAccent text-white flex items-center justify-center font-extrabold shrink-0">2</div>
+                            <div class="space-y-2">
+                                <h3 class="font-bold text-slate-900 text-sm">Làm bài thực hành</h3>
+                                <p class="text-slate-600 leading-relaxed">Sau khi nghiên cứu học liệu, học viên truy cập <strong>"Bài tập thực hành"</strong> &rarr; Đăng nhập Họ và tên &rarr; Chọn Buổi học hiện tại &rarr; Làm bài tập.</p>
+                                <div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200/80 space-y-1.5 text-slate-700">
+                                    <p><strong>Phương pháp làm bài:</strong> Đọc yêu cầu &rarr; Xem gợi ý giải pháp (nếu cần) &rarr; Chụp màn hình thao tác &rarr; Paste/Upload ảnh trực tiếp lên hệ thống. Làm xong câu nào upload ngay câu đó (Mỗi bài gồm nhiều câu a, b, c, d, e cần hoàn thành đầy đủ).</p>
+                                    <p><strong>Theo dõi tiến độ:</strong> Bấm nút <span class="px-2 py-0.5 rounded bg-blue-600 text-white font-bold text-[11px]">Xem và Tải Báo cáo PDF</span> ở góc dưới bên phải màn hình để tự kiểm tra kết quả bài làm.</p>
+                                    <p class="text-amber-900 font-bold"><i class="fa-solid fa-clock text-amber-600"></i> Hạn chót hoàn thành: 11:30 (đối với Ca sáng) và 16:00 (đối với Ca chiều).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BƯỚC 3 -->
+                        <div class="p-4 rounded-2xl bg-white border border-amber-100 shadow-sm flex gap-3.5 items-start">
+                            <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-extrabold shrink-0">3</div>
+                            <div class="space-y-1.5">
+                                <h3 class="font-bold text-slate-900 text-sm">Ôn tập xử lý tình huống</h3>
+                                <p class="text-slate-600 leading-relaxed">Học viên truy cập mục <strong>"Tình huống vận dụng tư vấn"</strong>, chọn bài học ở sidebar bên phải để theo dõi các tình huống gợi ý sử dụng tính năng thực tế phục vụ tư vấn bán hàng.</p>
+                                <p class="text-slate-600 leading-relaxed"><strong>Review cuối ngày:</strong> Cuối buổi học, Trainer từ Team Đào tạo sẽ sử dụng bộ câu hỏi này để kiểm tra và review kỹ năng tư vấn tính năng sản phẩm của học viên.</p>
+                            </div>
+                        </div>
+
+                        <!-- BƯỚC 4 -->
+                        <div class="p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm flex gap-3.5 items-start">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold shrink-0">4</div>
+                            <div class="space-y-1.5">
+                                <h3 class="font-bold text-slate-900 text-sm">Ôn tập trắc nghiệm</h3>
+                                <p class="text-slate-600 leading-relaxed">Cuối buổi đào tạo, sau khi hoàn thành các nhiệm vụ trên, học viên vào phần <strong>"Ôn tập trắc nghiệm"</strong> để củng cố kiến thức tổng hợp.</p>
+                                <p class="text-slate-600 leading-relaxed">Nội dung này đồng thời là đề cương ôn tập quan trọng chuẩn bị cho bài test đánh giá cuối khóa trên hệ thống LMS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= 4. LƯU Ý TRƯỚC KHI HỌC ================= -->
                 <section id="sec-luu-y" class="glass-card rounded-[24px] p-6 lg:p-8 border-l-4 border-l-amber-500 scroll-mt-6">
                     <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200/80">
                         <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
                             <i class="fa-solid fa-triangle-exclamation"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-black text-slate-800">3. Lưu ý trước khi học</h2>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">Yêu cầu bắt buộc để phần mềm hiển thị đầy đủ công cụ thực hành</p>
+                            <h2 class="text-xl font-black text-slate-800">4. Lưu ý trước khi học</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Kiểm tra cài đặt cửa hàng trước khi thao tác thực hành</p>
                         </div>
                     </div>
-                    <div class="space-y-3 text-[12px] font-medium text-slate-700">
-                        <div class="p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-3 shadow-sm">
-                            <i class="fa-solid fa-store text-amber-600 text-sm mt-0.5"></i>
-                            <div>
-                                <strong class="text-amber-900 block font-bold mb-0.5 text-[13px]">Sử dụng lại Tài khoản:</strong>
-                                <span>Học viên tiếp tục sử dụng gian hàng Retail (Bán lẻ) đã tạo từ các buổi học trước.</span>
+
+                    <div class="space-y-3.5 text-[12px] font-medium text-slate-700">
+                        
+                        <!-- LƯU Ý 1: TÀI KHOẢN DÙNG THỬ -->
+                        <div class="p-4 rounded-xl bg-amber-50/90 border border-amber-300 space-y-2 shadow-sm">
+                            <div class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-store text-amber-600 text-sm mt-0.5"></i>
+                                <div>
+                                    <strong class="text-amber-900 block font-bold text-[13px]">1. Tài khoản dùng thử:</strong>
+                                    <span class="text-slate-700 leading-relaxed">
+                                        Học viên tiếp tục sử dụng gian hàng Retail (Bán lẻ) đã tạo từ các buổi học trước để làm bài tập cho Buổi 2A.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
+                                <span class="text-amber-900 font-bold select-all break-all">https://www.kiotviet.vn/?refcode=3670</span>
+                                <a href="https://www.kiotviet.vn/?refcode=3670" target="_blank" class="shrink-0 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold px-3.5 py-1.5 rounded-lg transition shadow-sm flex items-center gap-1.5">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Đăng ký bổ sung
+                                </a>
                             </div>
                         </div>
-                        <div class="p-4 rounded-xl bg-blue-50/80 border border-blue-200 flex items-start gap-3 shadow-sm">
-                            <i class="fa-solid fa-toggle-on text-blue-600 text-sm mt-0.5"></i>
-                            <div>
-                                <strong class="text-blue-900 block font-bold mb-0.5 text-[13px]">Bật tính năng Hệ thống:</strong>
-                                <span>Truy cập màn hình Quản lý -> Thiết lập -> Thiết lập cửa hàng -> Thiết lập tính năng và <strong>BẬT</strong> các tính năng sau: <strong>Đặt hàng; Tích điểm</strong>.</span>
+
+                        <!-- LƯU Ý 2: BẬT TÍNH NĂNG BẮT BUỘC -->
+                        <div class="p-4 rounded-xl bg-blue-50/90 border border-blue-200 space-y-2 shadow-sm">
+                            <div class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-sliders text-blue-600 text-sm mt-0.5"></i>
+                                <div>
+                                    <strong class="text-blue-900 block font-bold text-[13px]">2. BẬT TÍNH NĂNG BẮT BUỘC TRÊN GIAN HÀNG:</strong>
+                                    <p class="text-slate-700 leading-relaxed mt-1">
+                                        Để thực hành được các bài học Buổi 2A, học viên truy cập menu: <br>
+                                        <strong class="text-blue-800">Thiết lập cửa hàng &rarr; Thiết lập tính năng</strong> và kiểm tra đảm bảo đã <strong>BẬT</strong> 2 tính năng:
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-lg border border-blue-100 text-slate-700 space-y-2 text-xs">
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <li class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 font-bold text-slate-800">
+                                        <i class="fa-solid fa-cart-flatbed text-emerald-500 text-lg"></i>
+                                        <div>
+                                            <span>Đặt hàng</span>
+                                            <p class="text-[11px] font-normal text-slate-500">Cho phép tạo đơn nhận cọc & giao sau</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 font-bold text-slate-800">
+                                        <i class="fa-solid fa-star text-amber-500 text-lg"></i>
+                                        <div>
+                                            <span>Tích điểm</span>
+                                            <p class="text-[11px] font-normal text-slate-500">Cài đặt quy đổi điểm thưởng cho khách hàng</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+
+                        <!-- LƯU Ý 3: MÀN HÌNH BÁN HÀNG POS -->
+                        <div class="p-4 rounded-xl bg-emerald-50/90 border border-emerald-200 flex items-start gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-cash-register text-emerald-600 text-sm mt-0.5"></i>
+                            <div>
+                                <strong class="text-emerald-900 block font-bold text-[13px]">3. Trải nghiệm Màn hình Bán hàng (POS):</strong>
+                                <span class="text-slate-700 leading-relaxed">
+                                    Màn hình Bán hàng (POS) là giao diện làm việc chính của thu ngân. Học viên mở song song Màn hình Bán hàng (`/pos`) và Màn hình Quản lý (`/manage`) để theo dõi sự biến động tồn kho và công nợ tức thì sau mỗi hóa đơn bán.
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
-                <!-- ================= 4. KIẾN THỨC NỀN TẢNG ================= -->
+                <!-- ================= 5. KIẾN THỨC NỀN TẢNG (Q&A STYLE) ================= -->
                 <section id="sec-kien-thuc" class="scroll-mt-6">
                     <div class="flex items-center justify-between mb-5 mt-4">
                         <span class="text-sm font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-book-bookmark text-indigo-600"></i> 4. Kiến thức nền tảng
+                            <i class="fa-solid fa-book-bookmark text-indigo-600"></i> 5. Kiến thức nền tảng
                         </span>
                     </div>
 
                     <div class="space-y-3.5">
                         
-                        <!-- CHỦ ĐỀ 1 -->
+                        <!-- CHỦ ĐỀ 1: GIAO DIỆN BÁN HÀNG POS -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-1')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-boxes-packing text-lg"></i></div>
-                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Sự khác biệt giữa Bán hàng trực tiếp và Đặt hàng</h2>
+                                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-cash-register text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
+                                        Màn hình Bán hàng (POS) hỗ trợ các chế độ và công cụ tối ưu thu ngân như thế nào?
+                                    </h2>
                                 </div>
                                 <i id="icon-acc-1" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-1" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                        <li><strong>Hóa đơn (Bán hàng trực tiếp):</strong> Khách lấy hàng và thanh toán ngay. Hệ thống <em>trừ tồn kho và ghi nhận doanh thu ngay lập tức</em>. Không thể thực hiện nếu trong kho hết hàng (nếu cài đặt chặn bán âm).</li>
-                                        <li><strong>Phiếu Đặt hàng:</strong> Khách chốt mua nhưng lấy hàng sau (hoặc giao qua đơn vị vận chuyển). Phiếu đặt hàng <em>chưa trừ tồn kho thực tế, chưa ghi nhận doanh thu</em> mà chỉ ghi nhận "Khách nợ/Đã trả trước". Đặc biệt, <strong>Cho phép tạo đơn ngay cả khi trong kho đang hết hàng</strong> để cửa hàng biết đường đi nhập thêm hàng.</li>
-                                    </ul>
+                                    <p>Giao diện POS KiotViet được thiết kế chuyên biệt cho thao tác siêu tốc tại quầy với 3 chế độ bán linh hoạt:</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <strong class="text-kvBlue font-bold block mb-1">1. Bán nhanh:</strong>
+                                            <p class="text-slate-600 text-xs">Mặc định hoàn thành đơn siêu tốc, tối giản bước xác nhận, thích hợp cho siêu thị, tạp hóa đông khách.</p>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <strong class="text-themeAccent font-bold block mb-1">2. Bán thường:</strong>
+                                            <p class="text-slate-600 text-xs">Cho phép áp dụng bộ lọc hiển thị sản phẩm theo Nhóm hàng, thuộc tính.</p>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                            <strong class="text-indigo-600 font-bold block mb-1">3. Bán giao hàng:</strong>
+                                            <p class="text-slate-600 text-xs">Tích hợp đối tác vận chuyển (Ahamove, GHN, Viettel Post...), tính phí ship và đẩy đơn trực tiếp cho hãng vận chuyển.</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-slate-600"><strong>Tính năng bổ trợ:</strong> Phím tắt thao tác không dùng chuột (F1 đến F12), hỗ trợ quét mã vạch Barcode, in hóa đơn tự động sau khi thanh toán.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CHỦ ĐỀ 2 -->
+                        <!-- CHỦ ĐỀ 2: ĐẶT HÀNG & ĐẶT CỌC -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-2')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-cash-register text-lg"></i></div>
-                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Sức mạnh của Giao diện Bán hàng (POS KiotViet)</h2>
+                                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-invoice-dollar text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
+                                        Quy trình Đặt hàng hoạt động ra sao khi hàng hết kho hoặc khách hẹn giao sau?
+                                    </h2>
                                 </div>
                                 <i id="icon-acc-2" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-2" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p>Giao diện thu ngân POS (Point of Sale) của KiotViet được thiết kế cực kỳ tối ưu cho thao tác tại quầy:</p>
-                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                        <li><strong>Hoạt động mượt mà khi mất mạng:</strong> Dữ liệu bán hàng offline sẽ được lưu ở Local, khi có mạng trở lại hệ thống tự động đồng bộ lên cloud.</li>
-                                        <li><strong>Phím tắt thông minh:</strong> Thu ngân có thể dùng máy quét mã vạch và các phím F9 (Thanh toán), F3 (Tìm kiếm), F4 (Khách hàng) để thao tác bằng 1 tay siêu tốc độ.</li>
-                                        <li><strong>Lưu tạm nhiều đơn:</strong> Đang tính tiền mà khách quên ví, có thể mở Tab mới để thanh toán cho khách sau mà không làm mất giỏ hàng của khách trước.</li>
+                                    <p>Nghiệp vụ Đặt hàng giải quyết bài toán khách muốn giữ sản phẩm hoặc mua mặt hàng đang tạm hết tồn kho:</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                        <li><strong>Ghi nhận Đơn đặt hàng:</strong> Thu ngân tạo phiếu Đặt hàng trên POS, hệ thống <strong class="text-slate-900">chưa trừ tồn kho</strong> sản phẩm ngay thời điểm này.</li>
+                                        <li><strong>Quản lý Tiền đặt cọc:</strong> Khách hàng có thể đặt cọc trước một phần hoặc 100% tiền. Số tiền cọc được hạch toán vào Sổ quỹ thu tiền cọc.</li>
+                                        <li><strong>Xuất bán & Trừ cọc:</strong> Khi trả hàng cho khách, thu ngân mở đơn đặt &rarr; Bấm "Tạo hóa đơn" &rarr; Hệ thống tự động trừ tồn kho thực tế và trừ số tiền đã cọc vào tổng thanh toán của hóa đơn.</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CHỦ ĐỀ 3 -->
+                        <!-- CHỦ ĐỀ 3: THANH TOÁN QR ĐỘNG -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-3')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-credit-card text-lg"></i></div>
-                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Linh hoạt với Thanh toán kết hợp</h2>
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-qrcode text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
+                                        Vì sao Thanh toán QR động (KiotViet Pay / VietQR) là "vũ khí" thuyết phục khách tái ký?
+                                    </h2>
                                 </div>
                                 <i id="icon-acc-3" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-3" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p>Không chỉ thu 1 loại tiền, KiotViet cho phép khách hàng <strong>kết hợp nhiều phương thức thanh toán trên cùng 1 hóa đơn</strong> (Split Payment).</p>
-                                    <p>Ví dụ: Tổng bill 1.000.000đ. Khách có thể thanh toán bằng 50.000đ (Trừ điểm tích lũy) + 450.000đ (Đưa tiền mặt) + 500.000đ (Quẹt thẻ/Chuyển khoản). Phần mềm sẽ tự động hạch toán chính xác dòng tiền vào từng sổ quỹ tương ứng.</p>
+                                    <p>Giải pháp QR động trên KiotViet giải quyết triệt để 3 "nỗi đau" lớn nhất của thu ngân khi khách chuyển khoản:</p>
+                                    <div class="space-y-2 mt-2">
+                                        <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-2.5">
+                                            <i class="fa-solid fa-check-double text-emerald-600 mt-0.5"></i>
+                                            <div>
+                                                <strong class="text-slate-900 font-bold block">Chính xác 100% số tiền & Nội dung:</strong>
+                                                <span class="text-slate-600 text-xs">Mỗi đơn bán sinh một mã QR động riêng biệt, khách chỉ cần quét là số tiền và mã hóa đơn tự động lấp đầy, không thể sửa sai số tiền.</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-2.5">
+                                            <i class="fa-solid fa-bell text-emerald-600 mt-0.5"></i>
+                                            <div>
+                                                <strong class="text-slate-900 font-bold block">Tự động thông báo Báo có trên màn hình POS:</strong>
+                                                <span class="text-slate-600 text-xs">Ngay khi tiền về ngân hàng, màn hình POS tự động phát âm thanh thông báo và tự bấm hoàn thành hóa đơn mà thu ngân không cần xem ảnh chụp bill của khách.</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-2.5">
+                                            <i class="fa-solid fa-shield-halved text-emerald-600 mt-0.5"></i>
+                                            <div>
+                                                <strong class="text-slate-900 font-bold block">Chống gian lận chuyển khoản giả:</strong>
+                                                <span class="text-slate-600 text-xs">Loại bỏ hoàn toàn rủi ro kẻ gian dùng ứng dụng làm bill giả để lừa thu ngân.</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CHỦ ĐỀ 4 -->
+                        <!-- CHỦ ĐỀ 4: PHƯƠNG THỨC THANH TOÁN KẾT HỢP -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-4')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-qrcode text-lg"></i></div>
-                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">Thanh toán QR Động (VietQR) - Vũ khí chốt tái ký</h2>
+                                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-receipt text-lg"></i></div>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
+                                        KiotViet hỗ trợ những hình thức thanh toán đa dạng và thanh toán kết hợp nào?
+                                    </h2>
                                 </div>
                                 <i id="icon-acc-4" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-4" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p><strong>QR Động là gì?</strong> Khác với QR tĩnh in trên giấy (khách phải tự nhập số tiền), QR động do phần mềm tự sinh ra cho TỪNG hóa đơn, đã gắn sẵn số tiền và nội dung chuyển khoản mã đơn.</p>
-                                    <p><strong>Lợi ích tuyệt đối:</strong></p>
-                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                        <li>Khách không thể nhập sai số tiền, 100% chống giả mạo bill chuyển khoản.</li>
-                                        <li><strong>Tự động báo có:</strong> KiotViet liên kết với hệ thống Ngân hàng, ngay khi tiền vào tài khoản chủ shop, phần mềm thu ngân sẽ "Ting Ting" thông báo thanh toán thành công và tự động in bill. Thu ngân không cần hỏi chủ shop "Anh check điện thoại xem tiền vào chưa?".</li>
+                                    <p>Trong thực tế bán hàng, khách hàng có nhu cầu trả bằng nhiều phương thức cho 1 hóa đơn. KiotViet đáp ứng hoàn hảo:</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                        <li><strong>Các phương thức hỗ trợ:</strong> Tiền mặt, Chuyển khoản ngân hàng, Quẹt thẻ POS, Điểm thưởng tích lũy, Voucher giảm giá, Ghi nợ (Tính vào công nợ).</li>
+                                        <li><strong>Thanh toán đa phương thức trên 1 đơn:</strong> Ví dụ đơn hàng 1.000.000đ &rarr; Khách trả 300.000đ Tiền mặt + 500.000đ Chuyển khoản + 200.000đ trừ Điểm tích lũy. Hệ thống hạch toán chi tiết từng nguồn thu vào Sổ quỹ.</li>
                                     </ul>
-                                    <p class="font-bold text-indigo-700">=> Đây là tính năng khách hàng rất thích, tiết kiệm cực nhiều thời gian và giảm thiểu rủi ro thất thoát.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CHỦ ĐỀ 5 -->
+                        <!-- CHỦ ĐỀ 5: QUẢN LÝ KHÁCH HÀNG & TÍCH ĐIỂM -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-5')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
                                     <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-users text-lg"></i></div>
-                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">CRM Thu nhỏ: Quản lý Khách hàng & Tích điểm</h2>
+                                    <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
+                                        Quản lý thông tin Khách hàng, Công nợ và Tích điểm giữ chân khách mua như thế nào?
+                                    </h2>
                                 </div>
                                 <i id="icon-acc-5" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-5" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p>Quản lý khách hàng trên KiotViet không chỉ là lưu tên và số điện thoại, nó là một hệ thống <strong>CRM (Quản trị quan hệ khách hàng) thu nhỏ</strong>:</p>
-                                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                        <li><strong>Lưu trữ lịch sử mua hàng:</strong> Biết khách thích mua sản phẩm gì, ngày nào để tư vấn lại (Telesale).</li>
-                                        <li><strong>Quản lý Công nợ chặt chẽ:</strong> Cho khách mua nợ, cảnh báo hạn mức nợ tối đa, tự động nhắc nợ.</li>
-                                        <li><strong>Chương trình Khách hàng thân thiết:</strong> Thiết lập chính sách Tích điểm (Ví dụ: 10.000đ = 1 điểm). Phân hạng Thẻ Bạc, Vàng, Kim Cương để áp dụng các voucher giảm giá tự động, kích thích khách hàng quay lại mua sắm.</li>
+                                    <p>Tệp thông tin Khách hàng là tài sản lớn nhất của chủ shop để tăng tỷ lệ khách quay lại:</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                        <li><strong>Phân nhóm Khách hàng:</strong> Phân loại tự động theo tổng tiền bán hoặc số lần mua (VD: Khách lẻ, Khách VIP, Khách sỉ) để áp dụng bảng giá ưu đãi riêng.</li>
+                                        <li><strong>Quản lý Công nợ:</strong> Theo dõi dư nợ phải thu của từng khách, hỗ trợ lập Phiếu thu tiền nợ và cài đặt giới hạn nợ tối đa để tránh nợ xấu.</li>
+                                        <li><strong>Cơ chế Tích điểm thưởng:</strong> Thiết lập tỷ lệ quy đổi điểm (VD: 100.000đ mua hàng = 1 điểm = 1.000đ). Khách dùng điểm tích lũy để thanh toán trừ tiền trực tiếp trên hóa đơn mua sau.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -418,14 +542,13 @@
 
                     </div>
                 </section>
-                
-            </div>
-            
-            <footer class="mt-12 pt-8 border-t border-slate-200/80 text-center text-slate-400 text-xs">
-                <p class="font-bold text-slate-500 mb-1">KiotViet Learning & Development Department.</p>
-                <p>© 2026 KiotViet All Rights Reserved.</p>
-            </footer>
 
+                <footer class="mt-12 pt-8 border-t border-slate-200/80 text-center text-slate-400 text-xs">
+                    <p class="font-bold text-slate-500 mb-1">KiotViet Learning & Development Department.</p>
+                    <p>© 2026 KiotViet All Rights Reserved.</p>
+                </footer>
+
+            </div>
         </div>
 
         <!-- SIDEBAR DANH MỤC ĐIỀU HƯỚNG TỔNG HỢP (BÊN PHẢI) -->
@@ -446,38 +569,41 @@
                 </button>
             </div>
 
-            <!-- DANH SÁCH BUTTONS NAVIGATE (4 mục đồng nhất) -->
+            <!-- DANH SÁCH BUTTONS NAVIGATE (5 MỤC ĐỒNG BỘ) -->
             <div id="sidebar-nav" class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
                 
                 <button onclick="scrollToElement('sec-danh-sach')" id="nav-sec-danh-sach" class="nav-item-btn active">
                     <i class="fa-solid fa-list-check text-sky-300"></i>
                     <span class="truncate">1. Danh sách bài học</span>
                 </button>
-                
+
                 <button onclick="scrollToElement('sec-muc-tieu')" id="nav-sec-muc-tieu" class="nav-item-btn">
                     <i class="fa-solid fa-bullseye text-sky-300"></i>
                     <span class="truncate">2. Mục tiêu bài học</span>
                 </button>
-                
+
+                <button onclick="scrollToElement('sec-trinh-tu')" id="nav-sec-trinh-tu" class="nav-item-btn">
+                    <i class="fa-solid fa-route text-sky-300"></i>
+                    <span class="truncate">3. Trình tự học tập</span>
+                </button>
+
                 <button onclick="scrollToElement('sec-luu-y')" id="nav-sec-luu-y" class="nav-item-btn">
                     <i class="fa-solid fa-triangle-exclamation text-sky-300"></i>
-                    <span class="truncate">3. Lưu ý trước khi học</span>
+                    <span class="truncate">4. Lưu ý trước khi học</span>
                 </button>
 
                 <button onclick="scrollToElement('sec-kien-thuc')" id="nav-sec-kien-thuc" class="nav-item-btn">
                     <i class="fa-solid fa-book-bookmark text-sky-300"></i>
-                    <span class="truncate">4. Kiến thức nền tảng</span>
+                    <span class="truncate">5. Kiến thức nền tảng</span>
                 </button>
 
             </div>
-
         </aside>
-
     </main>
 
     <!-- SCRIPT ĐIỀU KHIỂN -->
     <script>
-        // Mở/Đóng 1 chủ đề Accordion (Bên trong nội dung Kiến thức)
+        // Mở/Đóng Accordion trong Kiến thức nền tảng
         function toggleAccordion(accId) {
             const targetBody = document.getElementById(accId);
             const targetIcon = document.getElementById(`icon-${accId}`);
@@ -486,53 +612,48 @@
             // Đóng tất cả Accordion khác
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
-            
+
             if (isHidden) {
                 targetBody.classList.remove('hidden');
                 if (targetIcon) targetIcon.classList.add('rotate-180');
             }
         }
 
-        // Chức năng Click để cuộn tới 4 phần chính
+        // Cuộn mượt đến các phần chính
         function scrollToElement(targetId) {
-            // Đặt lại toàn bộ CSS nút sidebar
             document.querySelectorAll('.nav-item-btn').forEach(btn => btn.classList.remove('active'));
             
-            // Làm sáng nút được bấm
             const activeNav = document.getElementById(`nav-${targetId}`);
             if (activeNav) activeNav.classList.add('active');
 
             const el = document.getElementById(targetId);
             const scrollArea = document.getElementById('main-scroll-area');
-            
+
             if (el && scrollArea) {
-                // Tính offset cuộn chuẩn xác (-16px margin)
                 const offset = el.offsetTop - scrollArea.offsetTop - 16;
                 scrollArea.scrollTo({ top: offset, behavior: 'smooth' });
             }
 
-            // Đóng sidebar trên Mobile
             if (window.innerWidth < 1024) {
                 toggleSidebar();
             }
         }
 
-        // Tự động Highlight Sidebar (ScrollSpy) khi cuộn chuột khung nội dung
+        // ScrollSpy Highlight Sidebar khi cuộn
         document.getElementById('main-scroll-area').addEventListener('scroll', function() {
-            const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-luu-y', 'sec-kien-thuc'];
+            const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-trinh-tu', 'sec-luu-y', 'sec-kien-thuc'];
             let current = '';
-            
+
             sections.forEach(id => {
                 const section = document.getElementById(id);
                 if (section) {
-                    // Trừ bớt 150px bù trừ offset để làm highlight mượt hơn
                     const sectionTop = section.offsetTop - this.offsetTop - 150;
                     if (this.scrollTop >= sectionTop) {
                         current = id;
                     }
                 }
             });
-            
+
             if (current) {
                 document.querySelectorAll('.nav-item-btn').forEach(btn => btn.classList.remove('active'));
                 const activeBtn = document.getElementById(`nav-${current}`);
@@ -540,15 +661,14 @@
             }
         });
 
-        // Thu gọn toàn bộ Kiến thức
+        // Thu gọn toàn bộ Accordion
         function collapseAll() {
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
-            
             scrollToElement('sec-danh-sach');
         }
 
-        // Ẩn/Hiện Menu Sidebar trên Mobile
+        // Bật/tắt Sidebar Mobile
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('hidden');
@@ -560,6 +680,5 @@
             }
         }
     </script>
-
 </body>
 </html>
