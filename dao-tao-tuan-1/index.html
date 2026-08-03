@@ -292,10 +292,10 @@
                                 </div>
                             </div>
 
-                            <!-- Cột phải: Hình ảnh minh họa -->
+                            <!-- Cột phải: Hình ảnh minh họa ĐỘNG -->
                             <div class="lg:col-span-5 flex justify-center items-center relative z-10">
                                 <div class="relative w-full max-w-[280px] lg:max-w-none">
-                                    <img src="https://finance.kiotviet.vn/images/payment-ver2/get-info.png" alt="Minh họa Đào tạo KiotViet" class="w-full h-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-500">
+                                    <img id="heroImage" src="https://www.kiotviet.vn/images/v2/giai-phap/hero-tap-hoa.webp?v=6c407be8" alt="Minh họa Đào tạo KiotViet" class="w-full h-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-500">
                                 </div>
                             </div>
                         </div>
@@ -466,13 +466,13 @@
                 buoi2: {
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-sales/dao-tao-san-pham-co-ban-b2-fnb",
                     act2: "https://daotao.kiotviet.vn/khoa-hoc/sales-dao-tao-san-pham-co-ban-02-fnb/",
-                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/",
+                    act3: "", // Đã ẩn trên UI
                     act4: "https://kiotvietlnd.github.io/quiz/khoa-hoc/cb2-fnb"
                 },
                 buoi3: {
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-sales/dao-tao-san-pham-co-ban-b3-fnb",
                     act2: "https://daotao.kiotviet.vn/khoa-hoc/sales-dao-tao-san-pham-co-ban-03-fnb/",
-                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/",
+                    act3: "", // Đã ẩn trên UI
                     act4: "https://kiotvietlnd.github.io/quiz/khoa-hoc/cb3-fnb"
                 },
                 test_end: "https://daotao.kiotviet.vn/lich-su-kiem-tra/phien-kiem-tra/"
@@ -487,13 +487,13 @@
                 buoi2: {
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-sales/dao-tao-san-pham-co-ban-b2-salon",
                     act2: "https://daotao.kiotviet.vn/khoa-hoc/sales-dao-tao-san-pham-co-ban-02-salon/",
-                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/",
+                    act3: "", // Đã ẩn trên UI
                     act4: "https://kiotvietlnd.github.io/quiz/khoa-hoc/cb2-salon"
                 },
                 buoi3: {
                     act1: "https://kiotvietlnd.github.io/elearning/khoa-hoc-sales/dao-tao-san-pham-co-ban-b3-hotel",
                     act2: "https://daotao.kiotviet.vn/khoa-hoc/sales-dao-tao-san-pham-co-ban-03-hotel/",
-                    act3: "https://kiotvietlnd.github.io/quiz/thuc-hanh/",
+                    act3: "", // Đã ẩn trên UI
                     act4: "https://kiotvietlnd.github.io/quiz/khoa-hoc/cb3-hotel"
                 },
                 test_end: "https://daotao.kiotviet.vn/lich-su-kiem-tra/phien-kiem-tra/"
@@ -522,6 +522,13 @@
             retail: { buoi1: "Buổi 1: Retail", buoi2: "Buổi 2: Retail", buoi3: "Buổi 3: Retail" },
             fnb: { buoi1: "Buổi 1: Retail", buoi2: "Buổi 2: F&B", buoi3: "Buổi 3: F&B" },
             booking: { buoi1: "Buổi 1: Retail", buoi2: "Buổi 2: Salon", buoi3: "Buổi 3: Hotel" }
+        };
+
+        // Hình ảnh Hero thay đổi theo từng ngành
+        const heroImages = {
+            retail: "https://www.kiotviet.vn/images/v2/giai-phap/hero-tap-hoa.webp?v=6c407be8",
+            fnb: "https://www.kiotviet.vn/images/v2/giai-phap/hero-cafe-tra-sua.webp?v=5ce19b5a",
+            booking: "https://www.kiotviet.vn/images/v2/giai-phap/hero-villa.webp?v=2f16f8bf"
         };
 
         // Biến lưu trạng thái hiện tại
@@ -573,6 +580,12 @@
         /* ================= THAY ĐỔI TRẠNG THÁI TỪ SỰ KIỆN CLICK ================= */
         function switchBranch(branch) {
             currentBranch = branch;
+
+            // Chặn lỗi: Nếu đang ở Buổi 2 hoặc 3 của FNB/Booking mà biến đang lưu act3 (Bài tập) thì tự đưa về act1
+            if (currentSubActivity === 'act3' && (branch === 'fnb' || branch === 'booking') && (currentMainTab === 'buoi2' || currentMainTab === 'buoi3')) {
+                currentSubActivity = 'act1';
+            }
+
             updateHashFromState();
         }
 
@@ -700,6 +713,12 @@
             const introModuleList = document.getElementById('introModuleList');
             const thu4Container = document.getElementById('scheduleThu4Container');
             const thu5Container = document.getElementById('scheduleThu5Container');
+            const heroImage = document.getElementById('heroImage');
+
+            // Cập nhật ảnh Hero theo chuyên ngành
+            if (heroImage) {
+                heroImage.src = heroImages[currentBranch];
+            }
 
             if (currentBranch === 'retail') {
                 introTitle.textContent = "Đào tạo sản phẩm Sales Retail";
@@ -790,6 +809,11 @@
                 if (key === activeTabKey) {
                     let html = '';
                     activityConfig.forEach(act => {
+                        // BỎ QUA act3 (Bài tập thực hành) ở Buổi 2 và Buổi 3 cho nhánh FNB và BOOKING
+                        if (act.key === 'act3' && (currentBranch === 'fnb' || currentBranch === 'booking') && (key === 'buoi2' || key === 'buoi3')) {
+                            return; 
+                        }
+
                         const isSelected = (act.key === currentSubActivity);
                         const activeClass = isSelected ? 'active-sub' : '';
 
@@ -852,7 +876,12 @@
                 currentMainTab = mainTab;
             }
             if (['act1', 'act2', 'act3', 'act4'].includes(subActivity)) {
-                currentSubActivity = subActivity;
+                // Chặn load URL có act3 nếu là FNB/Booking ở Buổi 2 hoặc 3 (Tự fallback về act1)
+                if (subActivity === 'act3' && (currentBranch === 'fnb' || currentBranch === 'booking') && (currentMainTab === 'buoi2' || currentMainTab === 'buoi3')) {
+                    currentSubActivity = 'act1';
+                } else {
+                    currentSubActivity = subActivity;
+                }
             }
 
             syncUI();
