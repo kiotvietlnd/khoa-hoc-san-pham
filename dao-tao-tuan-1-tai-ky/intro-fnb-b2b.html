@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khóa học Đào tạo Sản phẩm - F&B Buổi 2B: Thiết lập phần cứng & Ứng dụng kết nối</title>
+    <title>Khóa học Đào tạo Sản phẩm - Ngành FNB Buổi 2B: Thiết lập phần cứng & Ứng dụng kết nối</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,8 +15,8 @@
                     colors: {
                         kvBlue: '#166def',
                         kvBlueHover: '#1259c7',
-                        themeAccent: '#ea580c',
-                        themeAccentHover: '#c2410c'
+                        kvBlueDark: '#1e3a8a',
+                        kvBlueLight: '#eff6ff'
                     }
                 } 
             }
@@ -46,14 +46,14 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-        /* Tech Background với Glow Blobs */
+        /* Tech Background với Glow Blobs - Tone Blue */
         .tech-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             z-index: -10; background-color: #f0f4f8; overflow: hidden; 
         }
         .glow-blob-1 {
             position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw;
-            border-radius: 50%; background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(234, 88, 12, 0) 70%); filter: blur(120px);
+            border-radius: 50%; background: radial-gradient(circle, rgba(22, 109, 239, 0.12) 0%, rgba(22, 109, 239, 0) 70%); filter: blur(120px);
         }
         .glow-blob-2 {
             position: absolute; bottom: -10%; right: -10%; width: 50vw; height: 50vw;
@@ -62,7 +62,7 @@
 
         /* Glass Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
@@ -72,13 +72,13 @@
             box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.08);
         }
 
-        /* Gradient Text */
+        /* Gradient Text - Tone Blue */
         .cyber-text-gradient {
             background-size: 200% auto;
             color: transparent;
             background-clip: text;
             -webkit-background-clip: text;
-            background-image: linear-gradient(90deg, #ea580c, #f97316, #166def, #ea580c);
+            background-image: linear-gradient(90deg, #1e3a8a, #166def, #0284c7, #1e3a8a);
             animation: gradientPan 8s linear infinite;
         }
         @keyframes gradientPan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
@@ -105,15 +105,15 @@
         .nav-item-btn.active i { color: #ffffff; }
     </style>
 </head>
-<body class="flex flex-col h-screen overflow-hidden relative selection:bg-orange-200 bg-[#f0f4f8]">
+<body class="flex flex-col h-screen overflow-hidden relative selection:bg-blue-200 bg-[#f0f4f8]">
 
     <div class="tech-bg">
         <div class="glow-blob-1"></div>
         <div class="glow-blob-2"></div>
     </div>
 
-    <!-- NAVBAR TIÊU CHUẨN (Gradient KiotViet F&B) -->
-    <header class="h-[72px] shrink-0 text-white shadow-md z-30 flex items-center relative" style="background: linear-gradient(135deg, #166def 0%, #166def 75%, #ffffff 85%, #ea580c 100%);">
+    <!-- NAVBAR TIÊU CHUẨN (Gradient Tone Blue) -->
+    <header class="h-[72px] shrink-0 text-white shadow-md z-30 flex items-center relative" style="background: linear-gradient(135deg, #1e3a8a 0%, #166def 100%);">
         <div class="w-full mx-auto px-4 md:px-6 flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
                 <a href="#" class="shrink-0 select-none bg-white p-1.5 rounded-xl flex items-center shadow-sm">
@@ -121,14 +121,14 @@
                 </a>
                 <div class="hidden md:block border-l border-white/20 pl-3">
                     <h1 class="text-xs sm:text-sm font-black tracking-tight text-white uppercase leading-snug">GIỚI THIỆU CHUNG</h1>
-                    <p class="text-[10px] text-white/90 font-bold tracking-wider uppercase mt-0.5">NGÀNH F&B - BUỔI 2B: THIẾT LẬP PHẦN CỨNG & ỨNG DỤNG KẾT NỐI</p>
+                    <p class="text-[10px] text-white/90 font-bold tracking-wider uppercase mt-0.5">NGÀNH FNB - BUỔI 2B: THIẾT LẬP PHẦN CỨNG & ỨNG DỤNG KẾT NỐI</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                 <button onclick="collapseAll()" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-white bg-white/15 border border-white/25 px-3 py-2 rounded-xl shadow-sm hover:bg-white/25 transition">
                     <i class="fa-solid fa-angles-up text-xs"></i>
-                    <span>Thu gọn kiến thức</span>
+                    <span>Thu gọn nội dung</span>
                 </button>
                 <button onclick="toggleSidebar()" class="lg:hidden w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-base transition shrink-0">
                     <i class="fa-solid fa-list-ul"></i>
@@ -145,26 +145,26 @@
             <div class="max-w-[1100px] mx-auto space-y-8">
                 
                 <!-- HEADER BANNER -->
-                <section class="glass-card rounded-[24px] p-6 lg:p-8 relative overflow-hidden">
+                <section class="glass-card rounded-[24px] p-6 lg:p-8 relative overflow-hidden border-l-4 border-l-kvBlue">
                     <div class="relative z-10">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-bold mb-3 border border-orange-100">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-kvBlue text-xs font-bold mb-3 border border-blue-100">
                             <i class="fa-solid fa-graduation-cap"></i>
                             <span>CHƯƠNG TRÌNH ĐÀO TẠO SẢN PHẨM TÁI KÝ</span>
                         </div>
                         <h1 class="text-2xl lg:text-3xl font-black text-slate-800 leading-tight">
                             Buổi 2B. Thiết lập phần cứng & Ứng dụng kết nối <br>
-                            <span class="cyber-text-gradient">(Nhà hàng - Cafe - F&B)</span>
+                            <span class="cyber-text-gradient">(Ngành FNB)</span>
                         </h1>
                         <p class="text-xs lg:text-sm text-slate-600 font-medium mt-3 max-w-3xl leading-relaxed">
-                            Am hiểu hệ sinh thái thiết bị ngoại vi (Máy POS, Máy in, Két tiền) và các ứng dụng kết nối KiotViet. Đây là kỹ năng sinh tồn giúp nhân viên Tái ký "bắt bệnh", gỡ rối sự cố vận hành, mang lại sự hài lòng tuyệt đối cho chủ quán.
+                            Am hiểu hệ sinh thái thiết bị ngoại vi (máy bán hàng, máy in, két đựng tiền) và các ứng dụng kết nối KiotViet. Đây là kỹ năng giúp xử lý sự cố vận hành, mang lại sự hài lòng tối đa cho khách hàng.
                         </p>
                     </div>
                 </section>
 
-                <!-- ================= 1. DANH SÁCH BÀI HỌC ================= -->
+                <!-- ================= 1. DANH SÁCH BÀI HỌC (7 KHỐI DÀN TRẢI DẠNG LƯỚI) ================= -->
                 <section id="sec-danh-sach" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
                     <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
-                        <div class="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
                             <i class="fa-solid fa-list-check"></i>
                         </div>
                         <div>
@@ -173,50 +173,100 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- NHÓM 1: ỨNG DỤNG & MÀN HÌNH -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-                                <span class="px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-extrabold rounded-lg">Phần 1</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Ứng dụng & Thiết bị POS</h3>
+                    <!-- LƯỚI 7 BÀI HỌC DÀN TRẢI -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        
+                        <!-- BÀI 1 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 01</span>
+                                    <i class="fa-solid fa-mobile-screen-button text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Hướng dẫn chọn ứng dụng</h3>
                             </div>
-                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-0.5 text-sm"></i> <span>Bài 1: Hướng dẫn chọn ứng dụng cho KiotViet FNB</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-0.5 text-sm"></i> <span>Bài 2: Máy POS Android</span></li>
-                            </ul>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">Lựa chọn ứng dụng KiotViet phù hợp Ngành FNB</p>
                         </div>
 
-                        <!-- NHÓM 2: CÔNG CỤ KẾT NỐI -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-                                <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-extrabold rounded-lg">Phần 2</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Công cụ Kết nối</h3>
+                        <!-- BÀI 2 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 02</span>
+                                    <i class="fa-solid fa-desktop text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Thiết bị bán hàng hai màn hình</h3>
                             </div>
-                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 3: KiotViet Hardware Manager</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kvBlue mt-0.5 text-sm"></i> <span>Bài 7: Đăng nhập ứng dụng KiotViet Kết nối (KiotViet Connect)</span></li>
-                            </ul>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">Sử dụng máy bán hàng chuyên dụng hai màn hình</p>
                         </div>
 
-                        <!-- NHÓM 3: HỆ THỐNG MÁY IN -->
-                        <div class="bg-white/70 p-5 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-extrabold rounded-lg">Phần 3</span>
-                                <h3 class="font-bold text-slate-800 text-sm">Hệ thống Máy in</h3>
+                        <!-- BÀI 3 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 03</span>
+                                    <i class="fa-solid fa-sliders text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Trình quản lý thiết bị</h3>
                             </div>
-                            <ul class="space-y-3 text-xs font-semibold text-slate-700">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 4: Máy in hóa đơn</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 5: Máy in chế biến (In bếp/bar)</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-themeAccent mt-0.5 text-sm"></i> <span>Bài 6: Máy in tem nhãn</span></li>
-                            </ul>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">Cài đặt công cụ kết nối phần cứng KiotViet</p>
                         </div>
+
+                        <!-- BÀI 4 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 04</span>
+                                    <i class="fa-solid fa-receipt text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Máy in hóa đơn</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">Cấu hình kết nối và in phiếu tính tiền cho khách</p>
+                        </div>
+
+                        <!-- BÀI 5 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 05</span>
+                                    <i class="fa-solid fa-print text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Máy in chế biến</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">In lệnh làm món xuống khu vực Bếp và Pha chế</p>
+                        </div>
+
+                        <!-- BÀI 6 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 06</span>
+                                    <i class="fa-solid fa-tags text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Máy in tem nhãn</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">In nhãn dán chi tiết món ăn và đồ uống</p>
+                        </div>
+
+                        <!-- BÀI 7 -->
+                        <div class="bg-white/90 p-5 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-kvBlue transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-kvBlue text-xs font-black rounded-lg border border-blue-100">Bài 07</span>
+                                    <i class="fa-solid fa-link text-blue-400 group-hover:text-kvBlue transition-colors"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-sm leading-snug">Đăng nhập ứng dụng Kết nối</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">Kết nối thiết bị di động với phần mềm KiotViet</p>
+                        </div>
+
                     </div>
                 </section>
 
                 <!-- ================= 2. MỤC TIÊU BÀI HỌC ================= -->
                 <section id="sec-muc-tieu" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
                     <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
-                        <div class="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
                             <i class="fa-solid fa-bullseye"></i>
                         </div>
                         <div>
@@ -225,157 +275,180 @@
                         </div>
                     </div>
 
-                    <div class="bg-white/80 p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3 text-xs text-slate-700">
-                        <div class="flex items-start gap-2.5">
+                    <div class="bg-white/80 p-5 rounded-2xl border border-blue-100/80 shadow-sm space-y-3.5 text-xs text-slate-700">
+                        <div class="flex items-start gap-3">
                             <i class="fa-solid fa-circle-check text-kvBlue text-sm mt-0.5 shrink-0"></i>
                             <span class="leading-relaxed">
-                                <strong class="text-slate-900 font-bold">Am hiểu hệ sinh thái thiết bị phần cứng:</strong> Nắm vững vai trò và cách phân biệt các loại máy móc thiết yếu trong ngành F&B (Máy POS Android 2 màn hình, Máy in hóa đơn, in tem nhãn, in bếp có còi/đèn báo). Biết cách lựa chọn đúng ứng dụng KiotViet cho từng vị trí (Thu ngân, Bếp, Chạy bàn).
+                                <strong class="text-slate-900 font-bold">Am hiểu hệ sinh thái thiết bị phần cứng Ngành FNB:</strong> Nắm vững vai trò và cách phân biệt các loại máy móc thiết yếu (Máy bán hàng hai màn hình, Máy in hóa đơn, Máy in tem nhãn, Máy in bếp có chuông báo). Biết cách lựa chọn đúng ứng dụng KiotViet cho từng vị trí làm việc.
                             </span>
                         </div>
 
-                        <div class="flex items-start gap-2.5 pt-2 border-t border-slate-100">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-sm mt-0.5 shrink-0"></i>
+                        <div class="flex items-start gap-3 pt-2 border-t border-slate-100">
+                            <i class="fa-solid fa-circle-check text-kvBlue text-sm mt-0.5 shrink-0"></i>
                             <span class="leading-relaxed">
-                                <strong class="text-slate-900 font-bold">Làm chủ công cụ kết nối ngoại vi:</strong> Hiểu nguyên lý hoạt động của KiotViet Hardware Manager và ứng dụng KiotViet Kết nối, giúp các thiết bị phần cứng kết nối mượt mà, ổn định với phần mềm dù là trong môi trường phức tạp.
+                                <strong class="text-slate-900 font-bold">Làm chủ công cụ kết nối ngoại vi:</strong> Hiểu nguyên lý hoạt động của Trình quản lý thiết bị và ứng dụng Kết nối, giúp các thiết bị ngoại vi kết nối mượt mà và ổn định với phần mềm.
                             </span>
                         </div>
 
-                        <div class="flex items-start gap-2.5 pt-2 border-t border-slate-100">
-                            <i class="fa-solid fa-circle-check text-orange-600 text-sm mt-0.5 shrink-0"></i>
+                        <div class="flex items-start gap-3 pt-2 border-t border-slate-100">
+                            <i class="fa-solid fa-circle-check text-kvBlue text-sm mt-0.5 shrink-0"></i>
                             <span class="leading-relaxed">
-                                <strong class="text-slate-900 font-bold">Tuyệt chiêu giữ chân khách hàng (Tái ký):</strong> Rất nhiều khách hàng có ý định rời bỏ phần mềm chỉ vì... máy in bếp không kêu, két tiền không mở hoặc in tem bị mờ. Nắm vững kiến thức phần cứng giúp nhân viên Tái ký nhanh chóng "bắt bệnh", gỡ rối sự cố vận hành cho chủ quán. Một khi hệ thống thiết bị phần cứng chạy trơn tru cùng phần mềm, khách hàng sẽ hoàn toàn hài lòng và tự động gia hạn.
+                                <strong class="text-slate-900 font-bold">Nâng cao hiệu quả hỗ trợ khách hàng:</strong> Nắm vững kiến thức phần cứng giúp gỡ rối sự cố vận hành cho chủ quán (máy in bếp không kêu, két tiền không mở hoặc in tem mờ). Khi hệ thống phần cứng chạy trơn tru, khách hàng sẽ hài lòng và yên tâm gia hạn dịch vụ.
                             </span>
                         </div>
                     </div>
                 </section>
 
-                <!-- ================= 3. TRÌNH TỰ HỌC TẬP HIỆU QUẢ ================= -->
+                <!-- ================= 3. TRÌNH TỰ HỌC TẬP HIỆU QUẢ (DẠNG ACCORDION) ================= -->
                 <section id="sec-trinh-tu" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6">
                     <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
                             <i class="fa-solid fa-route"></i>
                         </div>
                         <div>
                             <h2 class="text-xl font-black text-slate-800">3. Trình tự học tập hiệu quả</h2>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">5 bước hoàn thành nhiệm vụ học tập theo chuẩn đào tạo KiotViet</p>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Nhấn vào từng bước bên dưới để xem hướng dẫn chi tiết</p>
                         </div>
                     </div>
 
-                    <div class="space-y-4 text-xs font-medium text-slate-700">
-                        <!-- BƯỚC 0 -->
-                        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex gap-3.5 items-start">
-                            <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-extrabold shrink-0 border border-slate-300">0</div>
-                            <div class="space-y-1">
-                                <h3 class="font-bold text-slate-900 text-sm">Chuẩn bị</h3>
-                                <p class="text-slate-600 leading-relaxed">Học viên truy cập trang <strong>"Giới thiệu chung"</strong> tìm hiểu Mục tiêu buổi học, Các lưu ý quan trọng và Kiến thức nền tảng liên quan đến nội dung bài học.</p>
-                            </div>
-                        </div>
-
-                        <!-- BƯỚC 1 -->
-                        <div class="p-4 rounded-2xl bg-white border border-blue-100 shadow-sm flex gap-3.5 items-start">
-                            <div class="w-8 h-8 rounded-xl bg-kvBlue text-white flex items-center justify-center font-extrabold shrink-0">1</div>
-                            <div class="space-y-2">
-                                <h3 class="font-bold text-slate-900 text-sm">Nghiên cứu học liệu</h3>
-                                <p class="text-slate-600 leading-relaxed">Học viên truy cập mục <strong>"Nghiên cứu học liệu"</strong> để học theo lộ trình từ trên xuống dưới. Mỗi bài học bao gồm:</p>
-                                <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                    <li>Xem video bài giảng và đọc tài liệu hướng dẫn về "Các loại ứng dụng KiotViet F&B", "Phân biệt cổng kết nối LAN/USB của máy in", "Cài đặt KiotViet Hardware Manager" và "Thiết lập ứng dụng KiotViet Kết nối".</li>
-                                    <li>Tất cả bài học đều có <strong>Infographic</strong> tóm tắt cấu trúc nội dung bài học.</li>
-                                    <li>Một số bài học có <strong>Video giới thiệu tính năng</strong> để học và chia sẻ trực tiếp với khách hàng sau này.</li>
-                                    <li>Cuối mỗi bài học có phần <strong>Quiz Đúng / Sai</strong> để học viên tự kiểm tra và ôn tập.</li>
-                                    <li>Học viên hoàn thành xong 1 bài học chủ động tick chọn nút <strong>"Đã hiểu bài"</strong>.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- BƯỚC 2 -->
-                        <div class="p-4 rounded-2xl bg-white border border-orange-100 shadow-sm flex gap-3.5 items-start">
-                            <div class="w-8 h-8 rounded-xl bg-orange-600 text-white flex items-center justify-center font-extrabold shrink-0">2</div>
-                            <div class="space-y-2">
-                                <h3 class="font-bold text-slate-900 text-sm">Làm bài thực hành</h3>
-                                <p class="text-slate-600 leading-relaxed">Sau khi nghiên cứu học liệu, học viên truy cập <strong>"Bài tập thực hành"</strong> &rarr; Đăng nhập Họ và tên &rarr; Chọn Buổi học hiện tại &rarr; Làm bài tập thao tác trực tiếp trên máy tính:</p>
-                                <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                    <li>Tải và cài đặt phần mềm KiotViet Hardware Manager.</li>
-                                    <li>Trải nghiệm giao diện thiết lập Thêm máy in hóa đơn/Máy in chế biến/Máy in tem nhãn trên hệ thống (Sử dụng máy in ảo PDF hoặc làm theo video giả lập nếu không có phần cứng thực tế).</li>
-                                    <li>Thiết lập luồng đăng nhập KiotViet Kết nối bằng mã QR.</li>
-                                </ul>
-                                <div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200/80 space-y-1.5 text-slate-700 mt-2">
-                                    <p><strong>Phương pháp làm bài:</strong> Đọc yêu cầu &rarr; Xem gợi ý giải pháp (nếu cần) &rarr; Chụp màn hình thao tác &rarr; Paste/Upload ảnh trực tiếp lên hệ thống. Làm xong câu nào upload ngay câu đó (Mỗi bài gồm nhiều câu a, b, c, d, e cần hoàn thành đầy đủ).</p>
-                                    <p><strong>Theo dõi tiến độ:</strong> Bấm nút <span class="px-2 py-0.5 rounded bg-blue-600 text-white font-bold text-[11px]">Xem và Tải Báo cáo PDF</span> ở góc dưới bên phải màn hình để tự kiểm tra kết quả bài làm.</p>
-                                    <p class="text-amber-900 font-bold"><i class="fa-solid fa-clock text-amber-600"></i> Hạn chót hoàn thành: 11:30 (đối với Ca sáng) và 16:00 (đối với Ca chiều).</p>
+                    <div class="space-y-3">
+                        
+                        <!-- BƯỚC 0 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-tt-0')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">0</span>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 0: Chuẩn bị kiến thức nền tảng</h3>
                                 </div>
+                                <i id="icon-acc-tt-0" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-tt-0" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                                Học viên truy cập trang <strong>"Giới thiệu chung"</strong> để tìm hiểu Mục tiêu buổi học, Các lưu ý quan trọng và Kiến thức nền tảng liên quan trước khi bắt đầu bài học chính thức.
                             </div>
                         </div>
 
-                        <!-- BƯỚC 3 -->
-                        <div class="p-4 rounded-2xl bg-white border border-amber-100 shadow-sm flex gap-3.5 items-start">
-                            <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-extrabold shrink-0">3</div>
-                            <div class="space-y-1.5">
-                                <h3 class="font-bold text-slate-900 text-sm">Ôn tập xử lý tình huống</h3>
-                                <p class="text-slate-600 leading-relaxed">Học viên truy cập mục <strong>"Tình huống vận dụng tư vấn"</strong>, lựa chọn bài học ở sidebar bên phải để theo dõi các hướng giải quyết cho các case-study "thực chiến" (Ví dụ: Két đựng tiền không tự động mở khi in bill thì kiểm tra dây kết nối nào? Máy in bếp thỉnh thoảng mất mạng không nhận lệnh thì xử lý ra sao? Nhân viên pha trà sữa kêu in tem không hiện lượng đường/đá thì cấu hình lại ở đâu?...).</p>
-                                <p class="text-slate-600 leading-relaxed"><strong>Review cuối ngày:</strong> Cuối buổi học, Trainer từ Team Đào tạo sẽ sử dụng bộ câu hỏi này để kiểm tra và review kỹ năng tư vấn tính năng sản phẩm của học viên.</p>
+                        <!-- BƯỚC 1 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-tt-1')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">1</span>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 1: Nghiên cứu học liệu chi tiết</h3>
+                                </div>
+                                <i id="icon-acc-tt-1" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-tt-1" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
+                                <p>Học viên truy cập mục <strong>"Nghiên cứu học liệu"</strong> để học theo trình tự từ trên xuống dưới. Mỗi bài học bao gồm:</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Xem bài giảng và tài liệu hướng dẫn về các ứng dụng Ngành FNB, phân biệt cổng kết nối máy in, cài đặt Trình quản lý thiết bị và kết nối phần cứng.</li>
+                                    <li><strong>Hình ảnh tóm tắt:</strong> Đã có sơ đồ tổng hợp cấu trúc bài học ngắn gọn.</li>
+                                    <li><strong>Video minh họa:</strong> Giúp theo dõi trực quan các thao tác trên màn hình.</li>
+                                    <li><strong>Câu hỏi kiểm tra nhanh:</strong> Cuối mỗi bài có các câu hỏi Đúng/Sai để tự kiểm tra kiến thức.</li>
+                                    <li>Sau khi hoàn thành, học viên chọn nút <strong>"Đã hiểu bài"</strong> để ghi nhận tiến độ.</li>
+                                </ul>
                             </div>
                         </div>
 
-                        <!-- BƯỚC 4 -->
-                        <div class="p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm flex gap-3.5 items-start">
-                            <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold shrink-0">4</div>
-                            <div class="space-y-1.5">
-                                <h3 class="font-bold text-slate-900 text-sm">Ôn tập trắc nghiệm</h3>
-                                <p class="text-slate-600 leading-relaxed">Cuối buổi đào tạo, sau khi hoàn thành các nhiệm vụ trên, học viên vào phần <strong>"Ôn tập trắc nghiệm"</strong> để hoàn thành bài kiểm tra trắc nghiệm cuối buổi đánh giá mức độ ghi nhớ về các cổng kết nối máy in, chức năng của máy POS Android và luồng vận hành Hardware Manager.</p>
-                                <p class="text-slate-600 leading-relaxed">Nội dung này đồng thời là đề cương ôn tập quan trọng chuẩn bị cho bài test đánh giá cuối khóa trên hệ thống LMS.</p>
+                        <!-- BƯỚC 2 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-tt-2')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">2</span>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 2: Thực hành trực tiếp trên hệ thống</h3>
+                                </div>
+                                <i id="icon-acc-tt-2" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-tt-2" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
+                                <p>Sau khi đọc học liệu, học viên vào mục <strong>"Bài tập thực hành"</strong> &rarr; Nhập Họ và tên &rarr; Chọn Buổi học &rarr; Làm bài tập:</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Tải và cài đặt Trình quản lý thiết bị trên máy tính.</li>
+                                    <li>Thực hành giao diện thiết lập Thêm máy in hóa đơn, Máy in chế biến và Máy in tem nhãn.</li>
+                                    <li>Thực hành đăng nhập ứng dụng Kết nối bằng mã quét.</li>
+                                </ul>
+                                <p><strong>Thời gian hoàn thành:</strong> Hạn chót nộp bài là 11:30 (dành cho Ca sáng) và 16:00 (dành cho Ca chiều).</p>
                             </div>
                         </div>
+
+                        <!-- BƯỚC 3 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-tt-3')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">3</span>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 3: Ôn tập tình huống tư vấn thực tế</h3>
+                                </div>
+                                <i id="icon-acc-tt-3" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-tt-3" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
+                                <p>Học viên truy cập mục <strong>"Tình huống vận dụng tư vấn"</strong> để theo dõi các hướng giải quyết tình huống thực tế (Ví dụ: Két đựng tiền không tự động mở khi in hóa đơn thì kiểm tra dây nào? Máy in bếp mất kết nối thì xử lý ra sao? In tem không hiện định lượng đường đá thì cấu hình lại ở đâu?...).</p>
+                                <p>Cuối buổi học, Giảng viên sẽ kiểm tra và tổng kết lại khả năng xử lý tình huống thực tế của học viên.</p>
+                            </div>
+                        </div>
+
+                        <!-- BƯỚC 4 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-tt-4')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">4</span>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 4: Củng cố qua bài tập trắc nghiệm</h3>
+                                </div>
+                                <i id="icon-acc-tt-4" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-tt-4" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                                Học viên mở phần <strong>"Ôn tập trắc nghiệm"</strong> để hoàn thành các câu hỏi đánh giá mức độ ghi nhớ về cổng kết nối máy in, chức năng thiết bị bán hàng và Trình quản lý thiết bị.
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
-                <!-- ================= 4. LƯU Ý TRƯỚC KHI HỌC ================= -->
-                <section id="sec-luu-y" class="glass-card rounded-[24px] p-6 lg:p-8 border-l-4 border-l-amber-500 scroll-mt-6">
-                    <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200/80">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
+                <!-- ================= 4. LƯU Ý TRƯỚC KHI HỌC (DẠNG ACCORDION) ================= -->
+                <section id="sec-luu-y" class="glass-card rounded-[24px] p-6 lg:p-8 border-l-4 border-l-kvBlue scroll-mt-6">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-circle-exclamation"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-black text-slate-800">4. Lưu ý trước khi học</h2>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">Yêu cầu bắt buộc để tiến trình học tập phần cứng đạt hiệu quả</p>
+                            <h2 class="text-xl font-black text-slate-800">4. Lưu ý quan trọng trước khi học</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Nhấn vào từng lưu ý bên dưới để xem điều kiện bắt buộc</p>
                         </div>
                     </div>
 
-                    <div class="space-y-3.5 text-[12px] font-medium text-slate-700">
-                        <!-- TÀI KHOẢN REFCODE -->
-                        <div class="p-4 rounded-xl bg-amber-50/90 border border-amber-300 space-y-2 shadow-sm">
-                            <div class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-link text-amber-600 text-sm mt-0.5"></i>
-                                <div>
-                                    <strong class="text-amber-900 block font-bold text-[13px]">1. Đăng ký đúng link Refcode (nếu tạo gian hàng mới):</strong>
-                                    <span class="text-slate-700 leading-relaxed">
-                                        Học viên tiếp tục dùng gian hàng F&B (Bar - Cafe - Nhà hàng) đã tạo từ các buổi học trước. Nếu tạo mới, bắt buộc chọn đúng ngành F&B và truy cập URL bên dưới.
-                                        <strong class="text-red-600">Tuyệt đối KHÔNG dùng link không chứa refcode</strong> (kiotviet.vn thông thường) để tránh làm sai lệch dữ liệu Telesales.
-                                    </span>
+                    <div class="space-y-3">
+                        
+                        <!-- LƯU Ý 1 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-lu-1')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-link text-kvBlue text-sm"></i>
+                                    <h3 class="font-bold text-slate-800 text-sm">1. Đăng ký gian hàng dùng thử qua liên kết quy định</h3>
                                 </div>
-                            </div>
-                            <div class="bg-white p-3 rounded-lg border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
-                                <span class="text-amber-900 font-bold select-all break-all">https://www.kiotviet.vn/?refcode=3670</span>
-                                <a href="https://www.kiotviet.vn/?refcode=3670" target="_blank" class="shrink-0 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold px-3.5 py-1.5 rounded-lg transition shadow-sm flex items-center gap-1.5">
-                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Đăng ký ngay
-                                </a>
+                                <i id="icon-acc-lu-1" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-lu-1" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-3 leading-relaxed">
+                                <p>Học viên tiếp tục sử dụng gian hàng Ngành FNB đã đăng ký ở các buổi trước. Nếu tạo gian hàng mới, bắt buộc truy cập đúng liên kết quy định bên dưới để tạo gian hàng thực hành.</p>
+                                <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
+                                    <span class="text-kvBlue font-bold select-all break-all">https://www.kiotviet.vn/?refcode=3670</span>
+                                    <a href="https://www.kiotviet.vn/?refcode=3670" target="_blank" class="shrink-0 bg-kvBlue hover:bg-kvBlueHover text-white font-sans font-bold px-3.5 py-1.5 rounded-lg transition shadow-sm flex items-center gap-1.5">
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Đăng ký ngay
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- CHÚ Ý XEM VIDEO VÀ PHẦN MỀM -->
-                        <div class="p-4 rounded-xl bg-blue-50/90 border border-blue-200 space-y-2 shadow-sm">
-                            <div class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-print text-blue-600 text-sm mt-0.5"></i>
-                                <div>
-                                    <strong class="text-blue-900 block font-bold text-[13px]">2. Xem kỹ Video hướng dẫn & Chuẩn bị phần mềm:</strong>
-                                    <p class="text-slate-700 leading-relaxed mt-1">
-                                        Vì bài học liên quan nhiều đến thiết bị vật lý, nếu không có sẵn máy in/máy POS tại nhà, học viên cần <strong>xem thật kỹ video thao tác mẫu của giảng viên</strong> để hiểu rõ đèn báo, âm thanh còi tít và các rắc cắm (USB/LAN/RJ11).
-                                    </p>
-                                    <p class="text-slate-700 leading-relaxed mt-1">
-                                        Chủ động <strong>cài đặt sẵn file chạy KiotViet Hardware Manager</strong> trên máy tính (Windows) để làm quen với giao diện quản lý thiết bị.
-                                    </p>
+                        <!-- LƯU Ý 2 ACCORDION -->
+                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
+                            <button onclick="toggleAccordion('acc-lu-2')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-print text-kvBlue text-sm"></i>
+                                    <h3 class="font-bold text-slate-800 text-sm">2. Xem kỹ Video hướng dẫn & Chuẩn bị phần mềm</h3>
                                 </div>
+                                <i id="icon-acc-lu-2" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            <div id="acc-lu-2" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                                <p>Xem thật kỹ video thao tác mẫu của giảng viên để hiểu rõ đèn báo, âm thanh phát ra từ thiết bị và các đầu cắm dây kết nối.</p>
+                                <p>Cài đặt sẵn Trình quản lý thiết bị KiotViet trên máy tính để làm quen với giao diện cấu hình phần cứng.</p>
                             </div>
                         </div>
+
                     </div>
                 </section>
 
@@ -383,30 +456,30 @@
                 <section id="sec-kien-thuc" class="scroll-mt-6">
                     <div class="flex items-center justify-between mb-5 mt-4">
                         <span class="text-sm font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-book-bookmark text-indigo-600"></i> 5. Kiến thức nền tảng
+                            <i class="fa-solid fa-book-bookmark text-kvBlue"></i> 5. Kiến thức nền tảng
                         </span>
                     </div>
 
-                    <div class="space-y-3.5">
+                    <div class="space-y-3">
                         
                         <!-- CHỦ ĐỀ 1 -->
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-1')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-network-wired text-lg"></i></div>
+                                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-kvBlue flex items-center justify-center shrink-0"><i class="fa-solid fa-network-wired text-lg"></i></div>
                                     <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
-                                        Cách "bắt bệnh" sự cố Máy in qua các Cổng kết nối (USB, LAN, RJ11)?
+                                        Cách kiểm tra sự cố Máy in qua 3 loại dây cắm kết nối phổ biến?
                                     </h2>
                                 </div>
-                                <i id="icon-acc-1" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                                <i id="icon-acc-1" class="fa-solid fa-chevron-down text-blue-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-1" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p>Sự cố phần cứng đa phần đến từ việc cắm sai dây. Hãy nhớ kỹ 3 loại cổng sau:</p>
+                                    <p>Sự cố thiết bị thường xuất phát từ việc cắm sai hoặc lỏng dây kết nối. Phân biệt 3 loại cổng cắm chính:</p>
                                     <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                        <li><strong>Cổng USB (Dây cắm chữ nhật):</strong> Chỉ truyền dữ liệu từ 1 máy tính thu ngân sang máy in hóa đơn đặt cạnh đó. (Rút ra cắm lại là in được).</li>
-                                        <li><strong>Cổng LAN (Dây mạng cắm vào cục Router wifi):</strong> Bắt buộc dùng cho <strong>Máy in Bếp</strong>. Vì Bếp ở xa quầy thu ngân, tín hiệu phải truyền qua mạng Wifi nội bộ bằng địa chỉ IP. Nếu rớt mạng &rarr; Máy in bếp sẽ tịt.</li>
-                                        <li><strong>Cổng RJ11 (Giống dây điện thoại bàn):</strong> Cắm từ Máy in hóa đơn sang Két đựng tiền. Khi máy in xuất lệnh in bill, nó sẽ kích xung điện qua dây RJ11 làm Két tiền tự động bật bung ra. <em>(Lỗi két không mở &rarr; Kiểm tra lại dây RJ11 này).</em></li>
+                                        <li><strong>Dây cắm trực tiếp vào máy tính:</strong> Truyền dữ liệu từ máy tính thu ngân sang máy in hóa đơn đặt ngay cạnh.</li>
+                                        <li><strong>Dây cáp mạng nội bộ:</strong> Sử dụng cho máy in đặt xa quầy thu ngân (như khu vực Bếp và Chế biến). Tín hiệu truyền qua mạng nội bộ. Khi mất kết nối mạng nội bộ, máy in bếp sẽ không nhận lệnh.</li>
+                                        <li><strong>Dây kết nối két tiền:</strong> Cắm nối từ máy in hóa đơn sang két đựng tiền. Khi xuất hóa đơn thành công, máy in phát tín hiệu điều khiển két tiền tự động bật mở.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -416,17 +489,17 @@
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-2')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-laptop-code text-lg"></i></div>
+                                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-kvBlue flex items-center justify-center shrink-0"><i class="fa-solid fa-laptop-code text-lg"></i></div>
                                     <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
-                                        Tại sao cần cài KiotViet Hardware Manager (KVHM) khi sử dụng trình duyệt Web?
+                                        Tại sao cần cài Trình quản lý thiết bị KiotViet khi sử dụng trình duyệt web?
                                     </h2>
                                 </div>
-                                <i id="icon-acc-2" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                                <i id="icon-acc-2" class="fa-solid fa-chevron-down text-blue-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-2" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
-                                    <p>Trình duyệt Web (Chrome, Cốc Cốc) có cơ chế bảo mật KHÔNG cho phép một trang web trực tiếp ra lệnh xuống phần cứng (máy in) của máy tính. Điều này gây khó khăn khi muốn in hóa đơn tự động không cần hộp thoại xác nhận.</p>
-                                    <p><strong>KVHM sinh ra làm "Cầu nối":</strong> Nó là một phần mềm chạy ngầm trên Windows. Trình duyệt sẽ gửi lệnh in tới KVHM, và KVHM sẽ kết nối trực tiếp với Driver máy in để nhả bill ra ngay lập tức. Tính năng này giúp tốc độ tính tiền và in bếp nhanh hơn gấp 5 lần so với in qua hộp thoại của Chrome.</p>
+                                    <p>Trình duyệt web có cơ chế bảo mật không cho phép trang web trực tiếp điều khiển máy in của máy tính. Điều này gây khó khăn khi muốn in hóa đơn tự động nhanh chóng.</p>
+                                    <p><strong>Trình quản lý thiết bị KiotViet đóng vai trò cầu nối:</strong> Phần mềm chạy ngầm trên máy tính tiếp nhận lệnh in từ trình duyệt web và gửi trực tiếp đến máy in, giúp hóa đơn và phiếu chế biến được in ra ngay lập tức mà không cần xác nhận thủ công.</p>
                                 </div>
                             </div>
                         </div>
@@ -435,18 +508,18 @@
                         <div class="glass-card rounded-2xl transition-all duration-200 overflow-hidden">
                             <button onclick="toggleAccordion('acc-3')" class="accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-print text-lg"></i></div>
+                                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-kvBlue flex items-center justify-center shrink-0"><i class="fa-solid fa-print text-lg"></i></div>
                                     <h2 class="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-snug">
-                                        Đặc thù cấu hình Máy in Bếp và Máy in Tem nhãn F&B khác gì máy in thường?
+                                        Đặc thù cấu hình Máy in Bếp và Máy in Tem nhãn khác gì máy in thường?
                                     </h2>
                                 </div>
-                                <i id="icon-acc-3" class="fa-solid fa-chevron-down text-slate-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
+                                <i id="icon-acc-3" class="fa-solid fa-chevron-down text-blue-400 text-xs sm:text-sm transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-3" class="accordion-body hidden px-4 pb-5 pt-2 sm:px-5 border-t border-slate-100/80">
                                 <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed mt-2">
                                     <ul class="list-disc pl-5 space-y-2 text-slate-600">
-                                        <li><strong>Máy in Bếp (Kết nối LAN):</strong> Môi trường bếp rất ồn và dầu mỡ. Máy in bếp phải có cấu tạo chống nước và đặc biệt phải có <strong>Còi Buzzer (Kêu tít tít lớn)</strong> và <strong>Đèn báo sáng</strong> khi có bill mới, giúp đầu bếp không bị bỏ sót món.</li>
-                                        <li><strong>Máy in Tem nhãn (Trà sữa/Cafe):</strong> Chuyên in Decal dán lên ly nước. Đặc thù của in tem trên KiotViet là cần thiết lập "Cấu hình tem" chính xác để hiển thị thông tin Topping, Ghi chú, % Đá, % Đường. Nếu in ra thiếu thông tin &rarr; Bắt bệnh ngay vào phần Thiết lập mẫu in tem trên hệ thống.</li>
+                                        <li><strong>Máy in Bếp (Kết nối mạng nội bộ):</strong> Môi trường bếp có nhiều tiếng ồn nên máy in bếp được trang bị <strong>chuông báo âm thanh</strong> và <strong>đèn báo sáng</strong> khi có phiếu món mới, giúp nhân viên bếp nhận thông tin kịp thời.</li>
+                                        <li><strong>Máy in Tem nhãn:</strong> Dùng để in nhãn dán chi tiết lên ly nước hoặc phần ăn. Cần thiết lập chính xác mẫu in tem trên hệ thống để hiển thị đầy đủ thông tin ghi chú, định lượng đường đá và thành phần đi kèm.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -458,7 +531,7 @@
             </div>
             
             <footer class="mt-12 pt-8 border-t border-slate-200/80 text-center text-slate-400 text-xs">
-                <p class="font-bold text-slate-500 mb-1">KiotViet Learning & Development Department.</p>
+                <p class="font-bold text-slate-500 mb-1">Bộ phận Đào tạo Sản phẩm KiotViet</p>
                 <p>© 2026 KiotViet All Rights Reserved.</p>
             </footer>
 
@@ -482,7 +555,7 @@
                 </button>
             </div>
 
-            <!-- DANH SÁCH BUTTONS NAVIGATE (5 MỤC ĐỒNG BỘ) -->
+            <!-- DANH SÁCH BUTTONS NAVIGATE -->
             <div id="sidebar-nav" class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
                 
                 <button onclick="scrollToElement('sec-danh-sach')" id="nav-sec-danh-sach" class="nav-item-btn active">
@@ -501,7 +574,7 @@
                 </button>
 
                 <button onclick="scrollToElement('sec-luu-y')" id="nav-sec-luu-y" class="nav-item-btn">
-                    <i class="fa-solid fa-triangle-exclamation text-sky-300"></i>
+                    <i class="fa-solid fa-circle-exclamation text-sky-300"></i>
                     <span class="truncate">4. Lưu ý trước khi học</span>
                 </button>
 
@@ -516,25 +589,28 @@
 
     </main>
 
-    <!-- SCRIPT ĐIỀU KHIỂN -->
+    <!-- SCRIPT ĐIỀU KHIỂN ACCORDION & SCROLL -->
     <script>
-        // Mở/Đóng 1 chủ đề Accordion (Bên trong nội dung Kiến thức)
+        // Mở 1 mục Accordion - Tự động đóng TẤT CẢ các mục còn lại
         function toggleAccordion(accId) {
             const targetBody = document.getElementById(accId);
             const targetIcon = document.getElementById(`icon-${accId}`);
-            const isHidden = targetBody.classList.contains('hidden');
+            if (!targetBody) return;
 
-            // Đóng tất cả Accordion khác
+            const isCurrentlyHidden = targetBody.classList.contains('hidden');
+
+            // Đóng tất cả Accordion trên trang
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
-            
-            if (isHidden) {
+
+            // Nếu mục được chọn trước đó đang đóng -> Tiến hành MỞ mục đó
+            if (isCurrentlyHidden) {
                 targetBody.classList.remove('hidden');
                 if (targetIcon) targetIcon.classList.add('rotate-180');
             }
         }
 
-        // Chức năng Click để cuộn tới các phần chính
+        // Chức năng Click cuộn mượt tới các phần
         function scrollToElement(targetId) {
             document.querySelectorAll('.nav-item-btn').forEach(btn => btn.classList.remove('active'));
             
@@ -554,7 +630,7 @@
             }
         }
 
-        // Tự động Highlight Sidebar (ScrollSpy) khi cuộn chuột khung nội dung
+        // Tự động Highlight Sidebar khi cuộn
         document.getElementById('main-scroll-area').addEventListener('scroll', function() {
             const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-trinh-tu', 'sec-luu-y', 'sec-kien-thuc'];
             let current = '';
@@ -576,7 +652,7 @@
             }
         });
 
-        // Thu gọn toàn bộ Kiến thức
+        // Thu gọn toàn bộ Accordion
         function collapseAll() {
             document.querySelectorAll('.accordion-body').forEach(body => body.classList.add('hidden'));
             document.querySelectorAll('[id^="icon-acc-"]').forEach(icon => icon.classList.remove('rotate-180'));
@@ -584,7 +660,7 @@
             scrollToElement('sec-danh-sach');
         }
 
-        // Ẩn/Hiện Menu Sidebar trên Mobile
+        // Ẩn / Hiện Sidebar trên Mobile
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('hidden');
