@@ -952,6 +952,40 @@
 
                     </div>
                 </section>
+
+                <!-- ================= 6. TÀI LIỆU THAM KHẢO & RECORD BÀI GIẢNG ================= -->
+                <section id="sec-tai-lieu" class="glass-card rounded-[24px] p-6 lg:p-8 scroll-mt-6 border-l-4 border-l-sky-500">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80">
+                        <div class="w-10 h-10 rounded-xl bg-kvBlue text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">6. Tài liệu tham khảo & Video bài giảng</h2>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Chủ động xem lại video đào tạo để tự học và nắm bắt kiến thức mọi lúc mọi nơi</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-5 rounded-2xl border border-blue-100/90 shadow-sm space-y-4">
+                        <div class="text-xs text-slate-700 leading-relaxed space-y-2">
+                            <p>
+                                Chương trình đào tạo chuyên đề <strong class="text-slate-900 font-bold">"Kế toán 01"</strong> được tổ chức trực tuyến định kỳ hàng tháng.
+                            </p>
+                            <p>
+                                Nhằm hỗ trợ bạn nhanh chóng làm quen với các khái niệm nghiệp vụ và thực hành tính năng một cách linh hoạt mà không cần chờ lớp học tiếp theo, bạn có thể chủ động xem lại video ghi hình (record) của khóa đào tạo gần nhất bên dưới.
+                            </p>
+                        </div>
+
+                        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <button onclick="openVideoModal()" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-kvBlue hover:bg-kvBlueHover text-white font-bold text-xs shadow-md hover:shadow-lg transition-all group">
+                                <i class="fa-solid fa-circle-play text-base text-sky-300 group-hover:scale-110 transition-transform"></i>
+                                <span>Xem Record Khóa học gần nhất</span>
+                            </button>
+                            <span class="text-[11px] text-slate-500 font-medium flex items-center gap-1.5 justify-center sm:justify-start">
+                                <i class="fa-solid fa-clock-rotate-left text-blue-400"></i> Xem trực tiếp từ Google Drive
+                            </span>
+                        </div>
+                    </div>
+                </section>
                 
             </div>
             
@@ -1008,14 +1042,104 @@
                     <span class="truncate">5. Kiến thức nền tảng</span>
                 </button>
 
+                <button onclick="scrollToElement('sec-tai-lieu')" id="nav-sec-tai-lieu" class="nav-item-btn">
+                    <i class="fa-solid fa-video text-sky-300"></i>
+                    <span class="truncate">6. Tài liệu tham khảo</span>
+                </button>
+
             </div>
 
         </aside>
 
     </main>
 
-    <!-- SCRIPT ĐIỀU KHIỂN ACCORDION & SCROLL -->
+    <!-- ================= MODAL POPUP XEM VIDEO RECORD ================= -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-slate-900/70 backdrop-blur-md transition-opacity duration-300">
+        <div class="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-white/20 animate-in fade-in zoom-in duration-200">
+            
+            <!-- Modal Header -->
+            <div class="px-5 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-kvBlue text-white flex items-center justify-center text-sm shadow">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-white">Record Khóa học Đào tạo Kế toán 01 gần nhất</h3>
+                        <p class="text-[11px] text-slate-400">Xem video bài giảng trực tiếp từ Google Drive</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <a href="https://drive.google.com/file/d/1rwyfK9ZVtO_FbNckNif8kVCmi6aQCzGY/view?usp=sharing" target="_blank" class="text-xs font-semibold text-sky-400 hover:text-sky-300 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        <span class="hidden sm:inline">Mở trong tab mới</span>
+                    </a>
+                    <button onclick="closeVideoModal()" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-rose-500 text-slate-300 hover:text-white flex items-center justify-center transition">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Video Embed Wrapper) -->
+            <div class="relative bg-black w-full" style="padding-top: 56.25%;">
+                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-5 py-3 bg-slate-50 text-slate-600 text-xs flex items-center justify-between border-t border-slate-200">
+                <span class="font-medium text-slate-500">
+                    <i class="fa-solid fa-circle-info text-kvBlue"></i> Nếu video không tải được, bạn vui lòng chọn "Mở trong tab mới".
+                </span>
+                <button onclick="closeVideoModal()" class="px-4 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg transition text-xs">
+                    Đóng
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT ĐIỀU KHIỂN ACCORDION, SCROLL & MODAL -->
     <script>
+        const DRIVE_PREVIEW_URL = "https://drive.google.com/file/d/1rwyfK9ZVtO_FbNckNif8kVCmi6aQCzGY/preview";
+
+        // Mở Modal Video
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            if (modal && iframe) {
+                iframe.src = DRIVE_PREVIEW_URL;
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        // Đóng Modal Video
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            if (modal && iframe) {
+                modal.classList.add('hidden');
+                iframe.src = ""; // Dừng phát video khi đóng
+                if (window.innerWidth >= 1024) {
+                    document.body.classList.remove('overflow-hidden');
+                }
+            }
+        }
+
+        // Đóng modal khi nhấn phím Esc
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // Đóng modal khi nhấp vào vùng ngoài backdrop
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
         // Mở 1 mục Accordion - Tự động đóng TẤT CẢ các mục còn lại
         function toggleAccordion(accId) {
             const targetBody = document.getElementById(accId);
@@ -1057,7 +1181,7 @@
 
         // Tự động Highlight Sidebar khi cuộn
         document.getElementById('main-scroll-area').addEventListener('scroll', function() {
-            const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-trinh-tu', 'sec-luu-y', 'sec-kien-thuc'];
+            const sections = ['sec-danh-sach', 'sec-muc-tieu', 'sec-trinh-tu', 'sec-luu-y', 'sec-kien-thuc', 'sec-tai-lieu'];
             let current = '';
             
             sections.forEach(id => {
