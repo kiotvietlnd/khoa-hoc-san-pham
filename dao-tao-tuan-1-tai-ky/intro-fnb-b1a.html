@@ -311,38 +311,17 @@
 
                     <div class="space-y-3">
                         
-                        <!-- BƯỚC 0 ACCORDION -->
-                        <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
-                            <button onclick="toggleAccordion('acc-tt-0')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">0</span>
-                                    <h3 class="font-bold text-slate-800 text-sm">Bước 0: Chuẩn bị kiến thức nền tảng</h3>
-                                </div>
-                                <i id="icon-acc-tt-0" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
-                            </button>
-                            <div id="acc-tt-0" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
-                                Học viên truy cập trang <strong>"Giới thiệu chung"</strong> để tìm hiểu Mục tiêu buổi học, Các lưu ý quan trọng và Kiến thức nền tảng liên quan trước khi bắt đầu bài học chính thức.
-                            </div>
-                        </div>
-
                         <!-- BƯỚC 1 ACCORDION -->
                         <div class="bg-white/90 rounded-2xl border border-blue-100 overflow-hidden shadow-sm transition-all">
                             <button onclick="toggleAccordion('acc-tt-1')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
                                 <div class="flex items-center gap-3">
                                     <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">1</span>
-                                    <h3 class="font-bold text-slate-800 text-sm">Bước 1: Nghiên cứu học liệu chi tiết</h3>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 1: Chuẩn bị kiến thức nền tảng</h3>
                                 </div>
                                 <i id="icon-acc-tt-1" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
                             </button>
-                            <div id="acc-tt-1" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
-                                <p>Học viên truy cập mục <strong>"Nghiên cứu học liệu"</strong> để học theo trình tự từ trên xuống dưới. Mỗi bài học bao gồm:</p>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Giới thiệu tính năng, luồng thao tác cơ bản, các tính năng nâng cao và thao tác trên ứng dụng di động.</li>
-                                    <li><strong>Hình ảnh tóm tắt:</strong> Đã có sơ đồ tổng hợp cấu trúc bài học ngắn gọn.</li>
-                                    <li><strong>Video minh họa:</strong> Giúp theo dõi trực quan các thao tác trên màn hình.</li>
-                                    <li><strong>Câu hỏi kiểm tra nhanh:</strong> Cuối mỗi bài có các câu hỏi Đúng/Sai để tự kiểm tra kiến thức.</li>
-                                    <li>Sau khi hoàn thành, học viên chọn nút <strong>"Đã hiểu bài"</strong> để ghi nhận tiến độ.</li>
-                                </ul>
+                            <div id="acc-tt-1" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                                Học viên truy cập trang <strong>"Giới thiệu chung"</strong> để tìm hiểu Mục tiêu buổi học, Các lưu ý quan trọng và Kiến thức nền tảng liên quan trước khi bắt đầu bài học chính thức.
                             </div>
                         </div>
 
@@ -351,14 +330,21 @@
                             <button onclick="toggleAccordion('acc-tt-2')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
                                 <div class="flex items-center gap-3">
                                     <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">2</span>
-                                    <h3 class="font-bold text-slate-800 text-sm">Bước 2: Thực hành trực tiếp trên hệ thống</h3>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 2: Nghiên cứu học liệu chi tiết</h3>
                                 </div>
                                 <i id="icon-acc-tt-2" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-tt-2" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
-                                <p>Sau khi đọc học liệu, học viên vào mục <strong>"Bài tập thực hành"</strong> &rarr; Nhập Họ và tên &rarr; Chọn Buổi học &rarr; Làm bài tập.</p>
-                                <p><strong>Cách thức làm bài:</strong> Đọc đề bài &rarr; Xem gợi ý (nếu cần) &rarr; Thao tác trên gian hàng dùng thử &rarr; Chụp ảnh màn hình kết quả &rarr; Tải ảnh lên hệ thống.</p>
-                                <p><strong>Thời gian hoàn thành:</strong> Hạn chót nộp bài là 11:30 (dành cho Ca sáng) và 16:00 (dành cho Ca chiều).</p>
+                                <p>Học viên truy cập mục <strong>"Nghiên cứu học liệu"</strong> để học theo trình tự từ trên xuống dưới. Mỗi bài học bao gồm:</p>
+                                <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                                    <li>Giới thiệu tính năng</li>
+                                    <li>Hình ảnh infographic tóm tắt</li>
+                                    <li>Video minh họa (Ưu tiên xem hết nếu có video)</li>
+                                    <li>Thuật ngữ nền tảng</li>
+                                    <li>Kiến thức cơ bản (ưu tiên xem kỹ và tương tác flashcard vận dụng và quiz để ôn tập)</li>
+                                    <li>Kiến thức nâng cao (chưa ưu tiên tìm hiểu ngay khi học lần đầu)</li>
+                                </ul>
+                                <p class="pt-1 text-slate-700">Sau khi hoàn thành, học viên chọn nút <strong>"Đã hiểu bài"</strong> để ghi nhận tiến độ.</p>
                             </div>
                         </div>
 
@@ -367,13 +353,14 @@
                             <button onclick="toggleAccordion('acc-tt-3')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
                                 <div class="flex items-center gap-3">
                                     <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">3</span>
-                                    <h3 class="font-bold text-slate-800 text-sm">Bước 3: Ôn tập tình huống tư vấn thực tế</h3>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 3: Thực hành làm bài tập</h3>
                                 </div>
                                 <i id="icon-acc-tt-3" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
                             </button>
                             <div id="acc-tt-3" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
-                                <p>Học viên truy cập mục <strong>"Tình huống vận dụng tư vấn"</strong> để xem các câu hỏi thực tế khách hàng thường gặp và cách tư vấn giải pháp phù hợp.</p>
-                                <p>Cuối buổi học, Giảng viên sẽ kiểm tra và tổng kết lại khả năng xử lý tình huống thực tế của học viên.</p>
+                                <p>Sau khi đọc học liệu, học viên vào mục <strong>"Bài tập thực hành"</strong> &rarr; Nhập Họ và tên &rarr; Chọn Buổi học &rarr; Làm bài tập.</p>
+                                <p><strong>Cách thức làm bài:</strong> Đọc đề bài &rarr; Xem gợi ý (nếu cần) &rarr; Thao tác trên gian hàng dùng thử &rarr; Chụp ảnh màn hình kết quả &rarr; Tải ảnh lên hệ thống.</p>
+                                <p><strong>Thời gian hoàn thành:</strong> Hạn chót nộp bài là <strong>11:30</strong> (dành cho Ca sáng) và <strong>16:00</strong> (dành cho Ca chiều).</p>
                             </div>
                         </div>
 
@@ -382,12 +369,13 @@
                             <button onclick="toggleAccordion('acc-tt-4')" class="accordion-header w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-blue-50/50 transition-colors">
                                 <div class="flex items-center gap-3">
                                     <span class="w-7 h-7 rounded-lg bg-blue-100 text-kvBlue font-black text-xs flex items-center justify-center shrink-0">4</span>
-                                    <h3 class="font-bold text-slate-800 text-sm">Bước 4: Củng cố qua bài tập trắc nghiệm</h3>
+                                    <h3 class="font-bold text-slate-800 text-sm">Bước 4: Củng cố qua ôn tập trắc nghiệm</h3>
                                 </div>
                                 <i id="icon-acc-tt-4" class="fa-solid fa-chevron-down text-blue-400 text-xs transition-transform duration-200 shrink-0"></i>
                             </button>
-                            <div id="acc-tt-4" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
-                                Học viên mở phần <strong>"Ôn tập trắc nghiệm"</strong> để rà soát toàn bộ kiến thức tổng hợp. Đây cũng là bộ đề ôn tập quan trọng chuẩn bị cho bài kiểm tra đánh giá cuối khóa học.
+                            <div id="acc-tt-4" class="accordion-body hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed">
+                                <p>Cuối buổi học, sau khi hoàn thành bài tập thực hành, học viên mở phần <strong>"Ôn tập trắc nghiệm"</strong> để rà soát toàn bộ kiến thức tổng hợp.</p>
+                                <p>Đây cũng là bộ đề ôn tập quan trọng chuẩn bị cho bài kiểm tra đánh giá cuối khóa học trên LMS.</p>
                             </div>
                         </div>
 
